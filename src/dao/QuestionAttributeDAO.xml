@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="QuestionAttributeXML">
+
+    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
+    
+    <insert id="insertQuestionAttribute" parameterType="QuestionAttribute" >
+       
+    </insert>
+
+    <update id="updateQuestionAttribute" parameterType="QuestionAttribute">
+       
+    </update>
+    
+    <delete id="deleteQuestionAttributeById" parameterType="int">
+        DELETE from question_attributes WHERE ID = #{id}; 
+    </delete>
+    
+    <select id="selectAllQuestionAttribute" resultMap="result">
+           SELECT * FROM question_attributes ORDER BY ID DESC;  
+    </select>
+    
+     <select id="selectAllQuestionAttributeByName" parameterType="QuestionAttribute" resultType="QuestionAttribute">
+          
+      </select>
+    
+    <select id="selectQuestionAttributeById" parameterType="int" resultType="QuestionAttribute">
+        SELECT * FROM question_attributes WHERE ID = #{id};
+    </select>
+    
+    
+    <!-- 
+       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
+        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
+        -không phân biệt chữ hoa, chữ thường
+     -->
+    <resultMap id = "result" type = "QuestionAttribute">
+    
+       <result property = "id" column = "ID"/>
+       <result property = "question_attribute_name" column = "QUESTION_ATTRIBUTE_NAME"/>
+       
+    </resultMap>
+    
+    
+    
+    
+</mapper>

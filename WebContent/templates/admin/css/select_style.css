@@ -1,0 +1,171 @@
+
+ .select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+
+.select {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  color: black;
+  width: 100%;
+  height: 40px;
+}
+
+ .select-styled {
+  text-align: left;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 8px 15px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+ .select-styled:after {
+  content: '▼';
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  padding: 5px 11px;
+  background: #f3f7fc;
+  pointer-events: none;
+  border: solid 2px black;
+  border-radius: 5px;
+}
+.select-styled:active:after, .select-styled.active:after {
+  top: 0px;
+  content: "▲" !important;
+}
+
+table.table-blue.table_portfolio_groups > tbody > tr:nth-child(even) > td:last-child > div.select > div.select-styled::after{
+	background: white;
+}
+
+
+
+ .select-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #e3e8f4;
+}
+.select-options li {
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 12px 0 !important;
+  text-indent: 15px !important;
+  border-top: 1px solid #b8ccea  !important;
+  -moz-transition: all 0.15s ease-in !important;
+  -o-transition: all 0.15s ease-in !important;
+  -webkit-transition: all 0.15s ease-in !important;
+  transition: all 0.15s ease-in !important;
+}
+.select-options li:hover {
+  color: #c0392b !important;
+  background: #fff !important;
+}
+ .select-options li[rel="hide"] {
+  display: none !important;
+}
+
+.select-styled-level {
+  text-align: left;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 8px 15px;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+ .select-styled-level:after {
+  content: '▼';
+  position: absolute;
+  top: 0px;
+  right: 0;
+  bottom: 0;
+  padding: 5px 11px;
+  background: #f3f7fc;
+  pointer-events: none;
+  border: solid 2px #bcc9e0;
+  border-radius: 0px 6px 6px 0px;
+}
+.select-styled-level:active:after, .select-styled-level.active:after {
+  top: 0px;
+  content: "▲" !important;
+}
+.select-level {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  color: black;
+  width: 100%;
+  height: 40px;
+}
+
+.select-hidden-level {
+  display: none;
+  visibility: hidden;
+  padding-right: 10px;
+}
+
+.select-options-level {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: 0;
+  z-index: 999;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background-color: #e3e8f4;
+}
+.select-options-level li {
+  text-align: left !important;
+  margin: 0 !important;
+  padding: 12px 0 !important;
+  text-indent: 4px !important;
+  border-top: 1px solid #b8ccea  !important;
+  -moz-transition: all 0.15s ease-in !important;
+  -o-transition: all 0.15s ease-in !important;
+  -webkit-transition: all 0.15s ease-in !important;
+  transition: all 0.15s ease-in !important;
+}
+.select-options-level li:hover {
+  color: #c0392b !important;
+  background: #fff !important;
+}
+.select-options-level li[rel="hide"] {
+  display: none !important;
+}
+
+.bg_select_lv{
+  border: 1px solid #ecf3fb;
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0px 0px 0px 1px #bcc9e0;
+  box-shadow: inset 0px 0px 0px 1px #bcc9e0;
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+}

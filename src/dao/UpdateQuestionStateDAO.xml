@@ -1,0 +1,30 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="UpdateQuestionStateXML">
+
+    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
+
+    <update id="updateQuestionState" parameterType="QuestionState">
+        UPDATE update_question_states SET STATE = #{state} WHERE ID = #{id} AND SERVICE_ID = 2 ;
+    </update>
+    
+    <!-- 
+       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
+        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
+        -không phân biệt chữ hoa, chữ thường
+     -->
+    <resultMap id = "result" type = "QuestionState">
+       <result property = "id" column = "ID"/>
+       <result property = "service_id" column = "SERVICE_ID"/>
+       <result property = "state" column = "STATE"/>
+       <result property = "is_deleted" column = "IS_DELETED"/>
+       <result property = "created_at" column = "CREATED_AT"/>
+       <result property = "updated_at" column = "UPDATED_AT"/>
+    </resultMap>
+    
+    
+    
+    
+</mapper>

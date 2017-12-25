@@ -1,0 +1,50 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="GroupSecernXML">
+
+    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
+    
+    <insert id="insertGroupSecern" parameterType="GroupSecern" >
+        INSERT INTO group_secerns ( GROUP_SECERN_NAME,CREATED_AT ) VALUES ( #{group_secern_name}, #{created_at} );
+    </insert>
+
+    <update id="updateGroupSecern" parameterType="GroupSecern">
+        UPDATE group_secerns SET GROUP_SECERN_NAME = #{group_secern_name},UPDATED_AT = #{updated_at}  WHERE ID = #{id};
+    </update>
+    
+    <delete id="deleteGroupSecernById" parameterType="int">
+        DELETE from group_secerns WHERE ID = #{id}; 
+    </delete>
+    
+    <select id="selectAllGroupSecern" resultMap="result">
+           SELECT * FROM group_secerns ORDER BY ID DESC;  
+    </select>
+    
+     <select id="selectAllGroupSecernByName" parameterType="GroupSecern" resultType="GroupSecern">
+           SELECT * FROM group_secerns WHERE  GROUP_SECERN_NAME LIKE 'T%' ; 
+      </select>
+    
+    <select id="selectGroupSecernById" parameterType="int" resultType="GroupSecern">
+        SELECT * FROM group_secerns WHERE ID = #{id};
+    </select>
+    
+    
+    <!-- 
+       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
+        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
+        -không phân biệt chữ hoa, chữ thường
+     -->
+    <resultMap id = "result" type = "GroupSecern">
+       <result property = "id" column = "ID"/>
+       <result property = "group_secern_name" column = "GROUP_SECERN_NAME"/>
+       <result property = "is_deleted" column = "IS_DELETED"/>
+       <result property = "created_at" column = "CREATED_AT"/>
+       <result property = "updated_at" column = "UPDATED_AT"/>
+    </resultMap>
+    
+    
+    
+    
+</mapper>

@@ -1,0 +1,28 @@
+.label_69{
+  text-align: left !important;
+}
+.group_height{
+  height: 50px !important;
+}
+.td_69{
+  text-align: left !important;
+}
+.one_course_name{
+  padding-left: 60px;
+}
+.patern_list{
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.list_course select{
+  text-indent: 20px;
+  overflow-y: hidden;
+  margin: 0px;
+  padding: 0px;
+}
+tr:nth-child(old) > td.group_list > .custom_select {
+    background: black !important;
+}
+
+  

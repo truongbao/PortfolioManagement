@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="ServicePortfolioCourseXML">
+
+    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
+    
+    <insert id="insertPortfolioGroup" parameterType="ServicePortfolioCourse" >
+        INSERT INTO service_portfolio_courses (SERVICE_ID, SORT_ID, COURSE_ID, CREATED_AT ) 
+        VALUES ( #{service_id}, #{sort_id}, #{course_id} , #{created_at} );
+    </insert>
+
+    <update id="updatePortfolioGroup" parameterType="ServicePortfolioCourse">
+        UPDATE service_portfolio_courses SET SERVICE_ID = #{service_id}, SORT_ID = #{sort_id} ,COURSE_ID = #{course_id}, 
+                                    UPDATED_AT = #{updated_at}  WHERE ID = #{id};
+    </update>
+    
+    <delete id="deletePortfolioGroupById" parameterType="int">
+        DELETE from service_portfolio_courses WHERE ID = #{id}; 
+    </delete>
+    
+    <select id="selectAllPortfolioGroup" resultMap="result">
+           SELECT * FROM service_portfolio_courses ORDER BY ID DESC;  
+    </select>
+    
+     <select id="selectAllPortfolioGroupByName" parameterType="ServicePortfolioCourse" resultType="ServicePortfolioCourse">
+          
+      </select>
+    
+    <select id="selectPortfolioGroupById" parameterType="int" resultType="ServicePortfolioCourse">
+        SELECT * FROM service_portfolio_courses WHERE ID = #{id};
+    </select>
+    
+    
+    <!-- 
+       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
+        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
+        -không phân biệt chữ hoa, chữ thường
+     -->
+    <resultMap id = "result" type = "ServicePortfolioCourse">
+    
+       <result property = "id" column = "ID"/>
+       <result property = "service_id" column = "SERVICE_ID"/>
+       <result property = "sort_id" column = "SORT_ID"/>
+       <result property = "course_id" column = "COURSE_ID"/>
+       <result property = "is_deleted" column = "IS_DELETED"/>
+       <result property = "created_at" column = "CREATED_AT"/>
+       <result property = "updated_at" column = "UPDATED_AT"/>
+       <result property = "course_name" column = "COURSE_NAME"/>
+       
+    </resultMap>
+    
+    
+    
+    
+</mapper>

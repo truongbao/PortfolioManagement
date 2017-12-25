@@ -1,0 +1,266 @@
+
+/**
+ * -----------------------------------------------------------------------------
+ * Main Sidebar
+ * -----------------------------------------------------------------------------
+*/
+
+.main-sidebar {
+  width: 230px;
+  min-width: 230px;
+  display: table-cell;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0px 3px 10px 0px rgba(0, 55, 196, 0.15);
+          box-shadow: 0px 3px 10px 0px rgba(0, 55, 196, 0.15);
+  border-radius: 2px;
+  vertical-align: top;
+}
+
+.main-sidebar ul {
+  /*display: inline-block;*/
+}
+
+.main-sidebar ul li {
+  width: 100%;
+}
+
+.main-sidebar ul li:first-child {
+  background-color: #5482f6;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  color: #fff;
+  padding: 15px 5px 15px 20px;
+  line-height: 30px;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+}
+
+.main-sidebar ul li a {
+  padding: 10px 5px 10px 20px;
+  border-bottom: 1px solid whitesmoke;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: 300;
+  width: 100%;
+  letter-spacing: 0.025em;
+}
+
+.main-sidebar ul li a:hover,
+.main-sidebar ul li a:focus {
+  background-color: #ecf3fb;
+}
+
+.main-sidebar ul li.active a {
+  background-color: #ecf3fb;
+  padding: 15px 5px 15px 20px;
+}
+
+
+
+
+/*================*/
+
+/*Truong bao */
+
+/* For desktop: */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+@media only screen and (max-width: 1021px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+		 
+    }
+	
+}
+
+
+/*End Truong*/
+
+
+
+
+
+
+
+
+#portfolio .main-heading {
+  padding-left: 30px;
+}
+
+#portfolio .portfolio-unit {
+  padding-top: 30px;
+}
+
+#portfolio .portfolio-unit form {
+  margin: 0;
+}
+
+#portfolio .portfolio-unit .current-setting h2 {
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid #5482f6;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+#portfolio .portfolio-unit .current-setting .btn-action {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+#portfolio .portfolio-unit .current-setting .btn-action .btn {
+  min-width: 258px;
+}
+
+#portfolio .portfolio-unit .csv-setting {
+  border-top: 1px solid #e3e8f4;
+  padding-top: 30px;
+}
+
+#portfolio .portfolio-unit .csv-setting .alert {
+  margin-bottom: 20px;
+}
+
+#portfolio .portfolio-unit .csv-setting .btn-csv {
+  min-width: 188px;
+  margin-bottom: 20px;
+}
+
+/*Start Truong bao */
+
+#portfolio .portfolio-unit .csv-setting-bao {
+  /*
+    border-top: 1px solid #e3e8f4;
+    padding-top: 30px;
+  */
+}
+
+#portfolio .portfolio-unit .csv-setting-bao .alert {
+  margin-bottom: 20px;
+}
+
+#portfolio .portfolio-unit .csv-setting-bao .btn-csv {  
+  min-width: 234px;
+  margin-bottom: 0px;
+}
+
+/*End Truong bao*/
+
+
+
+
+
+#portfolio .portfolio-unit .table {
+  margin-bottom: 20px;
+}
+
+#portfolio .portfolio-unit .table thead tr th {
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-align: center;
+  font-size: 14px;
+  height: 40px;
+  vertical-align: middle;
+}
+
+#portfolio .portfolio-unit .table thead tr th:nth-child(1) {
+  width: 21.5%;
+}
+
+#portfolio .portfolio-unit .table thead tr th:nth-child(2) {
+  width: 40%;
+}
+
+#portfolio .portfolio-unit .table thead tr th:nth-child(3) {
+  width: 38.5%;
+}
+
+/*Start Bao truong*/
+
+#portfolio .portfolio-unit .table thead tr th:nth-child(1) {
+  width: 6%;
+}
+
+#portfolio .portfolio-unit .table thead tr th:nth-child(2) {
+  width: 38%;
+}
+
+#portfolio .portfolio-unit .table thead tr th:nth-child(3) {
+  width: 14%;
+}
+#portfolio .portfolio-unit .table thead tr th:nth-child(4) {
+  width: 14%;
+}
+#portfolio .portfolio-unit .table thead tr th:nth-child(5) {
+  width: 14%;
+}
+#portfolio .portfolio-unit .table thead tr th:nth-child(6) {
+  width: 14%;
+}
+/*End bao truong*/
+
+
+#portfolio .portfolio-unit .table tbody tr td {
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 5px;
+  height: 80px;
+}
+
+/*Start Bao truong*/
+
+#portfolio .portfolio-unit .table tbody tr td.td_bao {
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.025em;
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px 5px;
+  height: 60px;
+}
+
+/*End bao truong*/
+
+
+
+#portfolio .portfolio-unit .table tbody tr td ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+#portfolio .portfolio-unit .table tbody tr td ul li {
+  margin: 0;
+  padding: 0;
+  line-height: 18px;
+  font-size: 12px;
+  letter-spacing: 0.025em;
+}
+
+#portfolio .portfolio-unit .btn-management {
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+
+#portfolio .portfolio-unit .btn-management .btn {
+  margin: 0 7px;
+  display: inline-block;
+}

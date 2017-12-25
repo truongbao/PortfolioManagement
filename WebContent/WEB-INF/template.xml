@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+
+   <!-- portfolio template -->
+
+  <definition name="portfolio.templates" template="/WEB-INF/templates/admin/template.jsp">
+    <put-attribute name="left_bar" value="/WEB-INF/templates/admin/left_bar.jsp"/>
+    <put-attribute name="content" value=""/>
+  </definition>
+  
+  <definition name="admin.portfolio.index" extends="portfolio.templates">
+    <put-attribute name="content" value="/WEB-INF/jsp/admin/index_portfolio.jsp" />
+  </definition>
+  
+  
+  <definition name="admin.portfolio.create" extends="portfolio.templates">   <!-- template.class.phuong thuc -->
+      <put-attribute name="content" value="/WEB-INF/jsp/admin/create_portfolio.jsp" />
+  </definition>
+  
+  
+   <definition name="admin.portfolio.detail" extends="portfolio.templates">   
+      <put-attribute name="content" value="/WEB-INF/jsp/admin/detail_portfolio.jsp" />
+  </definition>
+  
+   <definition name="admin.portfolio.edit" extends="portfolio.templates">   
+      <put-attribute name="content" value="/WEB-INF/jsp/admin/edit_portfolio.jsp" />
+  </definition>
+  
+  
+  
+</tiles-definitions>

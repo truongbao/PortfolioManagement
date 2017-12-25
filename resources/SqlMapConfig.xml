@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+    <typeAliases>
+     <!-- chỉ định tên lớp tuyệt đối bằng cách dùng alias để đặt lại tên cho dễ sử dụng -->
+     
+          <typeAlias alias="Cat" type="entity.Cat"/> 
+          
+          <typeAlias alias="Course" type="entity.Course"/> 
+          <typeAlias alias="GroupSecern" type="entity.GroupSecern"/> 
+          <typeAlias alias="Group" type="entity.Group"/> 
+          <typeAlias alias="ServicePortfolioConfiguration" type="entity.ServicePortfolioConfiguration"/> 
+          <typeAlias alias="QuestionState" type="entity.QuestionState"/> 
+          <typeAlias alias="PortfolioGroup" type="entity.PortfolioGroup"/> 
+          <typeAlias alias="ServicePortfolioCourse" type="entity.ServicePortfolioCourse"/> 
+          <typeAlias alias="PortfolioConfigurationCourse" type="entity.PortfolioConfigurationCourse"/> 
+          <typeAlias alias="PortfolioCourseUnitLevel" type="entity.PortfolioCourseUnitLevel"/>
+          <typeAlias alias="PortfolioCourseUnit" type="entity.PortfolioCourseUnit"/>
+          <typeAlias alias="QuestionAttribute" type="entity.QuestionAttribute"/>
+          
+    </typeAliases>
+    
+    
+    <environments default="development">
+         <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+                <property name="driver" value="org.postgresql.Driver" />
+                <property name="url" value="jdbc:postgresql://localhost:5432/portfolio?characterEncoding=UTF-8&amp;useUnicode=true" />
+                <property name="username" value="postgres" />
+                <property name="password" value="12345678" />
+            </dataSource>
+        </environment>
+    </environments>
+
+
+    <mappers>
+        <mapper resource="dao/CatDAO.xml" />
+        
+        <mapper resource="dao/CourseDAO.xml" />
+        <mapper resource="dao/GroupDAO.xml" />
+        <mapper resource="dao/GroupSecernDAO.xml" />
+        <mapper resource="dao/PortfolioConfigurationCourseDAO.xml" />
+        <mapper resource="dao/PortfolioGroupDAO.xml" />
+        <mapper resource="dao/ServicePortfolioConfigurationDAO.xml" />
+        <mapper resource="dao/ServicePortfolioCourseDAO.xml" />
+        <mapper resource="dao/UpdateQuestionStateDAO.xml" />
+        <mapper resource="dao/PortfolioCourseUnitLevelDAO.xml" />
+        <mapper resource="dao/QuestionAttributeDAO.xml" />
+        
+    </mappers>
+    
+</configuration>
+

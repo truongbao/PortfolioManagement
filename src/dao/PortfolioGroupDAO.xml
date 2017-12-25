@@ -1,0 +1,62 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="PortfolioGroupXML">
+
+    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
+    
+    <insert id="insertPortfolioGroup" parameterType="PortfolioGroup" >
+        INSERT INTO portfolio_groups ( GROUP_ID, SERVICE_PORTFOLIO_CONFIGURATION_ID, CREATED_AT   ) 
+        VALUES ( #{group_id}, #{service_portfolio_configuration_id}, #{created_at} );
+    </insert>
+
+    <update id="updatePortfolioGroup" parameterType="PortfolioGroup">
+        UPDATE portfolio_groups SET GROUP_ID = #{group_id}, SERVICE_PORTFOLIO_CONFIGURATION_ID = #{service_portfolio_configuration_id}  , 
+                                    UPDATED_AT = #{updated_at}  WHERE ID = #{id};
+    </update>
+    
+    <delete id="deletePortfolioGroupById" parameterType="int">
+        DELETE from portfolio_groups WHERE ID = #{id}; 
+    </delete>
+    
+    <select id="selectAllPortfolioGroup" resultMap="result">
+           SELECT * FROM portfolio_groups ORDER BY ID DESC;  
+    </select>
+    
+     <select id="selectAllPortfolioGroupByName" parameterType="PortfolioGroup" resultType="PortfolioGroup">
+          
+      </select>
+    
+    <select id="selectPortfolioGroupById" parameterType="int" resultType="PortfolioGroup">
+        SELECT * FROM portfolio_groups WHERE ID = #{id};
+    </select>
+    
+    
+    <!-- 
+       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
+        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
+        -không phân biệt chữ hoa, chữ thường
+     -->
+    <resultMap id = "result" type = "PortfolioGroup">
+    
+       <result property = "id" column = "ID"/>
+       <result property = "group_id" column = "GROUP_ID"/>
+       <result property = "service_portfolio_configuration_id" column = "SERVICE_PORTFOLIO_CONFIGURATION_ID"/>
+       <result property = "is_deleted" column = "IS_DELETED"/>
+       <result property = "created_at" column = "CREATED_AT"/>
+       <result property = "updated_at" column = "UPDATED_AT"/>
+       <result property = "service_id" column = "SERVICE_ID"/>
+       <result property = "name" column = "NAME"/>
+       <result property = "state" column = "STATE"/>
+       <result property = "aggregation_finished_at" column = "AGGREGATION_FINISHED_AT"/>
+       <result property = "group_name" column = "GROUP_NAME"/>
+       <result property = "group_secern_id" column = "GROUP_SECERN_ID"/>
+       
+       
+    </resultMap>
+    
+    
+    
+    
+</mapper>
