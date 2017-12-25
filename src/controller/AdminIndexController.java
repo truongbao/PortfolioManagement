@@ -12,7 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import entity.Cat;
+import entity.ServicePortfolioConfiguration;
 
 @Controller
 @RequestMapping("admin/portfolio")
@@ -28,10 +28,10 @@ public class AdminIndexController {
         // open session
         SqlSession session = sqlSessionFactory.openSession();
 
-        // get all cat
-        List<Cat> listCat = session.selectList("CatXML.selectAllCat");
-        for (Cat objCat : listCat) {
-            System.out.println(objCat.toString());
+        // get all objSPC
+        List<ServicePortfolioConfiguration> listSPConfiguration = session.selectList("ServicePortfolioConfigurationXML.selectAllServicePortfolioConfiguration");
+        for (ServicePortfolioConfiguration objSPC : listSPConfiguration) {
+            System.out.println(objSPC.toString());
         } 
 
         // close session
