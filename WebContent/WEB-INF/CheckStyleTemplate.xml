@@ -14,7 +14,7 @@
         
         <module name="MethodLength">
           <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
-          <property name="max" value="30"/>
+          <property name="max" value="10"/>
           <property name="countEmpty" value="false"/>
         </module>
     
