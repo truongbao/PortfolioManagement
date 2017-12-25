@@ -1,0 +1,41 @@
+
+-Khi clone code về mọi người chạy thêm mấy dòng lệnh này nữa nhé để không bị lỗi khi push code lên git:
+
+git update-index --assume-unchanged .settings/.jsdtscope
+git update-index --assume-unchanged .settings/org.eclipse.core.resources.prefs
+git update-index --assume-unchanged .settings/org.eclipse.jdt.core.prefs
+git update-index --assume-unchanged .settings/org.eclipse.ltk.core.refactoring.prefs
+git update-index --assume-unchanged .settings/org.eclipse.wst.common.component
+git update-index --assume-unchanged .settings/org.eclipse.wst.common.project.facet.core.xml
+git update-index --assume-unchanged .settings/org.eclipse.wst.jsdt.ui.superType.container
+git update-index --assume-unchanged .settings/org.eclipse.wst.jsdt.ui.superType.name
+
+
+git update-index --assume-unchanged .classpath
+git update-index --assume-unchanged .project
+
+
+- Cách sử dụng lệnh git : 
+
+git pull origin master
+git status
+git add .     // add het tat cac thay doi
+git add name_file
+
+git checkout -b name_branch // vừa checkout vừa tạo
+git checkout name_branch
+
+git commit -m "noi dung commit"
+git push origin name_branch
+
+
+
+
+
+
+
+
+
+
+
+
