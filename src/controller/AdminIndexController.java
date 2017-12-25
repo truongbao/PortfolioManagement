@@ -21,7 +21,6 @@ public class AdminIndexController {
 	
 	 @RequestMapping("/index")
 	 public String index(ModelMap modelMap) throws IOException{
-		 
 		// read config file
         Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
@@ -38,7 +37,6 @@ public class AdminIndexController {
         // close session
         session.close();
 
-        
 		return "admin.portfolio.index";
 	 }
 	 
