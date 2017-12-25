@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("admin/portfolio")
 public class AdminIndexController {
 	
+	//le test
+	
 	 @RequestMapping("/index")
 	 public String index(ModelMap modelMap){
 		return "admin.portfolio.index";
