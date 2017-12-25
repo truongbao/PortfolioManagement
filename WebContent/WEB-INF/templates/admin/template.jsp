@@ -20,6 +20,7 @@
 		
 		<link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/style_72.css">
 		
+		
     </head>
     <body class="">        
      <div class="wrapper ">
@@ -41,6 +42,7 @@
 		
 		<script src='${pageContext.request.contextPath}/templates/admin/js/jquery.min.js'></script>
         <script  src="${pageContext.request.contextPath}/templates/admin/js/select_change.js"></script>
+        <script  src="${pageContext.request.contextPath}/templates/admin/js/AjaxAPI.js"></script>
         
     </body>
 </html>

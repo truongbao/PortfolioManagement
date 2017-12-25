@@ -56,7 +56,7 @@
                             <div class="form-group">          
                                 <label class="control-label col-sm-2 label_69">対象科目</label> 
                                 <div class="col-sm-3 list_course">
-                                        <select multiple="multiple" class="form-control">
+                                        <select id="course_selected" multiple="multiple" class="form-control">
                                                 <option value="1">コースA</option>
                                                 <option value="2">コースB</option>
                                                 <option value="3">コースC</option>
@@ -65,55 +65,9 @@
                                 </div>
                             </div>    
 							
-							
-                            <div id="coursr_list" class="row">
-                                    <h1 class="one_course_name">コースA</h1>       
-                                    <div class="form-group">          
-                                            <label class="control-label  col-sm-2 col-sm-offset-2 label_69">単元タグ設定パターン</label> 
-                                            <div class="col-sm-4 level_list">
-                                                    <select class="custom_select_level">
-                                                            <option value="january" rel="icon-temperature">クラス</option>
-                                                            <option value="hide">学生</option> 
-                                                            <option value="february">志望分野</option>
-                                                            <option value="march">大学種別</option>
-                                                    </select> 
-                                            </div>
-                                    </div>
-                                    <div class="form-group">          
-                                            <label class="control-label col-sm-2 col-sm-offset-2 label_69">単元タグ</label> 
-                                            <div class="col-sm-8">
-                                                    <ul class="patern_list">
-                                                        <li>単元タグ</li>
-                                                        <li>単元タグ</li>
-                                                        <li>単元タグ</li>
-                                                    </ul>
-                                            </div>
-                                    </div>
-                            </div>
-                            <div id="coursr_list" class="row">
-                                        <h1 class="one_course_name">コースB</h1>       
-                                        <div class="form-group">          
-                                                <label class="control-label  col-sm-2 col-sm-offset-2 label_69">単元タグ設定パターン</label> 
-                                                <div class="col-sm-4 level_list">
-                                                        <select class="custom_select_level">
-                                                                <option value="january" rel="icon-temperature" >クラス</option>
-                                                                <option value="hide" >学生</option> 
-                                                                <option value="february">志望分野</option>
-                                                                <option value="march">大学種別</option>
-                                                        </select> 
-                                                </div>
-                                        </div>
-                                        <div class="form-group">          
-                                                <label class="control-label col-sm-2 col-sm-offset-2 label_69">単元タグ</label> 
-                                                <div class="col-sm-8">
-                                                        <ul class="patern_list">
-                                                            <li>単元タグ</li>
-                                                            <li>単元タグ</li>
-                                                            <li>単元タグ</li>
-                                                        </ul>
-                                                </div>
-                                        </div>
-                                </div>
+							 <div id="CourseForm"></div>
+                       
+                            
                             <div class="btn-management">
                                     <button class="btn btn-blue-dark btn-w190">更新</button>
                             </div>
