@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.2//EN" "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+
+
+<module name="Checker">
+    <property name="severity" value="warning"/>
+    
+    <module name="StrictDuplicateCode">
+        <property name="min" value="15"/>
+    </module>
+    
+    <module name="TreeWalker">
+        <module name="EqualsHashCode"/>
+        
+        <module name="MethodLength">
+          <property name="tokens" value="METHOD_DEF, CTOR_DEF"/>
+          <property name="max" value="30"/>
+          <property name="countEmpty" value="false"/>
+        </module>
+    
+    </module>
+    
+</module>
