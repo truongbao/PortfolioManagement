@@ -13,6 +13,8 @@ public class AdminIndexController {
 		return "admin.portfolio.index";
 	 }
 	 
+	 //khai
+	 
 	 @RequestMapping("/create")
 	 public String add(ModelMap modelMap){
 		return "admin.portfolio.create";
