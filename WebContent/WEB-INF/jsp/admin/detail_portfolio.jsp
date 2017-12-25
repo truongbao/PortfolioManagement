@@ -9,7 +9,7 @@
 
 
                             <div class="csv-setting">
-                                 <p class="p1_le"> <strong> 管理名 </strong> &nbsp;&nbsp;&nbsp; <span> babababab </span>   </p>
+                                 <p class="p1_le"> <strong> 管理名 </strong> &nbsp;&nbsp;&nbsp; <span> lelelelel </span>   </p>
                             </div>
 
 
