@@ -21,6 +21,22 @@ public class AdminIndexController {
 	
 	 @RequestMapping("/index")
 	 public String index(ModelMap modelMap) throws IOException{
+		// read config file
+        Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+
+        // open session
+        SqlSession session = sqlSessionFactory.openSession();
+
+        // get all cat
+        List<Cat> listCat = session.selectList("CatXML.selectAllCat");
+        for (Cat objCat : listCat) {
+            System.out.println(objCat.toString());
+        } 
+
+        // close session
+        session.close();
+
 		return "admin.portfolio.index";
 	 }
 	 
