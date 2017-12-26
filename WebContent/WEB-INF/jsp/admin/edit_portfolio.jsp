@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
             <div class="main-content" id="portfolio">
-                    <h1 class="main-heading">ポートフォリオ用科目設定画面</h1>
+                    <h1 class="main-heading">ポートフォリオ用科目設定画面 (Edit)</h1>
                     <div class="main-summary portfolio-unit">
 					
 					

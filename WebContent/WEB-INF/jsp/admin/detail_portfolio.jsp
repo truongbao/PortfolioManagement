@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
              <div class="main-content" id="portfolio">
-                    <h1 class="main-heading">ポートフォリオ設定詳細表示 (detail)</h1>
+                    <h1 class="main-heading">ポートフォリオ設定詳細表示 (Detail)</h1>
                         <div class="main-summary portfolio-unit">
 
                         <form class="form-create" action="" method="">
@@ -99,15 +99,16 @@
                                      <div class="row">  
                                        
 
-                                    <div class="col-md-4 text-center">
-                                       <button class="btn btn-blue-dark btn-w190">xóa</button> </br> </br>
-                                    </div> 
-                                    <div class="col-md-4 text-center">
-                                        <button class="btn btn-blue-dark btn-w190">edit</button> </br></br>
+                                     <div class="col-md-4 text-center">
+                                      <!--  <button class="btn btn-blue-dark btn-w190">Delete</button> </br> </br> -->
+                                         <a href="${pageContext.request.contextPath}/admin/portfolio/delete" class="btn btn-blue-dark btn-w190"> Delete </a> </br></br>
                                      </div> 
                                      <div class="col-md-4 text-center">
-                                         <button class="btn btn-blue-dark btn-w190">back</button></br></br>
-                                      </div> 
+                                         <a href="${pageContext.request.contextPath}/admin/portfolio/edit" class="btn btn-blue-dark btn-w190"> Edit </a> </br></br>
+                                     </div> 
+                                     <div class="col-md-4 text-center">
+                                         <a href="${pageContext.request.contextPath}/admin/portfolio/index" class="btn btn-blue-dark btn-w190"> Back </a> </br></br>
+                                     </div> 
                                     
 
                                 </div>

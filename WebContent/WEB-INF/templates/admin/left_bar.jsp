@@ -7,25 +7,13 @@
 					
 					<li>
 						<a href="${pageContext.request.contextPath}/admin/portfolio/index">
-							<p class="p_bao"> Show List Portfolio </p>
+							<p class="p_bao">List Portfolio </p>
 						</a>
 					</li>
 					
 					 <li>  <!-- class="active" -->
 						<a href="${pageContext.request.contextPath}/admin/portfolio/create">
 							<p class="p_bao"> Create Portfolio </p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="${pageContext.request.contextPath}/admin/portfolio/edit">
-							<p class="p_bao"> Edit Portfolio</p>
-						</a>
-					</li>
-					
-					<li>
-						<a href="${pageContext.request.contextPath}/admin/portfolio/detail">
-							<p class="p_bao"> Detail Portfolio</p>
 						</a>
 					</li>
 					

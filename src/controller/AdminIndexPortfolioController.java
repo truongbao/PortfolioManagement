@@ -17,7 +17,7 @@ import entity.ServicePortfolioConfiguration;
 
 @Controller
 @RequestMapping("admin/portfolio")
-public class AdminIndexController {
+public class AdminIndexPortfolioController {
 	
 	
 	 @RequestMapping("/index")
@@ -64,21 +64,7 @@ public class AdminIndexController {
 	 }
 	 
 	 
-	 @RequestMapping("/create")
-	 public String add(ModelMap modelMap){
-		return "admin.portfolio.create";
-	 }
-	 
-	 
-	 @RequestMapping("/detail")
-	 public String detail(ModelMap modelMap){
-		return "admin.portfolio.detail";
-	 }
-	 
-	 @RequestMapping("/edit")
-	 public String edit(ModelMap modelMap){
-		return "admin.portfolio.edit";
-	 }
+	
 	 
 	 
 	

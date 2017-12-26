@@ -6,7 +6,7 @@
                     <div class="main-summary portfolio-unit">
 					
 					
-                        <form class="form-horizontal" action="/action_page.php">
+                        <form class="form-horizontal" action="${pageContext.request.contextPath}/admin/portfolio/detail" method="post">
                             <div class="form-group">          
                                 <label class="control-label col-sm-2 label_69">現行設定</label> 
                                 <div class="col-sm-5">
@@ -69,7 +69,7 @@
                        
                             
                             <div class="btn-management">
-                                    <button class="btn btn-blue-dark btn-w190">更新</button>
+                                    <button class="btn btn-blue-dark btn-w190">作成</button> <!-- Tao -->
                             </div>
                             
                          </form>
