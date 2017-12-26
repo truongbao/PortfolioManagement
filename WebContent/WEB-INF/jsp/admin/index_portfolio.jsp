@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
            <div class="main-content" id="portfolio">
                     <h1 class="main-heading"> ポートフォリオ設定一覧 </h1> <!-- List setting portfolio -->
@@ -51,26 +53,26 @@
                                         </tr>
                                     </thead>
                                     <tbody> 
-                                        <tr>
-                                            <td class="td_bao">1 </td>
-                                            <td class="td_bao"> Truong bao</td>
-                                            <td class="td_bao">2017.12.12 12:12:12</td>
-                                            <td class="td_bao">2017.12.12 12:12:12</td>
-                                            <td class="td_bao">2017.12.12 12:12:12</td>   											
-                                             <td class="td_bao">
-											      <button class="btn btn-blue-dark-detail-b btn-w190-bao"> 詳細 </button>  <!-- Chi tiet-->
-											 </td>   
-                                        </tr>
-										<tr>
-                                            <td class="td_bao">2 </td>
-                                            <td class="td_bao"> Truong bao</td>
-                                            <td class="td_bao">2017.12.12 12:12:12</td>
-                                            <td class="td_bao">2017.12.12 12:12:12</td>
-                                            <td class="td_bao">2017.12.12 12:12:12</td>   											
-                                             <td class="td_bao">
-											      <button class="btn btn-blue-dark-detail-b btn-w190-bao"> 詳細 </button> <!-- Chi tiet-->
-											 </td>   
-                                        </tr>
+                                    
+                                       <c:forEach items="${listSPConfiguration}" var="objSPCF">
+                                          <c:set var="urlDetail" value="${pageContext.request.contextPath}/admin/portfolio/detail/${objSPCF.id}"></c:set>
+                                          <fmt:formatDate var="fmtDateCreate" value="${objSPCF.created_at}" pattern="yyyy.MM.dd hh:mm" />
+                                          <fmt:formatDate var="fmtDateUpdate" value="${objSPCF.updated_at}" pattern="yyyy.MM.dd hh:mm" />
+                                          <fmt:formatDate var="fmtDateAggregationFinished" value="${objSPCF.aggregation_finished_at}" pattern="yyyy.MM.dd hh:mm" />
+                                       
+	                                      <tr>
+	                                           <td class="td_bao"> ${objSPCF.id}</td>
+	                                           <td class="td_bao"> ${objSPCF.name}</td>
+	                                           <td class="td_bao"> ${fmtDateCreate}</td>
+	                                           <td class="td_bao"> ${fmtDateUpdate} </td>
+	                                           <td class="td_bao"> ${fmtDateAggregationFinished} </td>   											
+	                                           <td class="td_bao">
+												   <a href="${urlDetail}" class="btn btn-blue-dark-detail-b btn-w190-bao">  詳細  </a> <!-- Chi tiet-->
+											   </td>   
+	                                      </tr>
+										
+								     </c:forEach>
+										
 										
                                     </tbody>
                                 </table>
