@@ -7,6 +7,7 @@ public class TestCheckStyle {
     }
  
     private static void foo() {
+    	
         System.out.println("Bla bla bla...");
         int a = 10;
         int b = 20;
@@ -53,6 +54,7 @@ public class TestCheckStyle {
  
     @Override
     public boolean equals(Object o) {
+    	
         if(o instanceof TestCheckStyle) {
             return true;
         }
