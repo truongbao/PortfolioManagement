@@ -1,4 +1,4 @@
-package controller;
+package test;
 
 public class TestCheckStyle {
 
@@ -52,7 +52,7 @@ public class TestCheckStyle {
         System.out.println("Bla bla bla... again");
     }
  
-    @Override
+   @Override
     public boolean equals(Object o) {
     	
         if(o instanceof TestCheckStyle) {
