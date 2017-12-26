@@ -15,7 +15,7 @@ import entity.Cat;
 
 @Controller
 @RequestMapping("/springd3")
-public class DemoController {
+public class ConsultController {
 	 private final String upload_dir = "uploads";
 	
 	@RequestMapping("/index-cat")
