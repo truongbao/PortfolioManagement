@@ -30,7 +30,7 @@
                 <property name="driver" value="org.postgresql.Driver" />
                 <property name="url" value="jdbc:postgresql://localhost:5432/portfolio?characterEncoding=UTF-8&amp;useUnicode=true" />
                 <property name="username" value="postgres" />
-                <property name="password" value="12345678" />
+                <property name="password" value="abc321" />
             </dataSource>
         </environment>
     </environments>
