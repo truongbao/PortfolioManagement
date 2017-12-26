@@ -28,12 +28,11 @@ public class AdminIndexController {
         // open session
         SqlSession session = sqlSessionFactory.openSession();
 
-        // get all objSPC
-        List<ServicePortfolioConfiguration> listSPConfiguration = session.selectList("ServicePortfolioConfigurationXML.selectAllServicePortfolioConfiguration");
-        for (ServicePortfolioConfiguration objSPC : listSPConfiguration) {
-            System.out.println(objSPC.toString());
-        } 
-
+        // get listSPConfiguration 
+        List<ServicePortfolioConfiguration> listSPConfiguration = session.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
+       
+        modelMap.addAttribute("listSPConfiguration",listSPConfiguration);
+        
         // close session
         session.close();
 
