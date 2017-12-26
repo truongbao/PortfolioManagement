@@ -24,13 +24,15 @@
 								     <div class="col-md-3"> </div>
 								   
 								     <div class="col-md-3 text-center">
-                                       <button class="btn btn-blue-dark btn-csv ">問 題 情 報 更 新</button> </br> </br> <!-- Update thông tin bài tập -->
+                                      <!--<button class="btn btn-blue-dark btn-csv "> 問 題 情 報 更 新  </button> </br> </br>-->
+                                       <a href="${pageContext.request.contextPath}/admin/portfolio/update-exercise-information" class="btn btn-blue-dark btn-csv"> 問 題 情 報 更 新  </a> </br> </br> <!-- Update thông tin bài tập -->
 								     </div>
 								     
 									 <div class="col-md-3 text-center"> 
-								       <button class="btn btn-blue-dark btn-csv">更 新 </button> </br> </br> <!-- Update -->
+									    <c:set var="refresh" value="refresh-infomation"></c:set>
+								        <a href=" ${pageContext.request.contextPath}/admin/portfolio/index/${refresh}" class="btn btn-blue-dark btn-csv"> 更 新  </a> </br> </br> <!-- Update -->
 								     </div>
-								   
+								    
 								     <div class="col-md-3"> </div>
 								</div> 
 								 
