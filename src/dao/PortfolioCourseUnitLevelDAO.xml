@@ -22,9 +22,6 @@
            SELECT * FROM portfolio_course_unit_levels ORDER BY ID DESC;  
     </select>
     
-     <select id="selectAllPortfolioCourseUnitLevelByName" parameterType="PortfolioCourseUnitLevel" resultType="PortfolioCourseUnitLevel">
-          
-      </select>
     
     <select id="selectPortfolioCourseUnitLevelById" parameterType="int" resultType="PortfolioCourseUnitLevel">
         SELECT * FROM portfolio_course_unit_levels WHERE ID = #{id};
