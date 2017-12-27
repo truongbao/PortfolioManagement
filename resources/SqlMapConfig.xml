@@ -65,6 +65,6 @@
 		<mapper resource="dao/QuestionAttributeDAO.xml" />
 
 	</mappers>
-
+  
 </configuration>
 
