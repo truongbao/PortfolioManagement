@@ -3,7 +3,7 @@
 
 
 <mapper namespace="GroupXML">
-
+  
 	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
 		trong câu lệnh -->
 
@@ -54,8 +54,5 @@
 		<result property="group_secern_name" column="GROUP_SECERN_NAME" />
 
 	</resultMap>
-
-
-
 
 </mapper>
