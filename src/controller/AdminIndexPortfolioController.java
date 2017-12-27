@@ -30,7 +30,7 @@ public class AdminIndexPortfolioController {
 
 		// get listSPConfiguration
 		List<ServicePortfolioConfiguration> listSPConfiguration = session
-				.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
+				.selectList("ServicePortfolioConfigurationMapper.selectAllSPC");
 		modelMap.addAttribute("listSPConfiguration", listSPConfiguration);
 
 		// close session
@@ -52,7 +52,7 @@ public class AdminIndexPortfolioController {
 
 		// get listSPConfiguration
 		List<ServicePortfolioConfiguration> listSPConfiguration = session
-				.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
+				.selectList("ServicePortfolioConfigurationMapper.selectAllSPC");
 
 		modelMap.addAttribute("listSPConfiguration", listSPConfiguration);
 
