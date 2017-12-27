@@ -15,7 +15,7 @@
                           UPDATED_AT = #{updated_at}  WHERE ID = #{id};
     </update>
     
-    <delete id="deleteGroupById" parameterType="int">
+    <delete id="deleteGroupById" parameterType="int">	
         DELETE from groups WHERE ID = #{id}; 
     </delete>
     

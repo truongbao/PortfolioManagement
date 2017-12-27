@@ -19,7 +19,7 @@
 
 
                              <div class="csv-setting" style="margin-left:46px;">
-                                 <p class="p3_le"> <strong> 学生 </strong> &nbsp;&nbsp;&nbsp; <span> ... </span>   </p>  
+                                 <p class="p3_le"> <strong> 学生 </strong> &nbsp;&nbsp;&nbsp; <span> ...</span>   </p>  
                             </div>
 
 
