@@ -4,54 +4,55 @@
 
 <mapper namespace="PortfolioConfigurationCourseXML">
 
-    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
-    
-    <insert id="insertPortfolioConfigurationCourse" parameterType="PortfolioConfigurationCourse" >
-        INSERT INTO portfolio_configuration_courses (SERVICE_PORTFOLIO_CONFIGURATION_ID, SERVICE_PORTFOLIO_COURSE_ID , LEVEL, CREATED_AT ) 
-        VALUES ( #{service_portfolio_configuration_id}, #{service_portfolio_course_id}, #{level} , #{created_at} );
-    </insert>
+	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
+		trong câu lệnh -->
 
-    <update id="updatePortfolioConfigurationCourse" parameterType="PortfolioConfigurationCourse">
-        UPDATE portfolio_configuration_courses SET SERVICE_PORTFOLIO_CONFIGURATION_ID = #{service_portfolio_configuration_id }, 
-                                                   SERVICE_PORTFOLIO_COURSE_ID = #{service_portfolio_course_id} , 
-                                                   LEVEL = #{level} , UPDATED_AT = #{updated_at}  WHERE ID = #{id};
-    </update>
-    
-    <delete id="deletePortfolioConfigurationCourseById" parameterType="int">
-        DELETE from portfolio_configuration_courses WHERE ID = #{id}; 
-    </delete>
-    
-    <select id="selectAllPortfolioConfigurationCourse" resultMap="result">
-           SELECT * FROM portfolio_configuration_courses ORDER BY ID DESC;  
-    </select>
-    
-     <select id="selectAllPortfolioConfigurationCourseByName" parameterType="PortfolioConfigurationCourse" resultType="PortfolioConfigurationCourse">
-          
-      </select>
-    
-    <select id="selectPortfolioConfigurationCourseById" parameterType="int" resultType="PortfolioConfigurationCourse">
-        SELECT * FROM portfolio_configuration_courses WHERE ID = #{id};
-    </select>
-    
-    
-    <!-- 
-       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
-        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
-        -không phân biệt chữ hoa, chữ thường
-     -->
-    <resultMap id = "result" type = "PortfolioConfigurationCourse">
-    
-        <result property = "id" column = "ID"/>
-        <result property = "service_portfolio_configuration_id" column = "SERVICE_PORTFOLIO_CONFIGURATION_ID"/>
-        <result property = "service_portfolio_course_id" column = "SERVICE_PORTFOLIO_COURSE_ID"/>
-        <result property = "level" column = "LEVEL"/>
-        <result property = "is_deleted" column = "IS_DELETED"/>
-        <result property = "created_at" column = "CREATED_AT"/>
-        <result property = "updated_at" column = "UPDATED_AT"/>
-       
-    </resultMap>
-    
-    
-    
-    
+	<insert id="insertPortfolioConfigurationCourse" parameterType="PortfolioConfigurationCourse">
+		INSERT INTO portfolio_configuration_courses
+		(SERVICE_PORTFOLIO_CONFIGURATION_ID, SERVICE_PORTFOLIO_COURSE_ID ,
+		LEVEL, CREATED_AT )
+		VALUES ( #{service_portfolio_configuration_id},
+		#{service_portfolio_course_id}, #{level} , #{created_at} );
+	</insert>
+
+	<update id="updatePortfolioConfigurationCourse" parameterType="PortfolioConfigurationCourse">
+		UPDATE portfolio_configuration_courses SET
+		SERVICE_PORTFOLIO_CONFIGURATION_ID =
+		#{service_portfolio_configuration_id },
+		SERVICE_PORTFOLIO_COURSE_ID = #{service_portfolio_course_id} ,
+		LEVEL = #{level} , UPDATED_AT = #{updated_at} WHERE ID = #{id};
+	</update>
+
+	<delete id="deletePortfolioConfigurationCourseById"
+		parameterType="int">
+		DELETE from portfolio_configuration_courses WHERE ID = #{id};
+	</delete>
+
+	<select id="selectAllPortfolioConfigurationCourse" resultMap="result">
+		SELECT * FROM portfolio_configuration_courses ORDER BY ID DESC;
+	</select>
+
+	<select id="selectPortfolioConfigurationCourseById"
+		parameterType="int" resultType="PortfolioConfigurationCourse">
+		SELECT * FROM portfolio_configuration_courses WHERE ID = #{id};
+	</select>
+
+	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
+		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 
+		phân biệt chữ hoa, chữ thường -->
+	<resultMap id="result" type="PortfolioConfigurationCourse">
+
+		<result property="id" column="ID" />
+		<result property="service_portfolio_configuration_id" column="SERVICE_PORTFOLIO_CONFIGURATION_ID" />
+		<result property="service_portfolio_course_id" column="SERVICE_PORTFOLIO_COURSE_ID" />
+		<result property="level" column="LEVEL" />
+		<result property="is_deleted" column="IS_DELETED" />
+		<result property="created_at" column="CREATED_AT" />
+		<result property="updated_at" column="UPDATED_AT" />
+
+	</resultMap>
+
+
+
+
 </mapper>
