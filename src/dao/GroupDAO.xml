@@ -4,6 +4,7 @@
 
 
 <mapper namespace="GroupMapper">
+
 	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
 		trong câu lệnh -->
 
