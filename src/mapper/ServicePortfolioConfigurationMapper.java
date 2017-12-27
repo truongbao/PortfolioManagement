@@ -5,12 +5,15 @@ import java.util.List;
 import entity.ServicePortfolioConfiguration;
 
 public interface ServicePortfolioConfigurationMapper {
-	
-	int insert(ServicePortfolioConfiguration objSPCF);
-    int update(ServicePortfolioConfiguration objSPCF);
-    int deleteById(int id);
-    List<ServicePortfolioConfiguration> selectAllSPC();
-    ServicePortfolioConfiguration selectById(int id);
 
-	
+	public int insertServicePortfolioCourse(ServicePortfolioConfiguration objSPCF);
+
+	public int updateServicePortfolioCourse(ServicePortfolioConfiguration objSPCF);
+
+	public int deleteServicePortfolioCourseById(int id);
+
+	public List<ServicePortfolioConfiguration> selectAllServicePortfolioCourse();
+
+	public ServicePortfolioConfiguration selectServicePortfolioCourseById(int id);
+
 }

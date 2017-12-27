@@ -25,14 +25,16 @@
 		<typeAlias alias="CourseMapper" type="mapper.CourseMapper" />
 		<typeAlias alias="GroupSecernMapper" type="mapper.GroupSecernMapper" />
 		<typeAlias alias="GroupMapperMapper" type="mapper.GroupMapper" />
-	<!-- 	<typeAlias alias="ServicePortfolioConfigurationMapper" type="mapper.ServicePortfolioConfiguration" /> -->
-	<!-- 	<typeAlias alias="QuestionStateMapper" type="mapper.QuestionStateMapper" /> -->
+		<typeAlias alias="ServicePortfolioConfigurationMapper" type="mapper.ServicePortfolioConfigurationMapper" />
+		<!-- chưa thấy định nghĩa -->
+		<!-- <typeAlias alias="QuestionStateMapper" type="mapper.QuestionStateMapper" />  -->
 		<typeAlias alias="PortfolioGroupMapper" type="mapper.PortfolioGroupMapper" />
-		<!-- <typeAlias alias="ServicePortfolioCourseMapper" type="entity.ServicePortfolioCourseMapper" />
-		<typeAlias alias="PortfolioConfigurationCourseMapper" type="entity.PortfolioConfigurationCourseMapper" />
-		<typeAlias alias="PortfolioCourseUnitLevelMapper" type="entity.PortfolioCourseUnitLevelMapper" />
-		<typeAlias alias="PortfolioCourseUnitMapper" type="entity.PortfolioCourseUnitMapper" />
-		<typeAlias alias="QuestionAttributeMapper" type="entity.QuestionAttributeMapper" /> -->
+		<typeAlias alias="ServicePortfolioCourseMapper" type="mapper.ServicePortfolioCourseMapper" /> 
+		<typeAlias alias="PortfolioConfigurationCourseMapper" type="mapper.PortfolioConfigurationCourseMapper" />
+		<typeAlias alias="PortfolioCourseUnitLevelMapper" type="mapper.PortfolioCourseUnitLevelMapper"/> 
+		<typeAlias alias="PortfolioCourseUnitMapper" type="mapper.PortfolioCourseUnitMapper" /> 
+		<typeAlias alias="QuestionAttributeMapper" type="mapper.QuestionAttributeMapper" />
+		
 	</typeAliases>
 
 
@@ -65,6 +67,6 @@
 		<mapper resource="dao/QuestionAttributeDAO.xml" />
 
 	</mappers>
-  
+
 </configuration>
 
