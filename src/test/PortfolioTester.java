@@ -7,7 +7,7 @@ import static org.mockito.Mockito.*;
 
 public class PortfolioTester {
 
-	Portfolio portfolio;
+	   Portfolio portfolio;
 	   StockService stockService;
 
 	   public static void main(String[] args){
