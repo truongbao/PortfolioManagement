@@ -18,54 +18,48 @@ import entity.ServicePortfolioConfiguration;
 @Controller
 @RequestMapping("admin/portfolio")
 public class AdminIndexPortfolioController {
-	
-	
-	 @RequestMapping("/index")
-	 public String index(ModelMap modelMap) throws IOException{
+
+	@RequestMapping("/index")
+	public String index(ModelMap modelMap) throws IOException {
 		// read config file
-        Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 
-        // open session
-        SqlSession session = sqlSessionFactory.openSession();
+		// open session
+		SqlSession session = sqlSessionFactory.openSession();
 
-        // get listSPConfiguration 
-        List<ServicePortfolioConfiguration> listSPConfiguration = session.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
-       
-        modelMap.addAttribute("listSPConfiguration",listSPConfiguration);
-        
-        // close session
-        session.close();
+		// get listSPConfiguration
+		List<ServicePortfolioConfiguration> listSPConfiguration = session
+				.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
+		modelMap.addAttribute("listSPConfiguration", listSPConfiguration);
+
+		// close session
+		session.close();
 
 		return "admin.portfolio.index";
-	 }
-	 
-	 
-	 //get lại thông tin portfolio khi click button[Update]
-	 @RequestMapping("/index/{refresh}")
-	 public String reload_index(ModelMap modelMap, @PathVariable("refresh") String refresh) throws IOException{
-		 
+	}
+
+	// get lại thông tin portfolio khi click button[Update]
+	@RequestMapping("/index/{refresh}")
+	public String reload_index(ModelMap modelMap, @PathVariable("refresh") String refresh) throws IOException {
+
 		// read config file
-        Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
+		Reader reader = Resources.getResourceAsReader("SqlMapConfig.xml");
+		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
 
-        // open session
-        SqlSession session = sqlSessionFactory.openSession();
+		// open session
+		SqlSession session = sqlSessionFactory.openSession();
 
-        // get listSPConfiguration 
-        List<ServicePortfolioConfiguration> listSPConfiguration = session.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
-       
-        modelMap.addAttribute("listSPConfiguration",listSPConfiguration);
-        
-        // close session
-        session.close();
+		// get listSPConfiguration
+		List<ServicePortfolioConfiguration> listSPConfiguration = session
+				.selectList("ServicePortfolioConfigurationXML.selectAllSPC");
+
+		modelMap.addAttribute("listSPConfiguration", listSPConfiguration);
+
+		// close session
+		session.close();
 
 		return "admin.portfolio.index";
-	 }
-	 
-	 
-	
-	 
-	 
-	
+	}
+
 }
