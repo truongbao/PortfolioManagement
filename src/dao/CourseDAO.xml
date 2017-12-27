@@ -4,47 +4,54 @@
 
 <mapper namespace="CourseXML">
 
-    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
-    
-    <insert id="insertCourse" parameterType="Course" >
-        INSERT INTO courses ( COURSE_NAME,CREATED_AT ) VALUES ( #{course_name}, #{created_at} );
-    </insert>
+	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
+		trong câu lệnh -->
 
-    <update id="updateCourse" parameterType="Course">
-        UPDATE courses SET COURSE_NAME = #{course_name},UPDATED_AT = #{updated_at}  WHERE ID = #{id};
-    </update>
-    
-    <delete id="deleteCourseById" parameterType="int">
-        DELETE from courses WHERE ID = #{id}; 
-    </delete>
-    
-    <select id="selectAllCourse" resultMap="result">
-           SELECT * FROM courses ORDER BY ID DESC;  
-    </select>
-    
-     <select id="selectAllCourseByName" parameterType="Course" resultType="Course">
-           SELECT * FROM courses WHERE  COURSE_NAME LIKE 'T%' ; 
-      </select>
-    
-    <select id="selectCourseById" parameterType="int" resultType="Course">
-        SELECT * FROM courses WHERE ID = #{id};
-    </select>
-    
-    
-    <!-- 
-       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
-        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
-        -không phân biệt chữ hoa, chữ thường
-     -->
-    <resultMap id = "result" type = "Course">
-       <result property = "id" column = "ID"/>
-       <result property = "course_name" column = "COURSE_NAME"/>
-       <result property = "is_deleted" column = "IS_DELETED"/>
-       <result property = "created_at" column = "CREATED_AT"/>
-       <result property = "updated_at" column = "UPDATED_AT"/>
-    </resultMap>
-    
-    
-    
-    
+	<insert id="insertCourse" parameterType="Course">
+		INSERT INTO courses (
+		COURSE_NAME,CREATED_AT ) VALUES ( #{course_name},
+		#{created_at} );
+	</insert>
+
+	<update id="updateCourse" parameterType="Course">
+		UPDATE courses SET
+		COURSE_NAME = #{course_name},UPDATED_AT = #{updated_at}
+		WHERE ID =
+		#{id};
+	</update>
+
+	<delete id="deleteCourseById" parameterType="int">
+		DELETE from courses
+		WHERE ID = #{id};
+	</delete>
+
+	<select id="selectAllCourse" resultMap="result">
+		SELECT * FROM courses
+		ORDER BY ID DESC;
+	</select>
+
+	<select id="selectAllCourseByName" parameterType="String"
+		resultType="Course">
+		SELECT * FROM courses WHERE COURSE_NAME LIKE '#{name}%' ;
+	</select>
+
+	<select id="selectCourseById" parameterType="int" resultType="Course">
+		SELECT * FROM courses WHERE ID = #{id};
+	</select>
+
+
+	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
+		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 
+		phân biệt chữ hoa, chữ thường -->
+	<resultMap id="result" type="Course">
+		<result property="id" column="ID" />
+		<result property="course_name" column="COURSE_NAME" />
+		<result property="is_deleted" column="IS_DELETED" />
+		<result property="created_at" column="CREATED_AT" />
+		<result property="updated_at" column="UPDATED_AT" />
+	</resultMap>
+
+
+
+
 </mapper>
