@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="QuestionAttributeXML">
+<mapper namespace="QuestionAttributeMapper">
 
     <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
     
@@ -22,9 +22,7 @@
            SELECT * FROM question_attributes ORDER BY ID DESC;  
     </select>
     
-     <select id="selectAllQuestionAttributeByName" parameterType="QuestionAttribute" resultType="QuestionAttribute">
-          
-      </select>
+
     
     <select id="selectQuestionAttributeById" parameterType="int" resultType="QuestionAttribute">
         SELECT * FROM question_attributes WHERE ID = #{id};

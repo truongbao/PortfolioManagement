@@ -5,11 +5,11 @@ import java.util.List;
 import entity.PortfolioCourseUnitLevel;
 
 public interface PortfolioCourseUnitLevelMapper {
-	public void insertPortfolioCourseUnitLevel(PortfolioCourseUnitLevel portfolioCourseUnitLevel);
+	public int insertPortfolioCourseUnitLevel(PortfolioCourseUnitLevel portfolioCourseUnitLevel);
 
-	public void updatePortfolioCourseUnitLevel(PortfolioCourseUnitLevel portfolioCourseUnitLevel);
+	public int updatePortfolioCourseUnitLevel(PortfolioCourseUnitLevel portfolioCourseUnitLevel);
 
-	public void deletePortfolioCourseUnitLevelById(int id);
+	public int deletePortfolioCourseUnitLevelById(int id);
 
 	public List<PortfolioCourseUnitLevel> selectAllPortfolioCourseUnitLevel();
 

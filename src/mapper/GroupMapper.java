@@ -6,11 +6,11 @@ import entity.Course;
 import entity.Group;
 
 public interface GroupMapper {
-	public void insertGroup(Group group);
+	public int insertGroup(Group group);
 
-	public void updateGroup(Group group);
+	public int updateGroup(Group group);
 
-	public void deleteGroupById(int id);
+	public int deleteGroupById(int id);
 
 	public List<Group> selectAllGroup();
 

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="ServicePortfolioConfigurationXML">
+<mapper namespace="ServicePortfolioConfigurationMapper">
 
     <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
     
@@ -23,10 +23,6 @@
            SELECT spcf.ID, spcf.NAME, spcf.CREATED_AT, spcf.UPDATED_AT, spcf.AGGREGATION_FINISHED_AT
            FROM service_portfolio_configurations AS spcf WHERE spcf.SERVICE_ID = 3 ORDER BY spcf.ID DESC;  
     </select>
-    
-     <select id="selectAllServicePortfolioConfigurationByName" parameterType="ServicePortfolioConfiguration" resultType="ServicePortfolioConfiguration">
-           SELECT * FROM service_portfolio_configurations WHERE  NAME LIKE 'T%' ; 
-      </select>
     
     <select id="selectServicePortfolioConfigurationById" parameterType="int" resultType="ServicePortfolioConfiguration">
         SELECT * FROM service_portfolio_configurations WHERE ID = #{id};

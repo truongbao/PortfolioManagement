@@ -5,11 +5,11 @@ import java.util.List;
 import entity.GroupSecern;
 
 public interface GroupSecernMapper {
-	public void insertGroupSecern(GroupSecern groupSecern);
+	public int insertGroupSecern(GroupSecern groupSecern);
 
-	public void updateGroupSecern(GroupSecern groupSecern);
+	public int updateGroupSecern(GroupSecern groupSecern);
 
-	public void deleteGroupSecernById(int id);
+	public int deleteGroupSecernById(int id);
 
 	public List<GroupSecern> selectAllGroupSecern();
 
