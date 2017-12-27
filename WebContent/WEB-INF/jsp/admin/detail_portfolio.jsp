@@ -101,7 +101,7 @@
 
                                      <div class="col-md-4 text-center">
                                       <!--  <button class="btn btn-blue-dark btn-w190">Delete</button> </br> </br> -->
-                                         <a href="${pageContext.request.contextPath}/admin/portfolio/delete" class="btn btn-blue-dark btn-w190"> Delete </a> </br></br>
+                                         <a href="${pageContext.request.contextPath}/admin/portfolio/delete" onclick="return confirm('Bạn có chắc chắn muốn xóa !')" class="btn btn-blue-dark btn-w190"> Delete </a> </br></br>
                                      </div> 
                                      <div class="col-md-4 text-center">
                                          <a href="${pageContext.request.contextPath}/admin/portfolio/edit" class="btn btn-blue-dark btn-w190"> Edit </a> </br></br>
