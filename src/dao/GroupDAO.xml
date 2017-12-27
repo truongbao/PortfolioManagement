@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="GroupMapper">
 
+<mapper namespace="GroupMapper">
 	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
 		trong câu lệnh -->
 
@@ -54,8 +54,5 @@
 		<result property="group_secern_name" column="GROUP_SECERN_NAME" />
 
 	</resultMap>
-
-
-
 
 </mapper>
