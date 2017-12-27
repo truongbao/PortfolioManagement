@@ -20,6 +20,9 @@
           <typeAlias alias="PortfolioCourseUnit" type="entity.PortfolioCourseUnit"/>
           <typeAlias alias="QuestionAttribute" type="entity.QuestionAttribute"/>
           
+          
+          <typeAlias alias="ServicePortfolioConfigurationMapper" type="mapper.ServicePortfolioConfigurationMapper"/>
+          
     </typeAliases>
     
     
