@@ -1,4 +1,4 @@
-
+---------------------------Mô tả hương dẫn cho git---------------------------
 -Khi clone code về mọi người chạy thêm mấy dòng lệnh này nữa nhé để không bị lỗi khi push code lên git:
 
 git update-index --assume-unchanged .settings/.jsdtscope
@@ -27,9 +27,13 @@ git checkout name_branch
 
 git commit -m "noi dung commit"
 git push origin name_branch
-
-
-
+---------------------------Mô tả import class Static của mockito để sử dụng nhanh---------------------------
+Window > Preferences > Java > Editor > Content Assist > Favorites chọn newtype, browse
+thêm các class
+org.mockito.BDDMockito
+org.mockito.Mockito
+org.hamcrest.Matchers
+org.hamcrest.CoreMatchers
 
 
 
