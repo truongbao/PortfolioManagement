@@ -7,7 +7,6 @@
 		<!-- chỉ định tên lớp tuyệt đối bằng cách dùng alias để đặt lại tên cho 
 			dễ sử dụng -->
 
-		<typeAlias alias="Cat" type="entity.Cat" />
 		<typeAlias alias="Course" type="entity.Course" />
 		<typeAlias alias="GroupSecern" type="entity.GroupSecern" />
 		<typeAlias alias="Group" type="entity.Group" />
@@ -20,21 +19,6 @@
 		<typeAlias alias="PortfolioCourseUnit" type="entity.PortfolioCourseUnit" />
 		<typeAlias alias="QuestionAttribute" type="entity.QuestionAttribute" />
 
-		<!-- chỉ định đối tượng cần classMapper cần link đến -->
-
-		<typeAlias alias="CourseMapper" type="mapper.CourseMapper" />
-		<typeAlias alias="GroupSecernMapper" type="mapper.GroupSecernMapper" />
-		<typeAlias alias="GroupMapperMapper" type="mapper.GroupMapper" />
-		<typeAlias alias="ServicePortfolioConfigurationMapper" type="mapper.ServicePortfolioConfigurationMapper" />
-		<!-- chưa thấy định nghĩa -->
-		<!-- <typeAlias alias="QuestionStateMapper" type="mapper.QuestionStateMapper" />  -->
-		<typeAlias alias="PortfolioGroupMapper" type="mapper.PortfolioGroupMapper" />
-		<typeAlias alias="ServicePortfolioCourseMapper" type="mapper.ServicePortfolioCourseMapper" /> 
-		<typeAlias alias="PortfolioConfigurationCourseMapper" type="mapper.PortfolioConfigurationCourseMapper" />
-		<typeAlias alias="PortfolioCourseUnitLevelMapper" type="mapper.PortfolioCourseUnitLevelMapper"/> 
-		<typeAlias alias="PortfolioCourseUnitMapper" type="mapper.PortfolioCourseUnitMapper" /> 
-		<typeAlias alias="QuestionAttributeMapper" type="mapper.QuestionAttributeMapper" />
-		
 	</typeAliases>
 
 
@@ -49,12 +33,11 @@
 				<property name="password" value="12345678" />
 			</dataSource>
 		</environment>
-	</environments>
+	</environments> 
 
 
 	<mappers>
-		<mapper resource="dao/CatDAO.xml" />
-
+	
 		<mapper resource="dao/CourseDAO.xml" />
 		<mapper resource="dao/GroupDAO.xml" />
 		<mapper resource="dao/GroupSecernDAO.xml" />

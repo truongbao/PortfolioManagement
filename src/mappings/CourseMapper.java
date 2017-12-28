@@ -1,4 +1,4 @@
-package mapper;
+package mappings;
 
 import java.util.List;
 import entity.Course;

@@ -17,9 +17,9 @@
      <mvc:annotation-driven /> 
      <context:component-scan base-package="controller"/>
      <context:component-scan base-package="dao"/>
+     <context:component-scan base-package="mappings"/>
 
-    <!-- câu hinh spring   .lam theo MVC / scan toi packet nào-->
-    <!-- ... -->
+    <!-- câu hinh spring lam theo MVC / scan toi packet nào-->
     <!-- congig cái view(jsp) -->
     
    <bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
@@ -47,8 +47,7 @@
         <property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
     </bean>
 
-
-
-   
-
+    <bean id="Session" class="utility.Session"></bean>
+    
+  
 </beans>
