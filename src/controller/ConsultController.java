@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import java.io.IOException;
 import java.io.Reader;
@@ -140,7 +140,7 @@ public class ConsultController {
 		 return "anews.anews.add";
 	 }
 	 
-	/* @RequestMapping(value="/add" ,method=RequestMethod.POST) //xu ly form
+	 @RequestMapping(value="/add" ,method=RequestMethod.POST) //xu ly form
 	
 	 public String add(@Valid @ModelAttribute ("objItem") News objNews,BindingResult rs, @RequestParam("picture") CommonsMultipartFile  cmf ,
 			     HttpServletRequest request){
@@ -198,10 +198,11 @@ public class ConsultController {
 		 
 		 
 		 return "anews.anews.add";
-	 }*/
+	 }
 	 
 	 
 	 
 	
 	
 }
+*/

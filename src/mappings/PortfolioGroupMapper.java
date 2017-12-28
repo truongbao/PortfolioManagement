@@ -1,4 +1,4 @@
-package mapper;
+package mappings;
 
 public interface PortfolioGroupMapper {
 
