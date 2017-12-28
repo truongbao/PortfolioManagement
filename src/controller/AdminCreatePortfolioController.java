@@ -53,7 +53,7 @@ public class AdminCreatePortfolioController {
 	}
 
 	// Processing create
-	@RequestMapping(value = "/create", method = RequestMethod.POST)
+	@RequestMapping(value = "/deleted", method = RequestMethod.POST)
 	public String processing_create(ModelMap modelMap, @ModelAttribute("objPG") PortfolioGroup objPG) {
 
 		return "admin.portfolio.create";
