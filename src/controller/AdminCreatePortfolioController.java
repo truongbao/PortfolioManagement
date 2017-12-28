@@ -20,7 +20,7 @@ import entity.GroupSecern;
 import entity.GroupSecern_ShowGroup;
 import entity.PortfolioGroup;
 import entity.ServicePortfolioConfiguration;
-import mapper.GroupSecernMapper;
+import mappings.GroupSecernMapper;
 
 @Controller
 @RequestMapping("admin/portfolio")
