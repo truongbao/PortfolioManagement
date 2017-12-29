@@ -6,7 +6,7 @@
 
     <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
 
-    <update id="updateQuestionState" parameterType="QuestionState">
+    <update id="updateQuestionState" parameterType="UpdateQuestionState">
         UPDATE update_question_states SET STATE = #{state} WHERE ID = #{id} AND SERVICE_ID = 2 ;
     </update>
     
@@ -15,7 +15,7 @@
         từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
         -không phân biệt chữ hoa, chữ thường
      -->
-    <resultMap id = "result" type = "QuestionState">
+    <resultMap id = "result" type = "UpdateQuestionState">
        <result property = "id" column = "ID"/>
        <result property = "service_id" column = "SERVICE_ID"/>
        <result property = "state" column = "STATE"/>
