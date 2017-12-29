@@ -11,7 +11,7 @@
 		<typeAlias alias="GroupSecern" type="entity.GroupSecern" />
 		<typeAlias alias="Group" type="entity.Group" />
 		<typeAlias alias="ServicePortfolioConfiguration" type="entity.ServicePortfolioConfiguration" />
-		<typeAlias alias="QuestionState" type="entity.QuestionState" />
+		<typeAlias alias="UpdateQuestionState" type="entity.UpdateQuestionState" />
 		<typeAlias alias="PortfolioGroup" type="entity.PortfolioGroup" />
 		<typeAlias alias="ServicePortfolioCourse" type="entity.ServicePortfolioCourse" />
 		<typeAlias alias="PortfolioConfigurationCourse" type="entity.PortfolioConfigurationCourse" />

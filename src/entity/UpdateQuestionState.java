@@ -2,7 +2,7 @@ package entity;
 
 import java.sql.Timestamp;
 
-public class QuestionState { // Table update_question_states 
+public class UpdateQuestionState { // Table update_question_states 
 	
 	private int id;
 	private int service_id;
@@ -11,11 +11,11 @@ public class QuestionState { // Table update_question_states
 	private Timestamp created_at;
 	private Timestamp updated_at;
 	
-	public QuestionState() {
+	public UpdateQuestionState() {
 		super();
 	}
 
-	public QuestionState(int id, int service_id, String state, int is_deleted,
+	public UpdateQuestionState(int id, int service_id, String state, int is_deleted,
 			Timestamp created_at, Timestamp updated_at) {
 		super();
 		this.id = id;
