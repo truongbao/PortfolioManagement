@@ -5,10 +5,22 @@
 <mapper namespace="mappings.UpdateQuestionStateMapper">
 
     <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
-
+    <!--  
+          + parameterType="UpdateQuestionState" ở đây ta sẽ truyền vào đối tượng hoặc String đều dc , nếu truyền vào đối tượng thì nó sẽ tự map thuộc
+            tính state của đối tượng ứng vs #{state}
+          + resultType là kiểu dữ liệu của kết quả trả về sau khi select thành công
+     -->
+     
+    <select id="selectObjectUQSByState"  resultType="UpdateQuestionState">
+       SELECT * FROM update_question_states WHERE SERVICE_ID = 3 and IS_DELETED = 0  ORDER BY UPDATED_AT DESC LIMIT 1 ;
+    </select>
+    
+    
     <update id="updateQuestionState" parameterType="UpdateQuestionState">
         UPDATE update_question_states SET STATE = #{state} WHERE ID = #{id} AND SERVICE_ID = 2 ;
     </update>
+    
+    
     
     <!-- 
        +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 

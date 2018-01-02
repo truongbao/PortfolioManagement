@@ -48,6 +48,7 @@
 		<mapper resource="dao/UpdateQuestionStateDAO.xml" />
 		<mapper resource="dao/PortfolioCourseUnitLevelDAO.xml" />
 		<mapper resource="dao/QuestionAttributeDAO.xml" />
+		<mapper resource="dao/PortfolioCourseUnitDAO.xml" />
 
 	</mappers>
 
