@@ -27,7 +27,9 @@
         SELECT * FROM portfolio_course_unit_levels WHERE ID = #{id};
     </select>
     
-    
+      <select id="selectPortfolioCourseUnitLevelBySPCourseId" parameterType="int" resultType="PortfolioCourseUnitLevel">
+        SELECT * FROM portfolio_course_unit_levels WHERE service_portfolio_course_id = #{id};
+    </select>
     <!-- 
        +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
         từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).

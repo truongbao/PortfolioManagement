@@ -12,7 +12,7 @@ public class LibraryConstant {
 	public final static String IS_COMPLETING = "is_completing" ; //Dang hoan thanh
 	public final static String STATISTICAL_COMPLETED = "statistical_completed" ;//Da hoan thanh thong ke
 	
-	
+	public final static int SERVER_ID = 3;
 	
 	
 	

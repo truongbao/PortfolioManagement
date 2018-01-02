@@ -4,53 +4,57 @@
 
 <mapper namespace="mappings.PortfolioCourseUnitMapper">
 
-    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
-    
-    <insert id="insertPortfolioCourseUnit" parameterType="PortfolioCourseUnit" >
-       
-    </insert>
+	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
+		trong câu lệnh -->
 
-    <update id="updatePortfolioCourseUnit" parameterType="PortfolioCourseUnit">
-      
-      
-    </update>
-    
-    <delete id="deletePortfolioCourseUnitById" parameterType="int">
-        DELETE from portfolio_course_units WHERE ID = #{id}; 
-    </delete>
-    
-    <select id="selectAllPortfolioCourseUnit" resultMap="result">
-           SELECT * FROM portfolio_course_units ORDER BY ID DESC;  
-    </select>
-    
-    
-    <select id="selectPortfolioCourseUnitById" parameterType="int" resultType="PortfolioCourseUnit">
-        SELECT * FROM portfolio_course_units WHERE ID = #{id};
-    </select>
-    
-    
-    <!-- 
-       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
-        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
-        -không phân biệt chữ hoa, chữ thường
-     -->
-    <resultMap id = "result" type = "PortfolioCourseUnit">
-    
-       <result property = "id" column = "ID"/>
-       <result property = "portfolio_course_unit_level_id" column = "PORTFOLIO_COURSE_UNIT_LEVEL_ID"/>
-       <result property = "sort_id" column = "SORT_ID"/>
-       <result property = "question_attribute_id" column = "QUESTION_ATTRIBUTE_ID"/>
-       <result property = "is_deleted" column = "IS_DELETED"/>
-       <result property = "created_at" column = "CREATED_AT"/>
-       <result property = "updated_at" column = "UPDATED_AT"/>
-       <result property = "service_portfolio_course_id" column = "SERVICE_PORTFOLIO_COURSE_ID"/>
-       <result property = "level" column = "LEVEL"/>
-       <result property = "question_attribute_name" column = "QUESTION_ATTRIBUTE_NAME"/>
-       
-       
-    </resultMap>
-    
-    
-    
-    
+	<insert id="insertPortfolioCourseUnit" parameterType="PortfolioCourseUnit">
+		DELETE from portfolio_course_units WHERE ID = #{id};
+	</insert>
+
+	<update id="updatePortfolioCourseUnit" parameterType="PortfolioCourseUnit">
+		DELETE from portfolio_course_units WHERE ID = #{id};
+	</update>
+
+	<delete id="deletePortfolioCourseUnitById" parameterType="int">
+		DELETE from portfolio_course_units WHERE ID = #{id};
+	</delete>
+
+	<select id="selectAllPortfolioCourseUnit" resultMap="result">
+		SELECT * FROM portfolio_course_units ORDER BY ID DESC;
+	</select>
+
+
+	<select id="selectPortfolioCourseUnitById" parameterType="int"
+		resultType="PortfolioCourseUnit">
+		SELECT * FROM portfolio_course_units WHERE ID = #{id};
+	</select>
+
+	<select id="selectPortfolioCourseUnitByPCULId" parameterType="int"
+		resultType="PortfolioCourseUnit">
+		SELECT * FROM portfolio_course_units WHERE portfolio_course_unit_level_id =
+		#{id};
+	</select>
+
+	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
+		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 
+		phân biệt chữ hoa, chữ thường -->
+	<resultMap id="result" type="PortfolioCourseUnit">
+
+		<result property="id" column="ID" />
+		<result property="portfolio_course_unit_level_id" column="PORTFOLIO_COURSE_UNIT_LEVEL_ID" />
+		<result property="sort_id" column="SORT_ID" />
+		<result property="question_attribute_id" column="QUESTION_ATTRIBUTE_ID" />
+		<result property="is_deleted" column="IS_DELETED" />
+		<result property="created_at" column="CREATED_AT" />
+		<result property="updated_at" column="UPDATED_AT" />
+		<result property="service_portfolio_course_id" column="SERVICE_PORTFOLIO_COURSE_ID" />
+		<result property="level" column="LEVEL" />
+		<result property="question_attribute_name" column="QUESTION_ATTRIBUTE_NAME" />
+
+
+	</resultMap>
+
+
+
+
 </mapper>

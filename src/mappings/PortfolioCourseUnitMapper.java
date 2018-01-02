@@ -13,6 +13,8 @@ public interface PortfolioCourseUnitMapper {
 
 	public List<PortfolioCourseUnit> selectAllPortfolioCourseUnit();
 
-	public List<PortfolioCourseUnit> selectPortfolioCourseUnitById(int id);
+	public PortfolioCourseUnit selectPortfolioCourseUnitById(int id);
+
+	public List<PortfolioCourseUnit> selectPortfolioCourseUnitByPCULId(int id);
 
 }
