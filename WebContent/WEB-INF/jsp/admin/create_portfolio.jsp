@@ -57,7 +57,14 @@
 						</c:forEach>
 					</select>
 				</div>
+				<div class="col-sm-3 loading" style="display: none">
+					<div class="center">
+						<img alt="loader.gif"
+							src="${pageContext.request.contextPath}/templates/admin/images/loader.gif" />
+					</div>
+				</div>
 			</div>
+			<!-- xử dụng khi load dữ liệu -->
 
 			<div id="CourseForm"></div>
 			<div class="btn-management">

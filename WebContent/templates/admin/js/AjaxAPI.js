@@ -26,10 +26,20 @@ function searchAjax(courseList) {
   // prefixProcess get list_course: input-> ajax
   var list_course_object = prefixProcess(courseList);
   // gọi ajax gửi đên API để lấy thông tin các course
-  $.ajax({
+  $.ajaxSetup({
     type: "POST",
     contentType: "application/json",
-    url: "/PortfolioManagement/showListCouses",
+    url: "/PortfolioManagement-test/showListCouses",
+    beforeSend: function () {
+      console.log("here");
+      $(".loading ").show();
+    },
+    complete: function () {
+      $(".loading ").hide();
+    }
+  });
+  $.ajax({
+
     data: JSON.stringify(list_course_object),
     dataType: 'json',
     timeout: 100000,
@@ -50,7 +60,7 @@ function loadCourseList(data) {
   var element = document.getElementById("CourseForm");
   element.innerHTML = "";
   courseList = data.courses;
-  console.log(JSON.stringify(courseList));
+  // console.log(JSON.stringify(courseList));
   courseList.forEach(one_course => {
     //tạo 1 row
     var div_one_course = document.createElement('div');
