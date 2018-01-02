@@ -41,6 +41,7 @@ public class AdminCreatePortfolioController {
 
 		for (GroupSecern groupSecern : listGroupSecern) {
 			List<Group> groupList = groupDao.selectGroupByGroupSecernId(groupSecern.getId());
+			groupList.add(0, new Group(-1, "Chưa thiết lập"));
 			groupSecern.setGroups(groupList);
 		}
 		modelMap.addAttribute("listGroupSecern", listGroupSecern);
