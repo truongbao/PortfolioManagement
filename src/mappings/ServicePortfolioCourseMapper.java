@@ -14,4 +14,6 @@ public interface ServicePortfolioCourseMapper {
 	public List<ServicePortfolioCourse> selectAllServicePortfolioCourse();
 
 	public ServicePortfolioCourse selectServicePortfolioCourseById(int id);
+
+	public List<ServicePortfolioCourse> selectServicePortfolioCourseByCourseId(int id);
 }

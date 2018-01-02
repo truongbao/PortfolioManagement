@@ -14,5 +14,7 @@ public interface CourseMapper {
 
 	public List<Course> selectAllCourseByName(String name);
 
+	public List<Course> selectCourseByServerId(int id);
+
 	public Course selectCourseById(int id);
 }

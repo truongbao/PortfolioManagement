@@ -14,4 +14,6 @@ public interface PortfolioCourseUnitLevelMapper {
 	public List<PortfolioCourseUnitLevel> selectAllPortfolioCourseUnitLevel();
 
 	public List<PortfolioCourseUnitLevel> selectPortfolioCourseUnitLevelById(int id);
+
+	public List<PortfolioCourseUnitLevel> selectPortfolioCourseUnitLevelBySPCourseId(int id);
 }

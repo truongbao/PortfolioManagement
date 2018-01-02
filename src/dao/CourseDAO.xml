@@ -34,7 +34,12 @@
 		resultType="Course">
 		SELECT * FROM courses WHERE COURSE_NAME LIKE '#{name}%' ;
 	</select>
-
+	
+	<select id="selectCourseByServerId" parameterType="int" resultType="Course">
+	SELECT courses.* FROM courses join service_portfolio_courses on service_portfolio_courses.course_id=courses.id 
+	WHERE service_portfolio_courses.service_id=#{id};
+	</select>
+	
 	<select id="selectCourseById" parameterType="int" resultType="Course">
 		SELECT * FROM courses WHERE ID = #{id};
 	</select>

@@ -29,67 +29,37 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${listGroup_ShowGroup}" var="objlist">
+							<c:forEach items="${listGroupSecern}" var="objlist">
 								<tr>
 									<td class="group_height td_69">
 										${objlist.group_secern_name}</td>
-									<td class="group_height group_list">
-										<select name="group_id[]" class="custom_select">
-												<c:forEach items="${objlist.group_list}"
-													var="objgroup">
-													<option value="${objgroup.id}">${objgroup.group_name}</option>
-												</c:forEach>
-										</select>
-									</td>
+									<td class="group_height group_list"><select
+										name="group_id[]" class="custom_select">
+											<c:forEach items="${objlist.groups}" var="objgroup">
+												<option value="${objgroup.id}">${objgroup.group_name}</option>
+											</c:forEach>
+									</select></td>
 								</tr>
-
 							</c:forEach>
-
-							<!-- <tr>
-                                                            <td class="group_height td_69">クラス</td> 1 group_secern_name
-                                                            <td class="group_height group_list">    
-                                                                    <select name="group_id[]" class="custom_select">
-                                                                        <option value="january" rel="icon-temperature">クラス</option>
-                                                                        <option value="hide">学生</option> 
-                                                                        <option value="february">志望分野</option>
-                                                                        <option value="march">大学種別</option>
-                                                                    </select> 
-                                                            </td>
-                                                    </tr>
-                                                    <tr>
-                                                            <td class="group_height td_69">クラス</td>
-                                                            <td class="group_height group_list">    
-                                                                    <select name="group_id[]" class="custom_select">
-                                                                        <option value="january" rel="icon-temperature">クラス</option>
-                                                                        <option value="hide" >学生</option> 
-                                                                        <option value="february">志望分野</option>
-                                                                        <option value="march">大学種別</option>
-                                                                    </select> 
-                                                            </td>
-                                                    </tr>                       -->
 						</tbody>
 					</table>
 				</div>
 			</div>
 
-
-
 			<div class="form-group">
 				<label class="control-label col-sm-2 label_69">対象科目</label>
 				<div class="col-sm-3 list_course">
+
 					<select id="course_selected" multiple="multiple"
 						class="form-control">
-						<option value="1">コースA</option>
-						<option value="2">コースB</option>
-						<option value="3">コースC</option>
-						<option value="4">コースD</option>
+						<c:forEach items="${listCourse}" var="objCourse">
+							<option value="${objCourse.id}">${objCourse.course_name}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
 
 			<div id="CourseForm"></div>
-
-
 			<div class="btn-management">
 				<button class="btn btn-blue-dark btn-w190">作成</button>
 				<!-- Tao -->
