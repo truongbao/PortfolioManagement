@@ -13,34 +13,52 @@
 						 <div class="form-group">     
 						
                             <div class="csv-setting-bao">
-                                <div class="alert alert-danger" >
-                                    <div class="block-error">
-                                        <i class="fa fa-exclamation" aria-hidden="true"></i>
-                                        <label> メッセージ </label> <!-- thong bao -->
-                                    </div>
-                                </div>
+                            
+                              <c:choose>
+                                  <c:when test="${objUQS !=null && objUQS.state == 'booking' }">
+		                                <div class="alert alert-danger" >
+		                                    <div class="block-error">
+		                                          <i class="fa fa-exclamation" aria-hidden="true"></i>
+		                                          <label>  Là trạng thái update booking. Hãy chờ 1 lát... </label> <!-- thong bao -->
+		                                    </div>
+		                                </div>
+                                </c:when>
+                                <c:otherwise>
+                                      <c:if test="${objUQS !=null && objUQS.state == 'is_executing' }">
+                                           <div class="alert alert-danger" >
+		                                      <div class="block-error">
+		                                          <i class="fa fa-exclamation" aria-hidden="true"></i>
+		                                          <label> Đang thực thi.Vui lòng chờ một lát... </label> <!-- thong bao -->
+		                                      </div>
+		                                  </div>
+                                      </c:if>
+                                </c:otherwise>
+                              </c:choose>
+                                
 								
 								<div class="row">
 								     <div class="col-md-3"> </div>
 								   
 								     <div class="col-md-3 text-center">
                                       <!--<button class="btn btn-blue-dark btn-csv "> 問 題 情 報 更 新  </button> </br> </br>-->
-                                       <a href="${pageContext.request.contextPath}/admin/portfolio/update-exercise-information" class="btn btn-blue-dark btn-csv"> 問 題 情 報 更 新  </a> </br> </br> <!-- Update thông tin bài tập -->
+                                       <a href="${pageContext.request.contextPath}/admin/portfolio/update-exercise-information" class="btn btn-blue-dark btn-csv"> 問 題 情 報 更 新 </a> </br> </br> <!-- Update thông tin bài tập -->
 								     </div>
 								     
 									 <div class="col-md-3 text-center"> 
 									    <c:set var="refresh" value="refresh-infomation"></c:set>
-								        <a href=" ${pageContext.request.contextPath}/admin/portfolio/index/${refresh}" class="btn btn-blue-dark btn-csv"> 更 新  </a> </br> </br> <!-- Update -->
+								        <a href=" ${pageContext.request.contextPath}/admin/portfolio/index/${refresh}" class="btn btn-blue-dark btn-csv"> 更 新 </a> </br> </br> <!-- Update -->
 								     </div>
 								    
 								     <div class="col-md-3"> </div>
 								</div> 
 								 
-								 
-								<div class="row">
-								   <h4 class="h4_bao" style="text-align:center;">問題情報更新日時 : 2017.12.12 12:12:12</h4>
-								</div>  
-							
+								<fmt:formatDate var="fmtDateUpdate" value="${objUQS.updated_at}" pattern="yyyy.MM.dd hh:mm:ss" />
+								<c:if test="${objUQS !=null && objUQS.state == 'finished' }">
+								   <div class="row">
+								        <h4 class="h4_bao" style="text-align:center;">問題情報更新日時 : ${fmtDateUpdate}</h4>
+								  </div>  
+							    </c:if>
+							    
 							   <div class="table-responsive">
 							   
                                 <table class="table table-blue table_portfolio_groups">
