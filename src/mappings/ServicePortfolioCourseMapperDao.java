@@ -20,4 +20,21 @@ public class ServicePortfolioCourseMapperDao {
 		return listSPConfiguration;
 	}
 
+	public List<ServicePortfolioCourse> selectAllServicePortfolioCourse() throws IOException {
+		ServicePortfolioCourseMapper configurationMapper = Session.session()
+				.getMapper(ServicePortfolioCourseMapper.class);
+
+		List<ServicePortfolioCourse> listSPConfiguration = configurationMapper.selectAllServicePortfolioCourse();
+
+		return listSPConfiguration;
+	}
+
+	public ServicePortfolioCourse selectServicePortfolioCourseById(int id) throws IOException {
+		ServicePortfolioCourseMapper configurationMapper = Session.session()
+				.getMapper(ServicePortfolioCourseMapper.class);
+
+		ServicePortfolioCourse spc = configurationMapper.selectServicePortfolioCourseById(id);
+
+		return spc;
+	}
 }

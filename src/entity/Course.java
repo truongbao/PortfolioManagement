@@ -10,27 +10,6 @@ public class Course {
 	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
-	// list này thể hiện mối quan hệ 1-n của course-ServicePortfolioCourse
-	private List<PortfolioCourseUnitLevel> level_list;
-	
-	public List<PortfolioCourseUnitLevel> getLevel_list() {
-		return level_list;
-	}
-
-	public void setLevel_list(List<PortfolioCourseUnitLevel> level_list) {
-		this.level_list = level_list;
-	}
-
-	public Course(int id, String course_name, int is_deleted, Timestamp created_at, Timestamp updated_at,
-			List<PortfolioCourseUnitLevel> level_list) {
-		super();
-		this.id = id;
-		this.course_name = course_name;
-		this.is_deleted = is_deleted;
-		this.created_at = created_at;
-		this.updated_at = updated_at;
-		this.level_list = level_list;
-	}
 
 	public Course() {
 		super();

@@ -52,10 +52,10 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2 label_69">対象科目</label>
 				<div class="col-sm-3 list_course">
-					<select id="course_selected" multiple="multiple"
+					<select id="SP_Course_Selected" multiple="multiple"
 						class="form-control">
 						<c:forEach items="${listCourse}" var="objCourse">
-							<option value="${objCourse.id}">${objCourse.course_name}</option>
+							<option value="${objCourse.mid}">${objCourse.course_name}</option>
 						</c:forEach>
 					</select>
 				</div>
@@ -68,7 +68,7 @@
 			</div>
 			<!-- xử dụng khi load dữ liệu -->
 
-			<div id="CourseForm"></div>
+			<div id="SPCourseForm"></div>
 			<div class="btn-management">
 				<button class="btn btn-blue-dark btn-w190">作成</button>
 				<!-- Tao -->

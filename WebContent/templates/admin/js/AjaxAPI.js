@@ -1,45 +1,45 @@
 // json mẫu nhận được khi ajax gửi request yêu cầu dữ liệu courses từ server xem ở trang dưới 
-// http://jsoneditoronline.org/?id=6ae475cf65d713fafc1c23755719eacd
+// http://jsoneditoronline.org/?id=8bc76a7b412279a8d1ad2e7c35ee85d2
 
 // đối tượng gửi về RESTAIP
-function CourseWrapper() {
-  var courses = [];
+function ServicePortfolioCourseWrapper() {
+  var spcourses = [];
 }
 
 $(document).ready(function () {
-	  $('#course_selected').change(function () {
-	    // sự kiện thay đổi multipe select course xảy ra
-	    course_change();
+	  $('#SP_Course_Selected').change(function () {
+	    // sự kiện thay đổi multipe select ServicePortfolioCourse xảy ra
+	    spcs_change();
 	  });
 	});
 
 // xử lý điều kiện và tạo đối tượng trước ghi gửi về RESTAPI
-function prefixProcess(courseList) {
+function prefixProcess(spcList) {
   // convert array to object
   var listCourseObject = [];
-  var course_wrapper = new CourseWrapper();
+  var spcWrap = new ServicePortfolioCourseWrapper();
   // check for null
-  if (courseList) {
-    var courses = [];
-    courseList.forEach(one_course_id => {
-      var one_course_object = {};
-      one_course_object.id = one_course_id;
-      courses.push(one_course_object);
+  if (spcList) {
+    var spcs = [];
+    spcList.forEach(one_course_id => {
+      var one_sp_course_object = {};
+      one_sp_course_object.id = one_course_id;
+      spcs.push(one_sp_course_object);
     });
-    course_wrapper.courses = courses;
+    spcWrap.spcourses = spcs;
   }
-  return course_wrapper;
+  return spcWrap;
 }
 
-function searchAjax(courseList) {
+function searchAjax(spcList) {
 
   // prefixProcess get list_course: input-> ajax
-  var list_course_object = prefixProcess(courseList);
+  var spc_object = prefixProcess(spcList);
   // gọi ajax gửi đên API để lấy thông tin các course
   $.ajaxSetup({
     type: "POST",
     contentType: "application/json",
-    url: "/PortfolioManagement-test/showListCouses",
+    url: "/PortfolioManagement/showListCouses",
     beforeSend: function () {
       $(".loading ").show();
     },
@@ -48,12 +48,11 @@ function searchAjax(courseList) {
     }
   });
   $.ajax({
-
-    data: JSON.stringify(list_course_object),
+    data: JSON.stringify(spc_object),
     dataType: 'json',
     timeout: 100000,
     success: function (data) {
-      loadCourseList(data);
+      loadInfoFromSPC(data);
     },
     error: function (e) {
       console.log("ERROR: ", e);
@@ -63,33 +62,33 @@ function searchAjax(courseList) {
     }
   });
 }
-// courseList dùng chung
-var courseList;
-function loadCourseList(data) {
-  var element = document.getElementById("CourseForm");
+// spcList dùng chung
+var spcList;
+function loadInfoFromSPC(data) {
+  var element = document.getElementById("SPCourseForm");
   element.innerHTML = "";
-  courseList = data.courses;
-  // console.log(JSON.stringify(courseList));
+  spcList = data.spcourses;
+  // console.log(JSON.stringify(spcList));
   var index=0;
-  courseList.forEach(one_course => {
+  spcList.forEach(one_sp_course => {
 	 // đối tượng level_list chứa thông tin về các level của 1 course
 	 // đồng thời mỗi level sẽ có danh sách những attribute riêng
-	 var level_list = one_course.level_list;
+	 var level_list = one_sp_course.level_list;
 	  
     // tạo 1 row
-    var div_one_course = document.createElement('div');
-    div_one_course.id = "one_course";
-    div_one_course.className = "row";
+    var div_one_sp_course = document.createElement('div');
+    div_one_sp_course.id = "one_sp_course";
+    div_one_sp_course.className = "row";
 
     // tiêu đề course
     var h1_course_name = document.createElement('h1');
     h1_course_name.className = "one_course_name";
-    h1_course_name.innerHTML = one_course.course_name;
-    div_one_course.appendChild(h1_course_name);
+    h1_course_name.innerHTML = one_sp_course.course_name;
+    div_one_sp_course.appendChild(h1_course_name);
 
     var div_form_group = document.createElement('div');
     div_form_group.className = "form-group";
-    div_one_course.appendChild(div_form_group);
+    div_one_sp_course.appendChild(div_form_group);
 
     // create label course name
     var label_lv = document.createElement('label');
@@ -107,8 +106,8 @@ function loadCourseList(data) {
     
     var input = document.createElement("input");
     input.type="hidden";
-    input.name= "pccs["+ index +"].service_portfolio_course_id";
-    input.value= level_list[0].portfolio_course_unit_level_id ;
+    input.name= "pccs["+ index +"].id	";
+    input.value=  one_sp_course.id;
     
     
     var select_custom = document.createElement('select');
@@ -120,8 +119,8 @@ function loadCourseList(data) {
   
     var option_lv_size = level_list.length;
 
-    select_custom.setAttribute("onchange", 'list_lv_change(this,' + one_course.id + ');');
-    select_custom.setAttribute("from_course_id", one_course.id);
+    select_custom.setAttribute("onchange", 'list_lv_change(this,' + one_sp_course.id + ');');
+    select_custom.setAttribute("from_course_id", one_sp_course.id);
     
     // create option inside select level
     level_list.forEach(one_level => {
@@ -133,7 +132,7 @@ function loadCourseList(data) {
 
     var div_form_group_attribute = document.createElement('div');
     div_form_group_attribute.className = "form-group";
-    div_one_course.appendChild(div_form_group_attribute);
+    div_one_sp_course.appendChild(div_form_group_attribute);
 
     var label_lv_attribute = document.createElement('label');
     label_lv_attribute.className = "control-label col-sm-2 col-sm-offset-2 label_69";
@@ -146,7 +145,7 @@ function loadCourseList(data) {
     div_form_group_attribute.appendChild(div_form_group_attribute_right);
     var ul_form_group_attribute_right = document.createElement('ul');
     ul_form_group_attribute_right.className = "patern_list ";
-    ul_form_group_attribute_right.id = "question_attribute_list_from_course_" + one_course.id;
+    ul_form_group_attribute_right.id = "question_attribute_list_from_course_" + one_sp_course.id;
     div_form_group_attribute_right.appendChild(ul_form_group_attribute_right);
 
     var current_lv_option = level_list[0].level_id;
@@ -158,26 +157,26 @@ function loadCourseList(data) {
       one_question.innerHTML = each_question_attibute_list.question_attribute_name;
       ul_form_group_attribute_right.appendChild(one_question);
     });
-    element.appendChild(div_one_course);
+    element.appendChild(div_one_sp_course);
   });
 }
 
+//ServicePortfolioCourse event change listener
+function spcs_change() {
 
-function course_change() {
-
-  var courseListSelected = $('#course_selected').val();
+  var spclistSelected = $('#SP_Course_Selected').val();
   // check for null
-  if (courseListSelected) {
+  if (spclistSelected) {
     var data = {};
     // prefixProcess get list_course: input-> ajax
-    var list_course_object = prefixProcess(courseListSelected);
-    var element = document.getElementById("CourseForm");
+    var spc_object = prefixProcess(spclistSelected);
+    var element = document.getElementById("SPCourseForm");
     element.innerHTML = "";
-    if (courseListSelected.length > 8) {
+    if (spclistSelected.length > 8) {
       alert("");
     }
     else {
-      searchAjax(courseListSelected);
+      searchAjax(spclistSelected);
     }
   }
 }
@@ -186,11 +185,11 @@ function course_change() {
 function list_lv_change(this_selected_lv, course_id) {
 
   var lv_selected = this_selected_lv.options[this_selected_lv.selectedIndex].value;
-  courseList.forEach(one_course => {
-    if (one_course.id == course_id) {
+  spcList.forEach(one_sp_course => {
+    if (one_sp_course.id == course_id) {
       var list_question = document.getElementById('question_attribute_list_from_course_' + course_id);
       list_question.innerHTML = "";
-      var level_list = one_course.level_list;
+      var level_list = one_sp_course.level_list;
       level_list.forEach(one_level => {
         if (one_level.level == lv_selected) {
           var question_attribute_list = one_level.question_attribute_list;
