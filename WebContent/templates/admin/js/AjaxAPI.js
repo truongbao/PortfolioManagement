@@ -1,7 +1,17 @@
+// json mẫu nhận được khi ajax gửi request yêu cầu dữ liệu courses từ server xem ở trang dưới 
+// http://jsoneditoronline.org/?id=6ae475cf65d713fafc1c23755719eacd
+
 // đối tượng gửi về RESTAIP
 function CourseWrapper() {
   var courses = [];
 }
+
+$(document).ready(function () {
+	  $('#course_selected').change(function () {
+	    // sự kiện thay đổi multipe select course xảy ra
+	    course_change();
+	  });
+	});
 
 // xử lý điều kiện và tạo đối tượng trước ghi gửi về RESTAPI
 function prefixProcess(courseList) {
@@ -31,7 +41,6 @@ function searchAjax(courseList) {
     contentType: "application/json",
     url: "/PortfolioManagement-test/showListCouses",
     beforeSend: function () {
-      console.log("here");
       $(".loading ").show();
     },
     complete: function () {
@@ -61,8 +70,13 @@ function loadCourseList(data) {
   element.innerHTML = "";
   courseList = data.courses;
   // console.log(JSON.stringify(courseList));
+  var index=0;
   courseList.forEach(one_course => {
-    //tạo 1 row
+	 // đối tượng level_list chứa thông tin về các level của 1 course
+	 // đồng thời mỗi level sẽ có danh sách những attribute riêng
+	 var level_list = one_course.level_list;
+	  
+    // tạo 1 row
     var div_one_course = document.createElement('div');
     div_one_course.id = "one_course";
     div_one_course.className = "row";
@@ -86,22 +100,30 @@ function loadCourseList(data) {
     div_right_select_lv.className = "col-sm-4";
     div_form_group.appendChild(div_right_select_lv);
 
-    //create select Level
+    // create select Level
     var div_right_select_custom = document.createElement('div');
     div_right_select_custom.className = "level_list";
     div_right_select_lv.appendChild(div_right_select_custom);
-
+    
+    var input = document.createElement("input");
+    input.type="hidden";
+    input.name= "pccs["+ index +"].service_portfolio_course_id";
+    input.value= level_list[0].portfolio_course_unit_level_id ;
+    
+    
     var select_custom = document.createElement('select');
     select_custom.className = "custom_select_level";
+    select_custom.name="pccs["+ index +"].level";
+    index++;
     div_right_select_custom.appendChild(select_custom);
-
-    var level_list = one_course.level_list;
+    div_right_select_custom.appendChild(input);
+  
     var option_lv_size = level_list.length;
 
     select_custom.setAttribute("onchange", 'list_lv_change(this,' + one_course.id + ');');
     select_custom.setAttribute("from_course_id", one_course.id);
-
-    //create option inside select level
+    
+    // create option inside select level
     level_list.forEach(one_level => {
       var option = document.createElement("option");
       option.value = one_level.level;
@@ -129,7 +151,7 @@ function loadCourseList(data) {
 
     var current_lv_option = level_list[0].level_id;
     var question_attribute_list = level_list[0].question_attribute_list;
-    //create question attribute of one_level_selected
+    // create question attribute of one_level_selected
     question_attribute_list.forEach(each_question_attibute_list => {
       var one_question = document.createElement('li');
       one_question.value = each_question_attibute_list.question_attribute_name;
@@ -159,12 +181,6 @@ function course_change() {
     }
   }
 }
-$(document).ready(function () {
-  $('#course_selected').change(function () {
-    // sự kiện thay đổi multipe select course xảy ra
-    course_change();
-  });
-});
 
 
 function list_lv_change(this_selected_lv, course_id) {

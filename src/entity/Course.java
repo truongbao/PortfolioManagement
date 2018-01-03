@@ -12,7 +12,7 @@ public class Course {
 	private Timestamp updated_at;
 	// list này thể hiện mối quan hệ 1-n của course-ServicePortfolioCourse
 	private List<PortfolioCourseUnitLevel> level_list;
-
+	
 	public List<PortfolioCourseUnitLevel> getLevel_list() {
 		return level_list;
 	}

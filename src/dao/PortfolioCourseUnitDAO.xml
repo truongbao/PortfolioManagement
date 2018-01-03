@@ -8,11 +8,11 @@
 		trong câu lệnh -->
 
 	<insert id="insertPortfolioCourseUnit" parameterType="PortfolioCourseUnit">
-		DELETE from portfolio_course_units WHERE ID = #{id};
+	
 	</insert>
 
 	<update id="updatePortfolioCourseUnit" parameterType="PortfolioCourseUnit">
-		DELETE from portfolio_course_units WHERE ID = #{id};
+		
 	</update>
 
 	<delete id="deletePortfolioCourseUnitById" parameterType="int">

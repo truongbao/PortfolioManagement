@@ -6,7 +6,6 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import entity.Course;
-import entity.Group;
 import utility.Session;
 
 @Repository

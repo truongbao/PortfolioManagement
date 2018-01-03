@@ -2,7 +2,6 @@ package mappings;
 
 import java.util.List;
 
-import entity.Course;
 import entity.Group;
 
 public interface GroupMapper {

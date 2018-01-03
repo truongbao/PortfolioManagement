@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import entity.GroupSecern;
-import entity.PortfolioCourseUnit;
 import entity.PortfolioCourseUnitLevel;
 import utility.Session;
 
