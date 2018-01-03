@@ -2,19 +2,21 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 
 <div class="main-content" id="portfolio">
 	<h1 class="main-heading">ポートフォリオ用科目設定画面</h1>
 	<div class="main-summary portfolio-unit">
+		<%-- action="${pageContext.request.contextPath}/admin/portfolio/insert_spc" --%>
 
 
-		<form class="form-horizontal"
-			action="${pageContext.request.contextPath}/admin/portfolio/detail"
-			method="post">
+		<form:form class="form-horizontal"
+			action="${pageContext.request.contextPath}/admin/portfolio/insert_spc"
+			method="post" modelAttribute="spcw">
 			<div class="form-group">
 				<label class="control-label col-sm-2 label_69">現行設定</label>
 				<div class="col-sm-5">
-					<input type="text" class="form-control" value="">
+					<input type="text" name="spcf.name" class="form-control" value="">
 				</div>
 			</div>
 			<div class="form-group">
@@ -29,12 +31,13 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${listGroupSecern}" var="objlist">
+							<c:forEach items="${listGroupSecern}" var="objlist"
+								varStatus="status">
 								<tr>
 									<td class="group_height td_69">
 										${objlist.group_secern_name}</td>
 									<td class="group_height group_list"><select
-										name="group_id[]" class="custom_select">
+										name="pgs[${status.index}].group_id" class="custom_select">
 											<c:forEach items="${objlist.groups}" var="objgroup">
 												<option value="${objgroup.id}">${objgroup.group_name}</option>
 											</c:forEach>
@@ -49,7 +52,6 @@
 			<div class="form-group">
 				<label class="control-label col-sm-2 label_69">対象科目</label>
 				<div class="col-sm-3 list_course">
-
 					<select id="course_selected" multiple="multiple"
 						class="form-control">
 						<c:forEach items="${listCourse}" var="objCourse">
@@ -72,7 +74,7 @@
 				<!-- Tao -->
 			</div>
 
-		</form>
+		</form:form>
 
 	</div>
 </div>

@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import org.springframework.stereotype.Repository;
 
-import entity.PortfolioCourseUnit;
 import entity.QuestionAttribute;
 import utility.Session;
 

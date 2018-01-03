@@ -11,12 +11,18 @@ import utility.Session;
 @Repository
 public class ServicePortfolioConfigurationMapperDao {
 
-	public List<ServicePortfolioConfiguration> selectAll() throws IOException{
-	    ServicePortfolioConfigurationMapper configurationMapper = Session.session().getMapper(ServicePortfolioConfigurationMapper.class);
-			
+	public List<ServicePortfolioConfiguration> selectAll() throws IOException {
+		ServicePortfolioConfigurationMapper configurationMapper = Session.session()
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+
 		List<ServicePortfolioConfiguration> listSPConfiguration = configurationMapper.selectAll();
-		
+
 		return listSPConfiguration;
 	}
-	
+
+	public int insertServicePortfolioConfiguration(ServicePortfolioConfiguration objSPCF) throws IOException {
+		ServicePortfolioConfigurationMapper configurationMapper = Session.session()
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+		return configurationMapper.insertServicePortfolioConfiguration(objSPCF);
+	}
 }
