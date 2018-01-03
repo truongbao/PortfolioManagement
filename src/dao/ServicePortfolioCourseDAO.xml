@@ -39,7 +39,13 @@
 
 	<select id="selectServicePortfolioCourseByCourseId"
 		parameterType="int" resultType="ServicePortfolioCourse">
-		SELECT * FROM service_portfolio_courses WHERE Course_ID = #{id};
+		SELECT * FROM service_portfolio_courses
+		WHERE Course_ID = #{id};
+	</select>
+	<select id="selectServicePortfolioCourseByServiceID"
+		parameterType="int" resultType="ServicePortfolioCourse">
+		SELECT * FROM
+		service_portfolio_courses WHERE service_id = #{id};
 	</select>
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
 		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 

@@ -13,6 +13,7 @@ public class PortfolioConfigurationCourseMapperDao {
 			throws IOException {
 		PortfolioConfigurationCourseMapper portfolioConfigurationCourseMapper = Session.session()
 				.getMapper(PortfolioConfigurationCourseMapper.class);
+		Session.session().close();
 		return portfolioConfigurationCourseMapper.insertPortfolioConfigurationCourse(portfolioConfigurationCourse);
 	}
 }

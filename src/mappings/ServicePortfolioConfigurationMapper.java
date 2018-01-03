@@ -16,4 +16,5 @@ public interface ServicePortfolioConfigurationMapper {
 
 	public ServicePortfolioConfiguration selectServicePortfolioConfigurationById(int id);
 
+	public int computeNextID();
 }
