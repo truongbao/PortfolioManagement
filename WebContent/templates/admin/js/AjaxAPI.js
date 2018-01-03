@@ -106,7 +106,7 @@ function loadInfoFromSPC(data) {
     
     var input = document.createElement("input");
     input.type="hidden";
-    input.name= "pccs["+ index +"].id	";
+    input.name= "pccs["+ index +"].service_portfolio_course_id";
     input.value=  one_sp_course.id;
     
     

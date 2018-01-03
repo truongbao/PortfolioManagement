@@ -8,9 +8,25 @@ import java.util.List;
 public class ServicePortfolioConfigurationWrapper {
 	ServicePortfolioConfiguration spcf;
 
+	// hiển thị view từng gs_name đi kèm là danh sách g_name thuộc về 1 gs_name
+	List<GroupSecern> gss;
+
+	// lấy dữ liệu danh sách các PortfolioGroup người dùng chọn
 	List<PortfolioGroup> pgs;
 
+	// lấy dữ liệu danh sách các ServicePortfolioCourse người dùng chọn
+	List<ServicePortfolioCourse> spcs;
+
+	// lấy dữ liệu danh sách các PortfolioConfigurationCourse người dùng chọn
 	List<PortfolioConfigurationCourse> pccs;
+
+	public List<PortfolioGroup> getPgs() {
+		return pgs;
+	}
+
+	public void setPgs(List<PortfolioGroup> pgs) {
+		this.pgs = pgs;
+	}
 
 	public ServicePortfolioConfiguration getSpcf() {
 		return spcf;
@@ -28,22 +44,31 @@ public class ServicePortfolioConfigurationWrapper {
 		this.pccs = pccs;
 	}
 
-	public List<PortfolioGroup> getPgs() {
-		return pgs;
+	public List<GroupSecern> getGss() {
+		return gss;
 	}
 
-	public void setPgs(List<PortfolioGroup> pgs) {
-		this.pgs = pgs;
+	public void setGss(List<GroupSecern> gss) {
+		this.gss = gss;
 	}
 
-	public ServicePortfolioConfigurationWrapper(ServicePortfolioConfiguration spcf, List<PortfolioGroup> pgs,
-			List<PortfolioConfigurationCourse> pccs) {
+	public List<ServicePortfolioCourse> getSpcs() {
+		return spcs;
+	}
+
+	public void setSpcs(List<ServicePortfolioCourse> spcs) {
+		this.spcs = spcs;
+	}
+
+	public ServicePortfolioConfigurationWrapper(ServicePortfolioConfiguration spcf, List<GroupSecern> gss,
+			List<PortfolioGroup> pgs, List<ServicePortfolioCourse> spcs, List<PortfolioConfigurationCourse> pccs) {
 		this.spcf = spcf;
+		this.gss = gss;
 		this.pgs = pgs;
+		this.spcs = spcs;
 		this.pccs = pccs;
 	}
 
 	public ServicePortfolioConfigurationWrapper() {
 	}
-
 }

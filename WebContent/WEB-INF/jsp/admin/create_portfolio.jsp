@@ -31,7 +31,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach items="${listGroupSecern}" var="objlist"
+							<c:forEach items="${spcwoutput.gss}" var="objlist"
 								varStatus="status">
 								<tr>
 									<td class="group_height td_69">
@@ -54,8 +54,8 @@
 				<div class="col-sm-3 list_course">
 					<select id="SP_Course_Selected" multiple="multiple"
 						class="form-control">
-						<c:forEach items="${listCourse}" var="objCourse">
-							<option value="${objCourse.mid}">${objCourse.course_name}</option>
+						<c:forEach items="${spcwoutput.spcs}" var="objCourse">
+							<option value="${objCourse.id}">${objCourse.course_name}</option>
 						</c:forEach>
 					</select>
 				</div>
