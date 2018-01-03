@@ -68,7 +68,7 @@ public class AdminCreatePortfolioController {
 
 		// get current_time
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
+		System.out.println(timestamp);
 		// insert new ServicePortfolioConfiguration
 		ServicePortfolioConfiguration new_spcf = spcfw.getSpcf();
 		new_spcf.setCreated_at(timestamp);
