@@ -50,7 +50,8 @@ public class AdminCreatePortfolioController {
 	// Show form Create
 	@RequestMapping("/create")
 	public String show_form_create(ModelMap modelMap) throws IOException {
-
+		
+		//object bing to view
 		ServicePortfolioConfigurationWrapper spcw = new ServicePortfolioConfigurationWrapper();
 
 		List<GroupSecern> listGroupSecern = gsmDao.selectAllGroupSecern();
@@ -116,12 +117,10 @@ public class AdminCreatePortfolioController {
 			}
 			List<PortfolioConfigurationCourse> pccs = spcfw.getPccs();
 			for (PortfolioConfigurationCourse new_pcc : pccs) {
-
 				// insert row by row new PortfolioConfigurationCourse
 				new_pcc.setCreated_at(timestamp);
 				// set new service_portfolio_configuration_id
 				new_pcc.setService_portfolio_configuration_id(spcf_id);
-				System.out.println(new_pcc);
 				pccDao.insertPortfolioConfigurationCourse(new_pcc);
 			}
 		}
