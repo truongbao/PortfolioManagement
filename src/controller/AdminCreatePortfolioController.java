@@ -50,6 +50,7 @@ public class AdminCreatePortfolioController {
 	// Show form Create
 	@RequestMapping("/create")
 	public String show_form_create(ModelMap modelMap) throws IOException {
+
 		ServicePortfolioConfigurationWrapper spcw = new ServicePortfolioConfigurationWrapper();
 
 		List<GroupSecern> listGroupSecern = gsmDao.selectAllGroupSecern();
@@ -87,21 +88,19 @@ public class AdminCreatePortfolioController {
 
 		// spcfDao.computeNextID()
 		// genarate new spcf id
-		int spcf_id = 4;
+		int spcf_id = spcfDao.computeNextID();
 		// get current_time
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
 		// insert new ServicePortfolioConfiguration
 		ServicePortfolioConfiguration new_spcf = spcfw.getSpcf();
-		new_spcf.setId(5);
+		new_spcf.setId(spcf_id);
 		new_spcf.setCreated_at(timestamp);
 		new_spcf.setService_id(LibraryConstant.SERVER_ID);
 		new_spcf.setState(LibraryConstant.INCOMPLETE);
 		// check insert new_spcf state
-		int ck = 1;
+		int ck = spcfDao.insertServicePortfolioConfiguration(new_spcf);
 
-		int a = spcfDao.insertServicePortfolioConfiguration(new_spcf);
-		System.out.println(new_spcf);
 		if (ck > 0) {
 			// insert new ServicePortfolioConfiguration
 			List<PortfolioGroup> pgs = spcfw.getPgs();
@@ -111,7 +110,7 @@ public class AdminCreatePortfolioController {
 					// insert row by row new PortfolioGroup
 					new_pg.setCreated_at(timestamp);
 					new_pg.setService_portfolio_configuration_id(spcf_id);
-					System.out.println(new_pg);
+
 					pgDao.insertPortfolioGroup(new_pg);
 				}
 			}

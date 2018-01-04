@@ -1,10 +1,14 @@
 package mappings;
 
 import java.io.IOException;
+import java.io.Reader;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.stereotype.Repository;
+
+import com.ibatis.common.resources.Resources;
 
 import entity.ServicePortfolioConfiguration;
 import utility.Session;
@@ -25,6 +29,7 @@ public class ServicePortfolioConfigurationMapperDao {
 	}
 
 	public int insertServicePortfolioConfiguration(ServicePortfolioConfiguration objSPCF) throws IOException {
+
 		
 		SqlSession session = Session.sessionFactory().openSession();
 		
@@ -35,6 +40,7 @@ public class ServicePortfolioConfigurationMapperDao {
 			return 1;
 		else
 			return 0;
+
 	}
 
 	public int computeNextID() throws IOException {
