@@ -28,7 +28,7 @@
     </select>
     
       <select id="selectPortfolioCourseUnitLevelBySPCourseId" parameterType="int" resultType="PortfolioCourseUnitLevel">
-        SELECT * FROM portfolio_course_unit_levels WHERE service_portfolio_course_id = #{id};
+        SELECT * FROM portfolio_course_unit_levels WHERE service_portfolio_course_id = #{id} order by level;
     </select>
     <!-- 
        +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 

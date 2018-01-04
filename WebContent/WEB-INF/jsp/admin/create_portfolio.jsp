@@ -7,9 +7,6 @@
 <div class="main-content" id="portfolio">
 	<h1 class="main-heading">ポートフォリオ用科目設定画面</h1>
 	<div class="main-summary portfolio-unit">
-		<%-- action="${pageContext.request.contextPath}/admin/portfolio/insert_spc" --%>
-
-
 		<form:form class="form-horizontal"
 			action="${pageContext.request.contextPath}/admin/portfolio/insert_spc"
 			method="post" modelAttribute="spcw">

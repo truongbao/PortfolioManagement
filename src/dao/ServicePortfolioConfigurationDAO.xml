@@ -11,9 +11,13 @@
 		SELECT
 		nextval('next_spcf');
 	</select>
-	
+
 	<insert id="insertServicePortfolioConfiguration" parameterType="ServicePortfolioConfiguration">
-		INSERT INTO service_portfolio_configurations (ID,SERVICE_ID,NAME,STATE,CREATED_AT ) VALUES ( #{id},#{service_id},#{name},#{state},#{created_at} );
+
+		INSERT INTO service_portfolio_configurations
+		(ID,SERVICE_ID,NAME,STATE,CREATED_AT )
+		VALUES ( #{id},#{service_id},#{name},#{state},#{created_at} );
+
 	</insert>
 
 	<update id="updateServicePortfolioConfiguration" parameterType="ServicePortfolioConfiguration">
@@ -59,8 +63,5 @@
 		<result property="created_at" column="CREATED_AT" />
 		<result property="updated_at" column="UPDATED_AT" />
 	</resultMap>
-
-
-
 
 </mapper>

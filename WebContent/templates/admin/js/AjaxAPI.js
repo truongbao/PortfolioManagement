@@ -161,9 +161,8 @@ function loadInfoFromSPC(data) {
   });
 }
 
-//ServicePortfolioCourse event change listener
+// ServicePortfolioCourse event change listener
 function spcs_change() {
-
   var spclistSelected = $('#SP_Course_Selected').val();
   // check for null
   if (spclistSelected) {
@@ -180,7 +179,6 @@ function spcs_change() {
     }
   }
 }
-
 
 function list_lv_change(this_selected_lv, course_id) {
 
