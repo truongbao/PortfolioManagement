@@ -3,6 +3,7 @@ package mappings;
 import java.io.IOException;
 import java.util.List;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import entity.PortfolioCourseUnitLevel;
@@ -12,13 +13,16 @@ import utility.Session;
 public class PortfolioCourseUnitLevelMapperDao {
 
 	public List<PortfolioCourseUnitLevel> selectPortfolioCourseUnitLevelBySPCourseId(int id) throws IOException {
-		PortfolioCourseUnitLevelMapper portfolioCourseUnitLevelMapper = Session.session()
+		
+		SqlSession session = Session.sessionFactory().openSession();
+		
+		PortfolioCourseUnitLevelMapper portfolioCourseUnitLevelMapper = session
 				.getMapper(PortfolioCourseUnitLevelMapper.class);
 
 		List<PortfolioCourseUnitLevel> portfolioCourseUnitLevels = portfolioCourseUnitLevelMapper
 				.selectPortfolioCourseUnitLevelBySPCourseId(id);
 		// close session
-		Session.session().close();
+		session.close();
 		return portfolioCourseUnitLevels;
 	}
 	
