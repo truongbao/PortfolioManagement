@@ -20,20 +20,20 @@
 
 	</insert>
 
-	<update id="updateServicePortfolioConfiguration" parameterType="ServicePortfolioConfiguration">
-		UPDATE service_portfolio_configurations SET SERVICE_ID =
-		#{service_id}, NAME = #{name}, STATE = #{state},
-		AGGREGATION_FINISHED_AT = #{aggregation_finished_at},
-		UPDATED_AT =
-		#{updated_at} WHERE ID = #{id};
-	</update>
-
 	<delete id="deleteServicePortfolioConfigurationById"
 		parameterType="int">
 		DELETE from service_portfolio_configurations WHERE ID =
 		#{id};
 	</delete>
+	
+	<select id="selectServicePortfolioConfigurationById"
+		parameterType="int" resultType="ServicePortfolioConfiguration">
+		SELECT * FROM
+		service_portfolio_configurations WHERE ID = #{id};
+	</select>
 
+    <!-- ============================ Bao ============================= -->  
+ 
 	<select id="selectAll" resultMap="result">
 		SELECT spcf.ID, spcf.NAME,
 		spcf.CREATED_AT, spcf.UPDATED_AT,
@@ -43,11 +43,21 @@
 		ORDER BY spcf.ID DESC;
 	</select>
 
-	<select id="selectServicePortfolioConfigurationById"
-		parameterType="int" resultType="ServicePortfolioConfiguration">
-		SELECT * FROM
-		service_portfolio_configurations WHERE ID = #{id};
-	</select>
+	  <select id="selectAllByState" resultMap="result" >  <!-- state = 'is_completing' or 'incomplete' -->
+        SELECT spcf.ID, spcf.NAME, spcf.STATE, spcf.CREATED_AT, spcf.UPDATED_AT
+        FROM service_portfolio_configurations AS spcf 
+        WHERE spcf.SERVICE_ID = 3  and (spcf.STATE = 'is_completing'  or spcf.STATE = 'incomplete' )
+        ORDER BY spcf.ID DESC;  
+    </select>
+    
+     <update id="updateStateIsCompleting" parameterType="ServicePortfolioConfiguration">
+        UPDATE service_portfolio_configurations SET STATE = 'is_completing'  WHERE ID = #{id}  ;
+    </update> 
+           
+    <update id="updateStateStatisticalCompleted" parameterType="ServicePortfolioConfiguration">
+        UPDATE service_portfolio_configurations SET STATE = 'statistical_completed'  WHERE ID = #{id} ;
+    </update> 
+    
 
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 

@@ -44,5 +44,53 @@ public class ServicePortfolioConfigurationMapperDao {
 		session.close();
 		return next_spc;
 	}
+	
+	
+	//lấy hết các recode ứng vs trạng thái is_completing và aggretion_finished_at giảm dần
+	public List<ServicePortfolioConfiguration> selectAllByState() throws IOException{
+		
+		SqlSession session = Session.sessionFactory().openSession();
+		
+	    ServicePortfolioConfigurationMapper configurationMapper = session.getMapper(ServicePortfolioConfigurationMapper.class);
+		List<ServicePortfolioConfiguration> listSPConfiguration = configurationMapper.selectAllByState();
+		session.close();
+		
+		return listSPConfiguration;
+	}
+		
+		
+		
+	public int updateStateIsCompleting(ServicePortfolioConfiguration obj) throws IOException{
+		
+		SqlSession session = Session.sessionFactory().openSession();
+		
+	    ServicePortfolioConfigurationMapper configurationMapper = session.getMapper(ServicePortfolioConfigurationMapper.class);
+		int result = configurationMapper.updateStateIsCompleting(obj);
+		session.commit();
+		session.close();
+		
+		return result;
+	}
+		
+    public int updateStateStatisticalCompleted(ServicePortfolioConfiguration obj) throws IOException{
+    	
+    	SqlSession session = Session.sessionFactory().openSession();
+		
+	    ServicePortfolioConfigurationMapper configurationMapper = session.getMapper(ServicePortfolioConfigurationMapper.class);
+		int result = configurationMapper.updateStateStatisticalCompleted(obj);
+		session.commit();
+		session.close();
+		
+		return result;
+	}
+		
+		
+	
+	
+	
+	
+	
+	
+	
 
 }
