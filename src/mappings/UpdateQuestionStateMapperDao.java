@@ -2,6 +2,7 @@ package mappings;
 
 import java.io.IOException;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import utility.Session;
@@ -11,11 +12,13 @@ import entity.UpdateQuestionState;
 public class UpdateQuestionStateMapperDao {
 
 	public UpdateQuestionState selectObjectUQSByState() throws IOException {
-
-		UpdateQuestionStateMapper questionStateMapper = Session.session().getMapper(UpdateQuestionStateMapper.class);
+		
+		SqlSession session = Session.sessionFactory().openSession();
+		
+		UpdateQuestionStateMapper questionStateMapper = session.getMapper(UpdateQuestionStateMapper.class);
 
 		UpdateQuestionState objUQS = questionStateMapper.selectObjectUQSByState();
-		Session.session().close();
+		session.close();
 		return objUQS;
 	}
 
