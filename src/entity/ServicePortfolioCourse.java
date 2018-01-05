@@ -1,27 +1,51 @@
 package entity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public class ServicePortfolioCourse {
-	
+
 	private int id;
 	private int service_id;
 	private int sort_id;
 	private int course_id;
-	private int is_deleted;  //1 :xóa hoặc 0 : ko xóa
+	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
-	
+
 	private String course_name;
-	
+	// list này thể hiện mối quan hệ 1-n của
+	// PortfolioCourseUnitLevel-ServicePortfolioCourse
+	private List<PortfolioCourseUnitLevel> level_list;
+
+	public List<PortfolioCourseUnitLevel> getLevel_list() {
+		return level_list;
+	}
+
+	public void setLevel_list(List<PortfolioCourseUnitLevel> level_list) {
+		this.level_list = level_list;
+	}
+
 	public ServicePortfolioCourse() {
 		super();
 	}
 
-	//constructor full 8 tham so (co noi bang)
-	public ServicePortfolioCourse(int id, int service_id, int sort_id,
-			int course_id, int is_deleted, Timestamp created_at,
-			Timestamp updated_at, String course_name) {
+	public ServicePortfolioCourse(int id, int service_id, int sort_id, int course_id, int is_deleted,
+			Timestamp created_at, Timestamp updated_at, String course_name, List<PortfolioCourseUnitLevel> level_list) {
+		this.id = id;
+		this.service_id = service_id;
+		this.sort_id = sort_id;
+		this.course_id = course_id;
+		this.is_deleted = is_deleted;
+		this.created_at = created_at;
+		this.updated_at = updated_at;
+		this.course_name = course_name;
+		this.level_list = level_list;
+	}
+
+	// constructor full 8 tham so (co noi bang)
+	public ServicePortfolioCourse(int id, int service_id, int sort_id, int course_id, int is_deleted,
+			Timestamp created_at, Timestamp updated_at, String course_name) {
 		super();
 		this.id = id;
 		this.service_id = service_id;
@@ -32,11 +56,10 @@ public class ServicePortfolioCourse {
 		this.updated_at = updated_at;
 		this.course_name = course_name;
 	}
-	
-	//constructor 7 tham so (ko noi bang)
-	public ServicePortfolioCourse(int id, int service_id, int sort_id,
-			int course_id, int is_deleted, Timestamp created_at,
-			Timestamp updated_at) {
+
+	// constructor 7 tham so (ko noi bang)
+	public ServicePortfolioCourse(int id, int service_id, int sort_id, int course_id, int is_deleted,
+			Timestamp created_at, Timestamp updated_at) {
 		super();
 		this.id = id;
 		this.service_id = service_id;
@@ -47,7 +70,6 @@ public class ServicePortfolioCourse {
 		this.updated_at = updated_at;
 	}
 
-	
 	public int getId() {
 		return id;
 	}
@@ -114,14 +136,9 @@ public class ServicePortfolioCourse {
 
 	@Override
 	public String toString() {
-		return "ServicePortfolioCourse [id=" + id + ", service_id="
-				+ service_id + ", sort_id=" + sort_id + ", course_id="
-				+ course_id + ", is_deleted=" + is_deleted + ", created_at="
-				+ created_at + ", updated_at=" + updated_at + ", course_name="
-				+ course_name + "]";
+		return "ServicePortfolioCourse [id=" + id + ", service_id=" + service_id + ", sort_id=" + sort_id
+				+ ", course_id=" + course_id + ", is_deleted=" + is_deleted + ", created_at=" + created_at
+				+ ", updated_at=" + updated_at + ", course_name=" + course_name + "]";
 	}
-
-	
-	
 
 }

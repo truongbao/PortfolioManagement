@@ -16,6 +16,12 @@ public class Group {
 	public Group() {
 		super();
 	}
+	// thiết lập trường chưa setting
+	public Group(int id, String group_name) {
+		super();
+		this.id = id;
+		this.group_name = group_name;
+	}
 
 	//constructor full 7 tham so (co noi bang)
 	public Group(int id, int group_secern_id, String group_name,

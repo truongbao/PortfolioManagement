@@ -18,7 +18,6 @@
 		<typeAlias alias="PortfolioCourseUnitLevel" type="entity.PortfolioCourseUnitLevel" />
 		<typeAlias alias="PortfolioCourseUnit" type="entity.PortfolioCourseUnit" />
 		<typeAlias alias="QuestionAttribute" type="entity.QuestionAttribute" />
-
 	</typeAliases>
 
 
@@ -35,9 +34,7 @@
 		</environment>
 	</environments> 
 
-
-	<mappers>
-	
+	<mappers>	
 		<mapper resource="dao/CourseDAO.xml" />
 		<mapper resource="dao/GroupDAO.xml" />
 		<mapper resource="dao/GroupSecernDAO.xml" />
@@ -48,7 +45,7 @@
 		<mapper resource="dao/UpdateQuestionStateDAO.xml" />
 		<mapper resource="dao/PortfolioCourseUnitLevelDAO.xml" />
 		<mapper resource="dao/QuestionAttributeDAO.xml" />
-
+		<mapper resource="dao/PortfolioCourseUnitDAO.xml" />
 	</mappers>
 
 </configuration>

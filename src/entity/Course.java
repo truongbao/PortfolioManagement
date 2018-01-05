@@ -3,19 +3,18 @@ package entity;
 import java.sql.Timestamp;
 
 public class Course {
-	
+
 	private int id;
 	private String course_name;
-	private int is_deleted;  //1 :xóa hoặc 0 : ko xóa
+	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
-	
+
 	public Course() {
 		super();
 	}
 
-	public Course(int id, String course_name, int is_deleted,
-			Timestamp created_at, Timestamp updated_at) {
+	public Course(int id, String course_name, int is_deleted, Timestamp created_at, Timestamp updated_at) {
 		super();
 		this.id = id;
 		this.course_name = course_name;
@@ -66,15 +65,8 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return "Course [id=" + id + ", course_name=" + course_name
-				+ ", is_deleted=" + is_deleted + ", created_at=" + created_at
-				+ ", updated_at=" + updated_at + "]";
+		return "Course [id=" + id + ", course_name=" + course_name + ", is_deleted=" + is_deleted + ", created_at="
+				+ created_at + ", updated_at=" + updated_at + "]";
 	}
-	
-	
-	
-	
-	
-	
 
 }

@@ -4,50 +4,66 @@
 
 <mapper namespace="mappings.ServicePortfolioCourseMapper">
 
-    <!--  - parametertype là tên lớp hoặc alias của tham số mà được truyền vào trong câu lệnh -->
-    
-    <insert id="insertServicePortfolioCourse" parameterType="ServicePortfolioCourse" >
-        INSERT INTO service_portfolio_courses (SERVICE_ID, SORT_ID, COURSE_ID, CREATED_AT ) 
-        VALUES ( #{service_id}, #{sort_id}, #{course_id} , #{created_at} );
-    </insert>
+	<!-- - parametertype là tên lớp hoặc alias của tham số mà được truyền vào 
+		trong câu lệnh -->
 
-    <update id="updateServicePortfolioCourse" parameterType="ServicePortfolioCourse">
-        UPDATE service_portfolio_courses SET SERVICE_ID = #{service_id}, SORT_ID = #{sort_id} ,COURSE_ID = #{course_id}, 
-                                    UPDATED_AT = #{updated_at}  WHERE ID = #{id};
-    </update>
-    
-    <delete id="deleteServicePortfolioCourseById" parameterType="int">
-        DELETE from service_portfolio_courses WHERE ID = #{id}; 
-    </delete>
-    
-    <select id="selectAllServicePortfolioCourse" resultMap="result">
-           SELECT * FROM service_portfolio_courses ORDER BY ID DESC;  
-    </select>
-      
-    <select id="selectServicePortfolioCourseById" parameterType="int" resultType="ServicePortfolioCourse">
-        SELECT * FROM service_portfolio_courses WHERE ID = #{id};
-    </select>
-    
-    
-    <!-- 
-       +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 
-        từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO).
-        -không phân biệt chữ hoa, chữ thường
-     -->
-    <resultMap id = "result" type = "ServicePortfolioCourse">
-    
-       <result property = "id" column = "ID"/>
-       <result property = "service_id" column = "SERVICE_ID"/>
-       <result property = "sort_id" column = "SORT_ID"/>
-       <result property = "course_id" column = "COURSE_ID"/>
-       <result property = "is_deleted" column = "IS_DELETED"/>
-       <result property = "created_at" column = "CREATED_AT"/>
-       <result property = "updated_at" column = "UPDATED_AT"/>
-       <result property = "course_name" column = "COURSE_NAME"/>
-       
-    </resultMap>
-    
-    
-    
-    
+	<insert id="insertServicePortfolioCourse" parameterType="ServicePortfolioCourse">
+		INSERT
+		INTO service_portfolio_courses (SERVICE_ID, SORT_ID, COURSE_ID,
+		CREATED_AT )
+		VALUES ( #{service_id}, #{sort_id}, #{course_id} ,
+		#{created_at} );
+	</insert>
+
+	<update id="updateServicePortfolioCourse" parameterType="ServicePortfolioCourse">
+		UPDATE
+		service_portfolio_courses SET SERVICE_ID = #{service_id}, SORT_ID =
+		#{sort_id} ,COURSE_ID = #{course_id},
+		UPDATED_AT = #{updated_at} WHERE
+		ID = #{id};
+	</update>
+
+	<delete id="deleteServicePortfolioCourseById" parameterType="int">
+		DELETE from service_portfolio_courses WHERE ID = #{id};
+	</delete>
+
+	<select id="selectAllServicePortfolioCourse" resultMap="result">
+		SELECT *
+		FROM service_portfolio_courses ORDER BY ID DESC;
+	</select>
+
+	<select id="selectServicePortfolioCourseById" parameterType="int"
+		resultType="ServicePortfolioCourse">
+		SELECT * FROM service_portfolio_courses WHERE ID = #{id};
+	</select>
+
+	<select id="selectServicePortfolioCourseByCourseId"
+		parameterType="int" resultType="ServicePortfolioCourse">
+		SELECT * FROM service_portfolio_courses
+		WHERE Course_ID = #{id};
+	</select>
+	<select id="selectServicePortfolioCourseByServiceID"
+		parameterType="int" resultType="ServicePortfolioCourse">
+		SELECT * FROM
+		service_portfolio_courses WHERE service_id = #{id};
+	</select>
+	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
+		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 
+		phân biệt chữ hoa, chữ thường -->
+	<resultMap id="result" type="ServicePortfolioCourse">
+
+		<result property="id" column="ID" />
+		<result property="service_id" column="SERVICE_ID" />
+		<result property="sort_id" column="SORT_ID" />
+		<result property="course_id" column="COURSE_ID" />
+		<result property="is_deleted" column="IS_DELETED" />
+		<result property="created_at" column="CREATED_AT" />
+		<result property="updated_at" column="UPDATED_AT" />
+		<result property="course_name" column="COURSE_NAME" />
+
+	</resultMap>
+
+
+
+
 </mapper>
