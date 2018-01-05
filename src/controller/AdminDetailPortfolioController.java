@@ -62,11 +62,8 @@ public class AdminDetailPortfolioController {
 					servicePortfolioCourse.setLevel_list(level_list);
 			 }
 			 
+
 				modelMap.addAttribute("listPortfolioCourse", listPortfolioCourse);
-				
-				
-				
-				
 				
 		return "admin.portfolio.detail";
 	 }

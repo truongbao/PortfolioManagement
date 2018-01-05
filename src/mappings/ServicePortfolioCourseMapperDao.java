@@ -61,5 +61,17 @@ public class ServicePortfolioCourseMapperDao {
 		session.close();
 		return servicePortfolioCourses;
 	}
+	
+
+	public List<ServicePortfolioCourse> selectServicePortfolioCourseByCourseName(int id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+		ServicePortfolioCourseMapper configurationMapper = session
+				.getMapper(ServicePortfolioCourseMapper.class);
+
+		List<ServicePortfolioCourse> listSPConfiguration1 = configurationMapper.selectServicePortfolioCourseByCourseName(id);
+		session.close();
+
+		return listSPConfiguration1;
+	}
 
 }

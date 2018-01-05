@@ -41,6 +41,15 @@
 		SELECT * FROM groups WHERE group_secern_id
 		=#{group_secern_id};
 	</select>
+	
+	<select id="selectGroupNameAndGsNameById" parameterType="int" resultType="Group">
+		SELECT gr.group_name,gs.group_secern_name FROM groups AS gr INNER JOIN
+		portfolio_groups AS pg
+		ON gr.id = pg.group_id
+		INNER JOIN group_secerns AS gs ON gs.id = gr.group_secern_id
+		WHERE pg.service_portfolio_configuration_id = #{id};
+	</select>
+	
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
 		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 
