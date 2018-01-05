@@ -12,11 +12,22 @@ public class ServicePortfolioCourse {
 	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
+	private int level;
 
 	private String course_name;
 	// list này thể hiện mối quan hệ 1-n của
 	// PortfolioCourseUnitLevel-ServicePortfolioCourse
 	private List<PortfolioCourseUnitLevel> level_list;
+	
+	
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
 
 	public List<PortfolioCourseUnitLevel> getLevel_list() {
 		return level_list;
@@ -31,7 +42,7 @@ public class ServicePortfolioCourse {
 	}
 
 	public ServicePortfolioCourse(int id, int service_id, int sort_id, int course_id, int is_deleted,
-			Timestamp created_at, Timestamp updated_at, String course_name, List<PortfolioCourseUnitLevel> level_list) {
+			Timestamp created_at, Timestamp updated_at, String course_name, List<PortfolioCourseUnitLevel> level_list,int level) {
 		this.id = id;
 		this.service_id = service_id;
 		this.sort_id = sort_id;
@@ -41,6 +52,7 @@ public class ServicePortfolioCourse {
 		this.updated_at = updated_at;
 		this.course_name = course_name;
 		this.level_list = level_list;
+		this.level = level;
 	}
 
 	// constructor full 8 tham so (co noi bang)
