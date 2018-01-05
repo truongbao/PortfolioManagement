@@ -39,7 +39,7 @@
 		spcf.CREATED_AT, spcf.UPDATED_AT,
 		spcf.AGGREGATION_FINISHED_AT
 		FROM
-		service_portfolio_configurations AS spcf WHERE spcf.SERVICE_ID = 3
+		service_portfolio_configurations AS spcf WHERE spcf.SERVICE_ID = 3 and is_deleted = 0
 		ORDER BY spcf.ID DESC;
 	</select>
 
