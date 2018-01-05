@@ -49,6 +49,16 @@ public class ServicePortfolioConfigurationMapperDao {
 		return next_spc;
 	}
 	
+	public ServicePortfolioConfiguration selectServicePortfolioConfigurationById(int id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+		ServicePortfolioConfigurationMapper configurationMapper = session.getMapper(ServicePortfolioConfigurationMapper.class);
+		
+		ServicePortfolioConfiguration spc = configurationMapper.selectServicePortfolioConfigurationById(id);
+		
+		session.close();
+		return spc;
+	}
+	
 	
 	
 	

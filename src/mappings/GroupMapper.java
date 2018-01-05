@@ -16,4 +16,7 @@ public interface GroupMapper {
 	public List<Group> selectGroupById(int id);
 
 	public List<Group> selectGroupByGroupSecernId(int id);
+	
+	public List<Group> selectGroupNameAndGsNameById(int id);
+	 
 }
