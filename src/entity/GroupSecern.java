@@ -89,7 +89,9 @@ public class GroupSecern {
 	@Override
 	public String toString() {
 		return "GroupSecern [id=" + id + ", group_secern_name=" + group_secern_name + ", is_deleted=" + is_deleted
-				+ ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
+				+ ", created_at=" + created_at + ", updated_at=" + updated_at + ", groups=" + groups + "]";
 	}
+
+
 
 }

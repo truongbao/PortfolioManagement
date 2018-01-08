@@ -10,6 +10,8 @@
         <title>Portfolio Management</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/font-awesome/css/font-awesome.min.css">
+       
         <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/vendor.css">
         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/style.css">

@@ -13,7 +13,8 @@ public interface GroupMapper {
 
 	public List<Group> selectAllGroup();
 
-	public List<Group> selectGroupById(int id);
+	public Group selectGroupById(int id);
 
 	public List<Group> selectGroupByGroupSecernId(int id);
+
 }

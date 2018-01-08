@@ -2,12 +2,20 @@ package entity;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+
 public class PortfolioConfigurationCourse {
 	
 	private int id;
 	private int service_portfolio_configuration_id;
+
 	private int service_portfolio_course_id;
 	private int level;
+	
 	private int is_deleted;  //1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;

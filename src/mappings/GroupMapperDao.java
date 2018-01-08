@@ -12,7 +12,7 @@ import utility.Session;
 @Repository
 public class GroupMapperDao {
 	public List<Group> selectGroupByGroupSecernId(int id) throws IOException {
-		
+
 		SqlSession session = Session.sessionFactory().openSession();
 
 		GroupMapper groupMapper = session.getMapper(GroupMapper.class);
@@ -23,5 +23,18 @@ public class GroupMapperDao {
 		session.close();
 
 		return listGroupSecern;
+	}
+
+	public Group selectGroupById(int id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+
+		GroupMapper groupMapper = session.getMapper(GroupMapper.class);
+
+		Group groupSecern = groupMapper.selectGroupById(id);
+
+		// close session
+		session.close();
+
+		return groupSecern;
 	}
 }

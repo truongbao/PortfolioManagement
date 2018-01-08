@@ -3,6 +3,12 @@ package entity;
 import java.sql.Timestamp;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({ "id", "level", "question_attribute_list"})
+@JsonIgnoreProperties({ "sort_id","is_deleted","created_at","updated_at","service_portfolio_course_id","service_id"})
 public class PortfolioCourseUnitLevel {
 
 	private int id;

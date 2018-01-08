@@ -27,7 +27,7 @@
         SELECT * FROM portfolio_course_unit_levels WHERE ID = #{id};
     </select>
     
-      <select id="selectPortfolioCourseUnitLevelBySPCourseId" parameterType="int" resultType="PortfolioCourseUnitLevel">
+    <select id="selectPortfolioCourseUnitLevelBySPCourseId" parameterType="int" resultType="PortfolioCourseUnitLevel">
         SELECT * FROM portfolio_course_unit_levels WHERE service_portfolio_course_id = #{id} order by level;
     </select>
     <!-- 
