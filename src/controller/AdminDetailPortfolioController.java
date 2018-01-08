@@ -75,25 +75,24 @@ public class AdminDetailPortfolioController {
 	public String deleted(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf, RedirectAttributes ra)
 			throws IOException {
 		MessengeUtils messengeUtils = new MessengeUtils();
+		
 		if (pccDao.updatePortfolioConfigurationCourseByis_deleted(id_spcf) > 0) {
 			if (spcfDao.updateServicePortfolioConfigurationIs_Delete(id_spcf) > 0) {
 				if (pgDao.updatePortfolioGroupByis_deleted(id_spcf) > 0) {
-					messengeUtils.new_sucess_message("xoa thanh Cong !");
+					messengeUtils.new_sucess_message("Xóa thành công !");
 				} else {
-					messengeUtils.new_error_message("xoa ko thanh Cong ở bảng PortfolioGroup  !");
+					messengeUtils.new_sucess_message("Xóa thành công  !");
 				}
 			} else {
-				messengeUtils.new_error_message("xoa ko thanh Cong ở bảng ServicePortfolioConfiguration !");
+				messengeUtils.new_error_message("Xóa không thành công ở bảng ServicePortfolioConfiguration !");
 			}
 		} else {
-			messengeUtils.new_error_message("xoa ko thanh Cong ở bảng PortfolioConfigurationCourse !");
+			messengeUtils.new_error_message("Xóa không thành công ở bảng PortfolioConfigurationCourse !");
 		}
+		
 		ra.addFlashAttribute("msg", messengeUtils);
-
 		 
 		 return "redirect:/admin/portfolio/index"; 
-	 
-
 
 	}
 }
