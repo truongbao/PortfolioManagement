@@ -20,19 +20,19 @@
 	</delete>
 
 	<select id="selectAllPortfolioCourseUnit" resultMap="result">
-		SELECT * FROM portfolio_course_units ORDER BY ID DESC;
+		SELECT * FROM portfolio_course_units where is_deleted=0 ORDER BY ID DESC;
 	</select>
 
 
 	<select id="selectPortfolioCourseUnitById" parameterType="int"
 		resultType="PortfolioCourseUnit">
-		SELECT * FROM portfolio_course_units WHERE ID = #{id};
+		SELECT * FROM portfolio_course_units WHERE ID = #{id} and is_deleted=0;
 	</select>
 
 	<select id="selectPortfolioCourseUnitByPCULId" parameterType="int"
 		resultType="PortfolioCourseUnit">
 		SELECT * FROM portfolio_course_units WHERE portfolio_course_unit_level_id =
-		#{id};
+		#{id}  and is_deleted=0;
 	</select>
 	
 		<select id="selectqaBylevel_course"

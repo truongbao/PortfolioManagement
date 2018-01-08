@@ -36,7 +36,7 @@ public class ServicePortfolioConfigurationWrapper {
 	// lấy dữ liệu danh sách các PortfolioConfigurationCourse người dùng chọn
 	@NotNull
 	@NotEmpty
-	@Size(min=1,max=1)
+	@Size(min=1,max=8)
 	List<PortfolioConfigurationCourse> pccs;
 //	
 

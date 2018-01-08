@@ -28,18 +28,18 @@
 	</delete>
 
 	<select id="selectAllGroup" resultMap="result">
-		SELECT * FROM groups ORDER
-		BY ID DESC;
+		SELECT * FROM groups  where is_deleted=0
+		ORDER BY ID DESC ;
 	</select>
 
 	<select id="selectGroupById" parameterType="int" resultType="Group">
-		SELECT * FROM groups WHERE ID = #{id};
+		SELECT * FROM groups WHERE ID = #{id} and is_deleted=0;
 	</select>
 
 	<select id="selectGroupByGroupSecernId" parameterType="int"
 		resultType="Group">
 		SELECT * FROM groups WHERE group_secern_id
-		=#{group_secern_id};
+		=#{group_secern_id} and is_deleted=0;
 	</select>
 	
 	<select id="selectGroupNameAndGsNameById" parameterType="int" resultType="Group">

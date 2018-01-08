@@ -25,13 +25,14 @@
 	</delete>
 
 	<select id="selectAllGroupSecern" resultMap="result">
-		SELECT * FROM
-		group_secerns ORDER BY ID DESC;
+		SELECT * FROM group_secerns
+		where is_deleted=0
+		 ORDER BY ID DESC;
 	</select>
 
 	<select id="selectGroupSecernById" parameterType="int"
 		resultType="GroupSecern">
-		SELECT * FROM group_secerns WHERE ID = #{id};
+		SELECT * FROM group_secerns WHERE ID = #{id} and is_deleted=0;
 	</select>
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
