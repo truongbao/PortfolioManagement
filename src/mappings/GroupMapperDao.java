@@ -17,34 +17,35 @@ public class GroupMapperDao {
 
 		GroupMapper groupMapper = session.getMapper(GroupMapper.class);
 
-		List<Group> listGroup= groupMapper.selectGroupByGroupSecernId(id);
+		List<Group> listGroup = groupMapper.selectGroupByGroupSecernId(id);
 
 		// close session
 		session.close();
 
 		return listGroup;
 	}
+
 	public Group selectGroupById(int id) throws IOException {
 		SqlSession session = Session.sessionFactory().openSession();
 
 		GroupMapper groupMapper = session.getMapper(GroupMapper.class);
 
 		Group group = groupMapper.selectGroupById(id);
-  	// close session
+		// close session
 		session.close();
-    return group;
+		return group;
 	}
 
 	public List<Group> selectGroupNameAndGsNameById(int id) throws IOException {
-	
+
 		SqlSession session = Session.sessionFactory().openSession();
 
-		GroupMapper  groupmapper = session.getMapper( GroupMapper.class);
+		GroupMapper groupmapper = session.getMapper(GroupMapper.class);
 
 		List<Group> listGroup = groupmapper.selectGroupNameAndGsNameById(id);
 
 		// close session
 		session.close();
-    return listGroup;
-		
+		return listGroup;
+	}
 }

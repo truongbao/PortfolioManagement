@@ -45,9 +45,10 @@ $(document).ready(function () {
   });
   // validate Client
   $("#spc_insert_form").submit(function () {
-    // event.preventDefault();
-    // validateInsertSPCF();
-
+     
+     if(validateInsertSPCF()==0){
+      event.preventDefault();
+     }
   });
 });
 
@@ -99,12 +100,10 @@ function prefixProcess(spcList) {
           ck = 0;
         }
       });
-      // console.log(one_course_id);
       if (ck) spcs.push(one_sp_course_object);
     });
     spcWrap.spcourses = spcs;
   }
-  console.log(spcWrap);
   return spcWrap;
 }
 function searchAjax(spcList, isLoad = 1) {
@@ -161,7 +160,6 @@ function loadInfoFromSPC(data, level_seleted = 1) {
   var element = document.getElementById("SPCourseForm");
   element.innerHTML = "";
 
-  // console.log(JSON.stringify(spcList));
   var index = -1;
   saveSPCSelected.forEach(saveSPC => {
     spcListDataSave.forEach(one_sp_course => {
@@ -256,17 +254,12 @@ function loadInfoFromSPC(data, level_seleted = 1) {
         element.appendChild(div_one_sp_course);
   
         // load_list_level
-        console.log(saveSPC.level);
         load_list_level(saveSPC.level, one_sp_course.id);
   
-        // var level=;
-        // var courseid=;
-        // console.log(numberOfSPcourse);
       }
      
     });
   });
-
 }
 
 // ServicePortfolioCourse event change listener
@@ -284,8 +277,6 @@ function spcs_change() {
     element.innerHTML = "";
   }
 }
-
-
 
 function list_lv_change(this_selected_lv, spcourse_id) {
   var lv_selected = this_selected_lv.options[this_selected_lv.selectedIndex].value;
@@ -320,9 +311,7 @@ function load_list_level(level_seleted, spcourse_id) {
 
 // validate form in client
 function validateInsertSPCF() {
-  // validateSPCName();
-  // validateNumberSPCName();
-  // validateLevel();
+  return validateSPCName()*validateNumberSPCName();
 }
 function validateSPCName() {
   let spcf_name = $("#spcf_name").val();
@@ -352,21 +341,4 @@ function validateNumberSPCName() {
   }
   return 0;
 }
-// function validateLevel() {
-// var levelSelecteds = document.getElementsByClassName("custom_select_level");
-// var label_errors = document.getElementsByClassName("label_level_error");
-// if (levelSelecteds) {
-// for (var k = 0; i < levelSelecteds.length; k++) {
-// var level = parseInt(levelSelecteds[k].value);
-// if (level > 3 || level < 0) {
-// label_errors[k].innerHTML("パターンは1から3までの半角数字のみ入力可能です");
-// } else {
-// if(label_errors.text!=""){
-// label_errors[k].innerHTML("");
-// }
-// return 1;
-// }
-// }
-// }
-// return 0;
-// }
+

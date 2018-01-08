@@ -27,7 +27,8 @@
 
 	<select id="selectAllCourse" resultMap="result">
 		SELECT * FROM courses
-		ORDER BY ID DESC;
+		where is_deleted=0
+		ORDER BY ID DESC  ;
 	</select>
 
 	<select id="selectAllCourseByName" parameterType="String"
@@ -37,11 +38,11 @@
 	
 	<select id="selectCourseByServerId" parameterType="int" resultType="Course">
 	SELECT courses.* FROM courses join service_portfolio_courses on service_portfolio_courses.course_id=courses.id 
-	WHERE service_portfolio_courses.service_id=#{id};
+	WHERE service_portfolio_courses.service_id=#{id} and courses.is_deleted=0 ;
 	</select>
 	
 	<select id="selectCourseById" parameterType="int" resultType="Course">
-		SELECT * FROM courses WHERE ID = #{id};
+		SELECT * FROM courses WHERE ID = #{id} and is_deleted=0 ;
 	</select>
 
 
