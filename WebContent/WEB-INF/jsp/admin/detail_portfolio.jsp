@@ -137,7 +137,7 @@
 							class="btn btn-blue-dark btn-w190"> Delete </a> </br> </br>
 					</div>
 					<div class="col-md-4 text-center">
-						<a href="${pageContext.request.contextPath}/admin/portfolio/edit"
+						<a href="${pageContext.request.contextPath}/admin/portfolio/edit/${id_spcf}"
 							class="btn btn-blue-dark btn-w190"> Edit </a> </br> </br>
 					</div>
 					<div class="col-md-4 text-center">
