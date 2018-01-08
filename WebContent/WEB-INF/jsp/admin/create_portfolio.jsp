@@ -84,11 +84,12 @@
 
 			</div>
 			<!-- xử dụng khi load dữ liệu -->
-			<div id="SPCourseForm">
-				<c:forEach items="${spcwoutput.spcs}" var="objSPCourse"
-					varStatus="status">
-					<!--nếu đã chọn từ trước -->
+			<div id="SPCourseForm" >
+				<!--nếu đã chọn từ trước -->
+				<c:set var="index" value="-1"></c:set>
+				<c:forEach items="${spcwoutput.spcs}" var="objSPCourse">
 					<c:if test="${ objSPCourse.isSelected == 1}">
+						<c:set var="index" value="${index+1}"></c:set>
 						<div id="one_sp_course" class="row">
 							<h1 class="one_course_name">${objSPCourse.course_name}</h1>
 							<div class="form-group">
@@ -96,15 +97,15 @@
 								<div class="col-sm-4">
 									<div class="level_list">
 										<select class="custom_select_level"
-											name="pccs[${status.index}].level"
-											onchange="list_lv_change(this,${objSPCourse.id });">
+											name="pccs[${index}].level"
+											onchange="list_lv_change(this,${objSPCourse.id});">
 											<c:forEach items="${objSPCourse.level_list}" var="one_level">
 												<option value="${one_level.level }"
 													<c:if test="${one_level.level==objSPCourse.level_selected}"> selected="1" </c:if>>
 													パターン${one_level.level}</option>
 											</c:forEach>
 										</select> <input type="hidden"
-											name="pccs[${status.index}].service_portfolio_course_id"
+											name="pccs[${index}].service_portfolio_course_id"
 											value="${objSPCourse.id}">
 									</div>
 								</div>
