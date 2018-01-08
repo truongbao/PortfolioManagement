@@ -90,7 +90,10 @@ public class AdminDetailPortfolioController {
 		}
 		ra.addFlashAttribute("msg", messengeUtils);
 
-		return "redirect:/admin/portfolio/index";
+		 
+		 return "redirect:/admin/portfolio/index"; 
+	 
+
 
 	}
 }
