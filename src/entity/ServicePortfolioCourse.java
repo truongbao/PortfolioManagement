@@ -1,8 +1,19 @@
 package entity;
 
 import java.sql.Timestamp;
+
 import java.util.List;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({ "id", "course_id", "course_name", "level_selected", "level_list" })
+@JsonIgnoreProperties({ "service_id", "sort_id", "is_deleted", "created_at", "updated_at" })
 public class ServicePortfolioCourse {
 
 	private int id;
@@ -13,6 +24,13 @@ public class ServicePortfolioCourse {
 	private Timestamp created_at;
 	private Timestamp updated_at;
 	private int level;
+
+	// thuộc tính này tạo để load lại dữ liệu vào list
+	private int isSelected = 0;
+	// thuộc tính này để load question attribute cho spc đã được select
+	@Min(1)
+	@Max(3)
+	private int level_selected = 1;
 
 	private String course_name;
 	// list này thể hiện mối quan hệ 1-n của
@@ -29,6 +47,14 @@ public class ServicePortfolioCourse {
 		this.level = level;
 	}
 
+	public int getLevel_selected() {
+		return level_selected;
+	}
+
+	public void setLevel_selected(int level_selected) {
+		this.level_selected = level_selected;
+	}
+
 	public List<PortfolioCourseUnitLevel> getLevel_list() {
 		return level_list;
 	}
@@ -39,6 +65,14 @@ public class ServicePortfolioCourse {
 
 	public ServicePortfolioCourse() {
 		super();
+	}
+
+	public int getIsSelected() {
+		return isSelected;
+	}
+
+	public void setIsSelected(int isSelected) {
+		this.isSelected = isSelected;
 	}
 
 	public ServicePortfolioCourse(int id, int service_id, int sort_id, int course_id, int is_deleted,
@@ -150,7 +184,10 @@ public class ServicePortfolioCourse {
 	public String toString() {
 		return "ServicePortfolioCourse [id=" + id + ", service_id=" + service_id + ", sort_id=" + sort_id
 				+ ", course_id=" + course_id + ", is_deleted=" + is_deleted + ", created_at=" + created_at
-				+ ", updated_at=" + updated_at + ", course_name=" + course_name + "]";
+				+ ", updated_at=" + updated_at + ", isSelected=" + isSelected + ", level_selected=" + level_selected
+				+ ", course_name=" + course_name + ", level_list=" + level_list + "]";
 	}
+
+
 
 }

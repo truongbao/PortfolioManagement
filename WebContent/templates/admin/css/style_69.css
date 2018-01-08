@@ -1,12 +1,30 @@
-.label_69 {
-	text-align: left !important;
+.label_level_error
+{
+    text-align: left !important;
+    color: red;
 }
-
+.label_align_left {
+	text-align: left !important;
+	
+}
+.spc_name_error{
+	margin: 0;
+    padding: 0;
+}
+.label_valid_error{
+	color:red;
+	padding-top:7px;
+}
+.sp_course_error{
+	color:red;
+	margin: 0;
+    padding: 0;
+}
 .group_height {
 	height: 50px !important;
 }
 
-.td_69 {
+.td_align_left {
 	text-align: left !important;
 }
 
@@ -30,8 +48,6 @@
 tr:nth-child(old)>td.group_list>.custom_select {
 	background: black !important;
 }
-
-
 
 .loading  .center {
 	z-index: 1000;

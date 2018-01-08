@@ -13,6 +13,6 @@ public interface GroupSecernMapper {
 
 	public List<GroupSecern> selectAllGroupSecern();
 
-	public List<GroupSecern> selectGroupSecernById(int id);
+	public GroupSecern selectGroupSecernById(int id);
 
 }

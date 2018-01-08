@@ -45,7 +45,7 @@ public class PortfolioInfoRESTAPIController {
 
 			// load info to spc
 			one_spc = spcDao.selectServicePortfolioCourseById(one_spc.getId());
-
+			
 			// get course_name
 			Course one_course = courseDao.selectCourseById(one_spc.getCourse_id());
 			one_spc.setCourse_name(one_course.getCourse_name());

@@ -23,11 +23,12 @@ import mappings.PortfolioCourseUnitMapperDao;
 import mappings.PortfolioGroupMapperDao;
 import mappings.ServicePortfolioConfigurationMapperDao;
 import mappings.ServicePortfolioCourseMapperDao;
+import utility.MessengeUtils;
 
 @Controller
 @RequestMapping("admin/portfolio")
 public class AdminDetailPortfolioController {
-	
+
 	@Autowired
 	ServicePortfolioConfigurationMapperDao spcfDao;
 	@Autowired
@@ -40,55 +41,59 @@ public class AdminDetailPortfolioController {
 	PortfolioConfigurationCourseMapperDao pccDao;
 	@Autowired
 	PortfolioGroupMapperDao pgDao;
-	
-	 
-	 //See detail
-	 @RequestMapping("/detail/{id_spcf}")
-	 public String detail(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf ) throws IOException{
-		 
-		 ServicePortfolioConfiguration listname = spcfDao.selectServicePortfolioConfigurationById(id_spcf);
-			modelMap.addAttribute("listname", listname);
-		
-		 
-		 List<Group> listPortfolioGroup = grDao.selectGroupNameAndGsNameById(id_spcf);
 
-			modelMap.addAttribute("listPortfolioGroup", listPortfolioGroup);
-			modelMap.addAttribute("id_spcf",id_spcf);
-			
-			
+	// See detail
+	@RequestMapping("/detail/{id_spcf}")
+	public String detail(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf) throws IOException {
 
-			 List<ServicePortfolioCourse> listPortfolioCourse = spcDao.selectServicePortfolioCourseByCourseName(id_spcf);
-			 for (ServicePortfolioCourse servicePortfolioCourse : listPortfolioCourse) {
-					System.out.println(servicePortfolioCourse.getCourse_id());
-					System.out.println(servicePortfolioCourse.getLevel());
-					List<PortfolioCourseUnit> listportfolioCourseUnit = pcuDao.selectqaBylevel_course(servicePortfolioCourse);
-					PortfolioCourseUnitLevel courseUnitLevel = new PortfolioCourseUnitLevel();
-					courseUnitLevel.setQuestion_attribute_list(listportfolioCourseUnit);
-					List<PortfolioCourseUnitLevel> level_list = new ArrayList<>();
-					level_list.add(courseUnitLevel);
-					servicePortfolioCourse.setLevel_list(level_list);
-			 }
-			 
+		ServicePortfolioConfiguration listname = spcfDao.selectServicePortfolioConfigurationById(id_spcf);
+		modelMap.addAttribute("listname", listname);
 
-				modelMap.addAttribute("listPortfolioCourse", listPortfolioCourse);
-				
-			
-				
+		List<Group> listPortfolioGroup = grDao.selectGroupNameAndGsNameById(id_spcf);
+
+		modelMap.addAttribute("listPortfolioGroup", listPortfolioGroup);
+		modelMap.addAttribute("id_spcf", id_spcf);
+
+		List<ServicePortfolioCourse> listPortfolioCourse = spcDao.selectServicePortfolioCourseByCourseName(id_spcf);
+		for (ServicePortfolioCourse servicePortfolioCourse : listPortfolioCourse) {
+			System.out.println(servicePortfolioCourse.getCourse_id());
+			System.out.println(servicePortfolioCourse.getLevel());
+			List<PortfolioCourseUnit> listportfolioCourseUnit = pcuDao.selectqaBylevel_course(servicePortfolioCourse);
+			PortfolioCourseUnitLevel courseUnitLevel = new PortfolioCourseUnitLevel();
+			courseUnitLevel.setQuestion_attribute_list(listportfolioCourseUnit);
+			List<PortfolioCourseUnitLevel> level_list = new ArrayList<>();
+			level_list.add(courseUnitLevel);
+			servicePortfolioCourse.setLevel_list(level_list);
+		}
+
+		modelMap.addAttribute("listPortfolioCourse", listPortfolioCourse);
+
 		return "admin.portfolio.detail";
-	 }
-	 
-	 
-	 @RequestMapping("/delete/{id_spcf}")
-	 public String deleted(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf, RedirectAttributes ra ) throws IOException{
-		 System.out.println(id_spcf);
-		 
+	}
 
-		
-		 
+	@RequestMapping("/delete/{id_spcf}")
+	public String deleted(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf, RedirectAttributes ra)
+			throws IOException {
+		MessengeUtils messengeUtils = new MessengeUtils();
+		if (pccDao.updatePortfolioConfigurationCourseByis_deleted(id_spcf) > 0) {
+			if (spcfDao.updateServicePortfolioConfigurationIs_Delete(id_spcf) > 0) {
+				if (pgDao.updatePortfolioGroupByis_deleted(id_spcf) > 0) {
+					messengeUtils.new_sucess_message("xoa thanh Cong !");
+				} else {
+					messengeUtils.new_error_message("xoa ko thanh Cong ở bảng PortfolioGroup  !");
+				}
+			} else {
+				messengeUtils.new_error_message("xoa ko thanh Cong ở bảng ServicePortfolioConfiguration !");
+			}
+		} else {
+			messengeUtils.new_error_message("xoa ko thanh Cong ở bảng PortfolioConfigurationCourse !");
+		}
+		ra.addFlashAttribute("msg", messengeUtils);
+
 		 
 		 return "redirect:/admin/portfolio/index"; 
 	 
 
-	
-	 }
+
+	}
 }
