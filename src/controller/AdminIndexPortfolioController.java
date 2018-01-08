@@ -119,7 +119,7 @@ public class AdminIndexPortfolioController {
 	          }
 	    	   
 	          
-	      },1000*345600,1000*345600);  //4 ngay
+	      },1000*34500,1000*34500);  //4 ngay
 	      
 	     
 	      
