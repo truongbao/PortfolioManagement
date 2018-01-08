@@ -12,19 +12,29 @@ import utility.Session;
 @Repository
 public class GroupMapperDao {
 	public List<Group> selectGroupByGroupSecernId(int id) throws IOException {
-		
+
 		SqlSession session = Session.sessionFactory().openSession();
 
 		GroupMapper groupMapper = session.getMapper(GroupMapper.class);
 
-		List<Group> listGroupSecern = groupMapper.selectGroupByGroupSecernId(id);
+		List<Group> listGroup= groupMapper.selectGroupByGroupSecernId(id);
 
 		// close session
 		session.close();
 
-		return listGroupSecern;
+		return listGroup;
 	}
-	
+	public Group selectGroupById(int id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+
+		GroupMapper groupMapper = session.getMapper(GroupMapper.class);
+
+		Group group = groupMapper.selectGroupById(id);
+  	// close session
+		session.close();
+    return group;
+	}
+
 	public List<Group> selectGroupNameAndGsNameById(int id) throws IOException {
 	
 		SqlSession session = Session.sessionFactory().openSession();
@@ -35,7 +45,6 @@ public class GroupMapperDao {
 
 		// close session
 		session.close();
-
-		return listGroup;
-	}
+    return listGroup;
+		
 }

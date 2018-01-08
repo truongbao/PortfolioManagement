@@ -2,30 +2,39 @@ package entity;
 
 import java.sql.Timestamp;
 
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.sun.istack.internal.NotNull;
+
 public class ServicePortfolioConfiguration {
-	
+
 	private int id;
-	private int service_id;  
+	private int service_id;
+
+/*	@NotNull
+	@Size(min = 2, max = 32,message="最大32文字まで入力可能とする")
+	@NotEmpty(message="必須入力とする")*/
 	private String name;
 	private String state;
 	private Timestamp aggregation_finished_at;
-	private int is_deleted;  //1 :xóa hoặc 0 : ko xóa
+	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
-	
+
 	public ServicePortfolioConfiguration() {
 		super();
 	}
 
-	public ServicePortfolioConfiguration(int id, int service_id, String name,
-			String state, Timestamp aggregation_finished_at, int is_deleted,
-			Timestamp created_at, Timestamp updated_at) {
+	public ServicePortfolioConfiguration(int id, int service_id, String name, String state,
+			Timestamp aggregation_finished_at, int is_deleted, Timestamp created_at, Timestamp updated_at) {
 		super();
 		this.id = id;
 		this.service_id = service_id;
 		this.name = name;
 		this.state = state;
-		this.aggregation_finished_at = aggregation_finished_at;  
+		this.aggregation_finished_at = aggregation_finished_at;
 		this.is_deleted = is_deleted;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
@@ -97,13 +106,9 @@ public class ServicePortfolioConfiguration {
 
 	@Override
 	public String toString() {
-		return "ServicePortfolioConfiguration [id=" + id + ", service_id="
-				+ service_id + ", name=" + name + ", state=" + state
-				+ ", aggregation_finished_at=" + aggregation_finished_at
-				+ ", is_deleted=" + is_deleted + ", created_at=" + created_at
-				+ ", updated_at=" + updated_at + "]";
+		return "ServicePortfolioConfiguration [id=" + id + ", service_id=" + service_id + ", name=" + name + ", state="
+				+ state + ", aggregation_finished_at=" + aggregation_finished_at + ", is_deleted=" + is_deleted
+				+ ", created_at=" + created_at + ", updated_at=" + updated_at + "]";
 	}
-
-	
 
 }

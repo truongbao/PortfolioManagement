@@ -2,23 +2,43 @@ package entity;
 
 import java.util.List;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import com.sun.istack.internal.NotNull;
+
+import validation.annotation.IsValidateSPCF;
+
 /* 
  * class này được viết với mục đích nhận dữ liệu từ form gửi về server
 */
 public class ServicePortfolioConfigurationWrapper {
-	ServicePortfolioConfiguration spcf;
 
 	// hiển thị view từng gs_name đi kèm là danh sách g_name thuộc về 1 gs_name
 	List<GroupSecern> gss;
 
+	// lấy dữ liệu spcf name từ người dùng
+
+	@NotNull
+	@IsValidateSPCF
+	ServicePortfolioConfiguration spcf;
+
 	// lấy dữ liệu danh sách các PortfolioGroup người dùng chọn
+
 	List<PortfolioGroup> pgs;
 
 	// lấy dữ liệu danh sách các ServicePortfolioCourse người dùng chọn
+	
 	List<ServicePortfolioCourse> spcs;
 
 	// lấy dữ liệu danh sách các PortfolioConfigurationCourse người dùng chọn
+	@NotNull
+	@NotEmpty
+	@Size(min=1,max=1)
 	List<PortfolioConfigurationCourse> pccs;
+//	
 
 	public List<PortfolioGroup> getPgs() {
 		return pgs;
@@ -71,4 +91,11 @@ public class ServicePortfolioConfigurationWrapper {
 
 	public ServicePortfolioConfigurationWrapper() {
 	}
+
+	@Override
+	public String toString() {
+		return "ServicePortfolioConfigurationWrapper [gss=" + gss + ", spcf=" + spcf + ", pgs=" + pgs + ", spcs=" + spcs
+				+ ", pccs=" + pccs + "]";
+	}
+
 }
