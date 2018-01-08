@@ -83,20 +83,7 @@ public class AdminDetailPortfolioController {
 		 System.out.println(id_spcf);
 		 
 
-		 if(pccDao.updatePortfolioConfigurationCourseByis_deleted(id_spcf) > 0){
-			 if( spcfDao.updateServicePortfolioConfigurationIs_Delete(id_spcf) > 0){
-				 if(pgDao.updatePortfolioGroupByis_deleted(id_spcf) > 0){
-					 ra.addFlashAttribute("msg","xoa thanh Cong !");
-				 }else{
-					 ra.addFlashAttribute("msg","xoa ko thanh Cong ở bảng PortfolioGroup  !");
-				 }
-			 }else{
-				 ra.addFlashAttribute("msg","xoa ko thanh Cong ở bảng ServicePortfolioConfiguration !");
-			 }
-		 }else{
-			 ra.addFlashAttribute("msg","xoa ko thanh Cong ở bảng PortfolioConfigurationCourse !");
-		 }
-		 
+		
 		 
 		 
 		 return "redirect:/admin/portfolio/index"; 
