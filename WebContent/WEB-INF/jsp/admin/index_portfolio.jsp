@@ -14,6 +14,15 @@
 						
                             <div class="csv-setting-bao">
                             
+                             <c:if test="${not empty msg }">
+                                <div class="alert alert-danger" >
+                                    <div class="block-error">
+                                          <i class="fa fa-exclamation" aria-hidden="true"></i>
+                                          <label>  ${msg } </label> <!-- thong bao -->
+                                    </div>
+                                </div>                            
+                            </c:if>
+                            
                               <c:choose>
                                   <c:when test="${objUQS !=null && objUQS.state == 'booking' }">
 		                                <div class="alert alert-danger" >

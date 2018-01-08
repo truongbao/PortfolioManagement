@@ -58,6 +58,12 @@
         UPDATE service_portfolio_configurations SET STATE = 'statistical_completed'  WHERE ID = #{id} ;
     </update> 
     
+    <update id="updateServicePortfolioConfigurationIs_Delete" parameterType="int">
+		UPDATE service_portfolio_configurations
+		SET is_deleted =1
+		WHERE service_portfolio_configurations.id = #{id} ;
+	</update>
+    
 
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 

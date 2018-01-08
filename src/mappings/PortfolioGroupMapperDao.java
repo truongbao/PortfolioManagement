@@ -22,4 +22,16 @@ public class PortfolioGroupMapperDao {
 		return ck;
 
 	}
+
+	public int updatePortfolioGroupByis_deleted(int id) throws IOException {
+
+		SqlSession session = Session.sessionFactory().openSession();
+
+		PortfolioGroupMapper groupMapper = session.getMapper(PortfolioGroupMapper.class);
+		int result1 = groupMapper.updatePortfolioGroupByis_deleted(id);
+		session.commit();
+		session.close();
+
+		return result1;
+	}
 }

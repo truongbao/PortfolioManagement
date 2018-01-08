@@ -132,7 +132,7 @@
 					<div class="col-md-4 text-center">
 						<!--  <button class="btn btn-blue-dark btn-w190">Delete</button> </br> </br> -->
 						<a
-							href="${pageContext.request.contextPath}/admin/portfolio/delete"
+							href="${pageContext.request.contextPath}/admin/portfolio/delete/${id_spcf }"
 							onclick="return confirm('Bạn có chắc chắn muốn xóa !')"
 							class="btn btn-blue-dark btn-w190"> Delete </a> </br> </br>
 					</div>

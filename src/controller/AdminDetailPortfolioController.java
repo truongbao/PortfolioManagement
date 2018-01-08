@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import entity.Group;
 import entity.PortfolioCourseUnit;
@@ -17,6 +18,7 @@ import entity.PortfolioGroup;
 import entity.ServicePortfolioConfiguration;
 import entity.ServicePortfolioCourse;
 import mappings.GroupMapperDao;
+import mappings.PortfolioConfigurationCourseMapperDao;
 import mappings.PortfolioCourseUnitMapperDao;
 import mappings.PortfolioGroupMapperDao;
 import mappings.ServicePortfolioConfigurationMapperDao;
@@ -34,6 +36,10 @@ public class AdminDetailPortfolioController {
 	ServicePortfolioCourseMapperDao spcDao;
 	@Autowired
 	PortfolioCourseUnitMapperDao pcuDao;
+	@Autowired
+	PortfolioConfigurationCourseMapperDao pccDao;
+	@Autowired
+	PortfolioGroupMapperDao pgDao;
 	
 	 
 	 //See detail
@@ -47,6 +53,7 @@ public class AdminDetailPortfolioController {
 		 List<Group> listPortfolioGroup = grDao.selectGroupNameAndGsNameById(id_spcf);
 
 			modelMap.addAttribute("listPortfolioGroup", listPortfolioGroup);
+			modelMap.addAttribute("id_spcf",id_spcf);
 			
 			
 
@@ -65,9 +72,36 @@ public class AdminDetailPortfolioController {
 
 				modelMap.addAttribute("listPortfolioCourse", listPortfolioCourse);
 				
+			
+				
 		return "admin.portfolio.detail";
 	 }
+	 
+	 
+	 @RequestMapping("/delete/{id_spcf}")
+	 public String deleted(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf, RedirectAttributes ra ) throws IOException{
+		 System.out.println(id_spcf);
+		 
+
+		 if(pccDao.updatePortfolioConfigurationCourseByis_deleted(id_spcf) > 0){
+			 if( spcfDao.updateServicePortfolioConfigurationIs_Delete(id_spcf) > 0){
+				 if(pgDao.updatePortfolioGroupByis_deleted(id_spcf) > 0){
+					 ra.addFlashAttribute("msg","xoa thanh Cong !");
+				 }else{
+					 ra.addFlashAttribute("msg","xoa ko thanh Cong ở bảng PortfolioGroup  !");
+				 }
+			 }else{
+				 ra.addFlashAttribute("msg","xoa ko thanh Cong ở bảng ServicePortfolioConfiguration !");
+			 }
+		 }else{
+			 ra.addFlashAttribute("msg","xoa ko thanh Cong ở bảng PortfolioConfigurationCourse !");
+		 }
+		 
+		 
+		 
+		 return "redirect:/admin/portfolio/index"; 
 	 
 
 	
 	 }
+}
