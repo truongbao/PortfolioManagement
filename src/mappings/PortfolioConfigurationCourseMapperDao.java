@@ -23,4 +23,20 @@ public class PortfolioConfigurationCourseMapperDao {
 		return ck;
 
 	}
+	
+	public int updatePortfolioConfigurationCourseByis_deleted(int id)
+			throws IOException {
+
+		SqlSession session = Session.sessionFactory().openSession();
+
+		PortfolioConfigurationCourseMapper portfolioConfigurationCourseMapper = session
+				.getMapper(PortfolioConfigurationCourseMapper.class);
+		int udbd = portfolioConfigurationCourseMapper.updatePortfolioConfigurationCourseByis_deleted(id);
+		session.commit();
+		session.close();
+		return udbd;
+
+	}
+	
+	
 }

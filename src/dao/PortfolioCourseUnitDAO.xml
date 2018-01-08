@@ -34,6 +34,18 @@
 		SELECT * FROM portfolio_course_units WHERE portfolio_course_unit_level_id =
 		#{id};
 	</select>
+	
+		<select id="selectqaBylevel_course"
+		parameterType="ServicePortfolioCourse" resultType="PortfolioCourseUnit">
+		SELECT qa.question_attribute_name
+		FROM question_attributes AS qa INNER JOIN portfolio_course_units AS pcu
+		ON qa.id = pcu.question_attribute_id INNER JOIN
+		portfolio_course_unit_levels AS pcul
+		ON pcu.portfolio_course_unit_level_id = pcul.id
+		WHERE pcul.service_portfolio_course_id= #{course_id} AND
+		pcul.level=#{level};
+
+	</select>
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
 		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 

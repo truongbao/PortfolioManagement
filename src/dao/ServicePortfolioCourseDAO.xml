@@ -47,6 +47,21 @@
 		SELECT * FROM
 		service_portfolio_courses WHERE service_id = #{id};
 	</select>
+	
+	<select id="selectServicePortfolioCourseByCourseName"
+		parameterType="int" resultType="ServicePortfolioCourse">
+		SELECT cs.course_name,pcc.level,course_id FROM
+		courses AS
+		cs INNER JOIN service_portfolio_courses AS spc ON cs.id =
+		spc.course_id
+		INNER JOIN portfolio_configuration_courses AS pcc ON
+		spc.id =
+		pcc.service_portfolio_course_id
+		WHERE
+		pcc.service_portfolio_configuration_id = #{id};
+	</select>
+	
+	
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
 		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 
 		phân biệt chữ hoa, chữ thường -->

@@ -12,9 +12,24 @@ public interface ServicePortfolioConfigurationMapper {
 
 	public int deleteServicePortfolioConfigurationById(int id);
 
-	public List<ServicePortfolioConfiguration> selectAll();
-
 	public ServicePortfolioConfiguration selectServicePortfolioConfigurationById(int id);
 
 	public int computeNextID();
+	
+    /* ========================================================= */
+	
+    public List<ServicePortfolioConfiguration> selectAll();
+	
+	public List<ServicePortfolioConfiguration> selectAllByState();
+
+	public int updateStateIsCompleting(ServicePortfolioConfiguration obj);
+	
+	public int updateStateStatisticalCompleted(ServicePortfolioConfiguration obj);
+	
+	public int updateServicePortfolioConfigurationIs_Delete(int id);
+	
+	
+	
+	
+	
 }

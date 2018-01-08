@@ -45,4 +45,68 @@ public class ServicePortfolioConfigurationMapperDao {
 		return next_spc;
 	}
 
+	public ServicePortfolioConfiguration selectServicePortfolioConfigurationById(int id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+		ServicePortfolioConfigurationMapper configurationMapper = session
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+
+		ServicePortfolioConfiguration spc = configurationMapper.selectServicePortfolioConfigurationById(id);
+
+		session.close();
+		return spc;
+	}
+
+	// lấy hết các recode ứng vs trạng thái is_completing và
+	// aggretion_finished_at giảm dần
+	public List<ServicePortfolioConfiguration> selectAllByState() throws IOException {
+
+		SqlSession session = Session.sessionFactory().openSession();
+
+		ServicePortfolioConfigurationMapper configurationMapper = session
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+		List<ServicePortfolioConfiguration> listSPConfiguration = configurationMapper.selectAllByState();
+		session.close();
+
+		return listSPConfiguration;
+	}
+
+	public int updateStateIsCompleting(ServicePortfolioConfiguration obj) throws IOException {
+
+		SqlSession session = Session.sessionFactory().openSession();
+
+		ServicePortfolioConfigurationMapper configurationMapper = session
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+		int result = configurationMapper.updateStateIsCompleting(obj);
+		session.commit();
+		session.close();
+
+		return result;
+	}
+
+	public int updateStateStatisticalCompleted(ServicePortfolioConfiguration obj) throws IOException {
+
+		SqlSession session = Session.sessionFactory().openSession();
+
+		ServicePortfolioConfigurationMapper configurationMapper = session
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+		int result = configurationMapper.updateStateStatisticalCompleted(obj);
+		session.commit();
+		session.close();
+
+		return result;
+	}
+
+	public int updateServicePortfolioConfigurationIs_Delete(int id) throws IOException {
+
+		SqlSession session = Session.sessionFactory().openSession();
+
+		ServicePortfolioConfigurationMapper configurationMapper = session
+				.getMapper(ServicePortfolioConfigurationMapper.class);
+		int result = configurationMapper.updateServicePortfolioConfigurationIs_Delete(id);
+		session.commit();
+		session.close();
+
+		return result;
+	}
+
 }
