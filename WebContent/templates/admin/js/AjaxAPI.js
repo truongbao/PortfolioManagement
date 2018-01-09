@@ -41,7 +41,11 @@ $(document).ready(function () {
   // send API
   $('#SP_Course_Selected').change(function () {
     // sự kiện thay đổi multipe select ServicePortfolioCourse xảy ra
-    spcs_change();
+	   var element = document.getElementById("SPCourseForm");
+	    element.innerHTML = "";
+	  spcs_change();
+ 
+
   });
   // validate Client
   $("#spc_insert_form").submit(function () {
@@ -99,11 +103,12 @@ function prefixProcess(spcList) {
         if (one_course_id == one_sp_course.id) {
           ck = 0;
         }
-      });
+      }); 	
       if (ck) spcs.push(one_sp_course_object);
     });
     spcWrap.spcourses = spcs;
   }
+  console.log(saveSPCSelected);
   return spcWrap;
 }
 function searchAjax(spcList, isLoad = 1) {
@@ -155,12 +160,17 @@ function saveData(data) {
   data.spcourses.forEach(one_sp_course => {
     spcListDataSave.push(one_sp_course);
   })
+
 };
 function loadInfoFromSPC(data, level_seleted = 1) {
   var element = document.getElementById("SPCourseForm");
   element.innerHTML = "";
 
   var index = -1;
+  
+  var uSize = _.uniq(spcListDataSave, function(p){ return p.id; });
+  spcListDataSave=uSize;
+  console.log(JSON.stringify(spcListDataSave));
   saveSPCSelected.forEach(saveSPC => {
     spcListDataSave.forEach(one_sp_course => {
       if(one_sp_course.id==saveSPC.spcId){
@@ -269,7 +279,7 @@ function spcs_change() {
   if (spclistSelected) {
     var element = document.getElementById("SPCourseForm");
     element.innerHTML = "";
-
+    
     searchAjax(spclistSelected);
   } else {
     // không chọn gì cả

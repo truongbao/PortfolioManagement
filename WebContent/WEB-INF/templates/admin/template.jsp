@@ -44,6 +44,7 @@
 		
 		<script src='${pageContext.request.contextPath}/templates/admin/js/jquery.min.js'></script>
         <script  src="${pageContext.request.contextPath}/templates/admin/js/select_change.js"></script>
+          <script  src="${pageContext.request.contextPath}/templates/admin/js/underscore.js"></script>
         <script  src="${pageContext.request.contextPath}/templates/admin/js/AjaxAPI.js"></script>
         
     </body>
