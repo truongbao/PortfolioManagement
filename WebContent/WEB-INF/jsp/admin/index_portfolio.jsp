@@ -68,9 +68,8 @@
 						</div>
 
 						<div class="col-md-3 text-center">
-							<c:set var="refresh" value="refresh-infomation"></c:set>
 							<a
-								href=" ${pageContext.request.contextPath}/admin/portfolio/index/${refresh}"
+								href=" ${pageContext.request.contextPath}/admin/portfolio/index/refresh"
 								class="btn btn-blue-dark btn-csv"> 更 新 </a> </br> </br>
 							<!-- Update -->
 						</div>
