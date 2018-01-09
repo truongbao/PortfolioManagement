@@ -30,7 +30,7 @@ public class AdminIndexPortfolioController {
 	 * @throws IOException
 	 */
 	@ModelAttribute
-	public void addCommonObject(ModelMap modelMap) throws IOException{
+	public void Common(ModelMap modelMap) throws IOException{
 		List<ServicePortfolioConfiguration> listSPConfiguration = spcDao.selectAll();
 	    modelMap.addAttribute("listSPConfiguration", listSPConfiguration);
 	}
@@ -51,7 +51,7 @@ public class AdminIndexPortfolioController {
      * 
      * @return
      */
-	// get lại thông tin portfolio khi click button[Update]
+	// Reload information portfolio when clicking the button [Update]
 	@RequestMapping("/index/refresh")
 	public String reload_index(){
 		return "admin.portfolio.index";
