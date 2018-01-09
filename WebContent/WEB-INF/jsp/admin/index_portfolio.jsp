@@ -60,25 +60,19 @@
 						<div class="col-md-3"></div>
 
 						<div class="col-md-3 text-center">
-							<!--<button class="btn btn-blue-dark btn-csv "> 問 題 情 報 更 新  </button> </br> </br>-->
-							<a
-								href="${pageContext.request.contextPath}/admin/portfolio/update-exercise-information"
-								class="btn btn-blue-dark btn-csv"> 問 題 情 報 更 新 </a> </br> </br>
+							<a href="${pageContext.request.contextPath}/admin/portfolio/update-exercise-information" class="btn btn-blue-dark btn-csv"> 問 題 情 報 更 新 </a> </br> </br>
 							<!-- Update thông tin bài tập -->
 						</div>
 
 						<div class="col-md-3 text-center">
-							<a
-								href=" ${pageContext.request.contextPath}/admin/portfolio/index/refresh"
-								class="btn btn-blue-dark btn-csv"> 更 新 </a> </br> </br>
+							<a href=" ${pageContext.request.contextPath}/admin/portfolio/index/refresh" class="btn btn-blue-dark btn-csv"> 更 新 </a> </br> </br>
 							<!-- Update -->
 						</div>
 
 						<div class="col-md-3"></div>
 					</div>
 
-					<fmt:formatDate var="fmtDateUpdate" value="${objUQS.updated_at}"
-						pattern="yyyy.MM.dd hh:mm:ss" />
+					<fmt:formatDate var="fmtDateUpdate" value="${objUQS.updated_at}" pattern="yyyy.MM.dd hh:mm:ss" />
 					<c:if test="${objUQS !=null && objUQS.state == 'finished' }">
 						<div class="row">
 							<h4 class="h4_bao" style="text-align: center;">問題情報更新日時 :

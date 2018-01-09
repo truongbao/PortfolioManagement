@@ -32,7 +32,7 @@
 		service_portfolio_configurations WHERE ID = #{id};
 	</select>
 
-    <!-- ============================ Bao ============================= -->  
+    <!-- ========================================================= -->  
  
 	<select id="selectAll" resultMap="result">
 		SELECT spcf.ID, spcf.NAME,
