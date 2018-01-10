@@ -23,14 +23,6 @@
 				</p>
 			</div>
 
-			<%-- <c:forEach items="${listGroup }" var="obj">
-				<div class="csv-setting" style="margin-left: 46px;">
-					<p class="p3_le">
-						<strong> ${obj.group_secern_name } </strong> &nbsp;&nbsp;&nbsp; <span>
-							${obj.group_name } </span>
-					</p>
-				</div>
-			</c:forEach> --%>
 
 			<c:forEach items="${listPortfolioGroup }" var="obj">
 				<div class="csv-setting" style="margin-left: 46px;">
@@ -48,45 +40,44 @@
 				</p>
 			</div>
 
-	<c:forEach items="${listPortfolioCourse }" var="obj">
-			<div class="csv-setting" style="margin-left: 46px;">
-				<p class="p6_le">
-					<strong> ${obj.course_name } </strong>
-				</p>
-			</div>
-
-
-			<div class="csv-setting" style="margin-left: 46px;">
-				<p class="p7_le">
-					<strong>  パターン${obj.level } </strong>
-				</p>
-			</div>
-
-
-			<div class="csv-setting" style="margin-left: 46px;">
-				<div class="mar_top">
-					<div class="left_le" style="float: left;">
-						<p class="p8_le">
-							<strong> 対象属性 </strong>
-						</p>
-					</div>
-					<div class="right_le" style="float: left; margin-left: 15px;">
-						<ul style="list-style: none;">
-						<c:forEach
-									items="${obj.level_list[0].question_attribute_list}"
-									var="obj1">
-							<li>${obj1.question_attribute_name}</li>
-							</c:forEach>
-						</ul>
-
-					</div>
+			<c:forEach items="${listPortfolioCourse }" var="obj">
+				<div class="csv-setting" style="margin-left: 46px;">
+					<p class="p6_le">
+						<strong> ${obj.course_name } </strong>
+					</p>
 				</div>
 
-				<div class="clr" style="clear: both;"></div>
-			</div>
+
+				<div class="csv-setting" style="margin-left: 46px;">
+					<p class="p7_le">
+						<strong> パターン${obj.level } </strong>
+					</p>
+				</div>
+
+
+				<div class="csv-setting" style="margin-left: 46px;">
+					<div class="mar_top">
+						<div class="left_le" style="float: left;">
+							<p class="p8_le">
+								<strong> 対象属性 </strong>
+							</p>
+						</div>
+						<div class="right_le" style="float: left; margin-left: 15px;">
+							<ul style="list-style: none;">
+								<c:forEach items="${obj.level_list[0].question_attribute_list}"
+									var="obj1">
+									<li>${obj1.question_attribute_name}</li>
+								</c:forEach>
+							</ul>
+
+						</div>
+					</div>
+
+					<div class="clr" style="clear: both;"></div>
+				</div>
 			</c:forEach>
 
-<!-- 
+			<!-- 
 			<div class="csv-setting" style="margin-left: 46px;">
 				<p class="p9_le">
 					<strong> 数学コース </strong>
@@ -137,7 +128,8 @@
 							class="btn btn-blue-dark btn-w190"> Delete </a> </br> </br>
 					</div>
 					<div class="col-md-4 text-center">
-						<a href="${pageContext.request.contextPath}/admin/portfolio/edit/${id_spcf}"
+						<a
+							href="${pageContext.request.contextPath}/admin/portfolio/edit/${id_spcf}"
 							class="btn btn-blue-dark btn-w190"> Edit </a> </br> </br>
 					</div>
 					<div class="col-md-4 text-center">
