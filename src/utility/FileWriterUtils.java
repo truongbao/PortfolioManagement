@@ -8,7 +8,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class FileUtils {
+public class FileWriterUtils {
 	public static BufferedWriter bw = null;
 	public static FileWriter fw = null;
 

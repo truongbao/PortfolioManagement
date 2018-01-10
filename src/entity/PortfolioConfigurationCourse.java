@@ -29,7 +29,6 @@ public class PortfolioConfigurationCourse {
 	private int course_id;// service_portfolio_courses
 	
 	public PortfolioConfigurationCourse() {
-		super();
 	}
 
 	//constructor full 13 tham số (có nối bảng)

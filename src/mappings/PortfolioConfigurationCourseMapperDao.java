@@ -4,11 +4,13 @@ import java.io.IOException;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
-
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.annotation.Propagation;
 import entity.PortfolioConfigurationCourse;
 import utility.Session;
 
 @Repository
+@Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
 public class PortfolioConfigurationCourseMapperDao {
 	public int insertPortfolioConfigurationCourse(PortfolioConfigurationCourse portfolioConfigurationCourse)
 			throws IOException {
