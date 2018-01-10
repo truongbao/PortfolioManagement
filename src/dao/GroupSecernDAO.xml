@@ -21,7 +21,7 @@
 
 	<delete id="deleteGroupSecernById" parameterType="int">
 		DELETE from
-		group_secerns WHERE ID = #{id};
+		group_secerns WHERE ID  #{id};
 	</delete>
 
 	<select id="selectAllGroupSecern" resultMap="result">

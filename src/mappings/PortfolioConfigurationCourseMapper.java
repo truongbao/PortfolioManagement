@@ -17,4 +17,5 @@ public interface PortfolioConfigurationCourseMapper {
 	
 	public int updatePortfolioConfigurationCourseByis_deleted(int id);
 
+	
 }
