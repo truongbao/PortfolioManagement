@@ -113,7 +113,7 @@
 
 									<tr>
 										<td class="td_bao">${objSPCF.id}</td>
-										<td class="td_bao">${objSPCF.name}</td>
+										<td class="td_bao"><p style="font-family: tahoma;">${objSPCF.name}</p></td>
 										<td class="td_bao">${fmtDateCreate}</td>
 										<td class="td_bao">${fmtDateUpdate}</td>
 										<td class="td_bao">${fmtDateAggregationFinished}</td>
