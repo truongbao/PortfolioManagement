@@ -66,7 +66,7 @@ public class AdminIndexPortfolioController {
 	 */
 	//Display processing in items 9 and 10 when click button [Update exercise information]
 	@RequestMapping("/update-exercise-information")
-	public String up(ModelMap modelMap) throws IOException {
+	public String updateExerciseInfomation(ModelMap modelMap) throws IOException {
 		
 		UpdateQuestionState objUQS = uqsDao.selectObjectUQSByState(); 
 		modelMap.addAttribute("objUQS", objUQS);
