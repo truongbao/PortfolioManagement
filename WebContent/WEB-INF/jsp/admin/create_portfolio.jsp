@@ -48,7 +48,7 @@
 									<td class="group_height group_list"><select
 										name="gss[${status.index}].groups[0].id" class="custom_select">
 											<c:forEach items="${objlist.groups}" var="objgroup">
-												<option value="${objgroup.id}" <c:if test="${objgroup.isSelected==1}"> selected="1" </c:if>>${objgroup.group_name}</option>
+												<option style="font-family: tahoma;" value="${objgroup.id}" <c:if test="${objgroup.isSelected==1}"> selected="1" </c:if>>  ${objgroup.group_name}  </option>
 											</c:forEach>
 									</select></td>
 								</tr>
