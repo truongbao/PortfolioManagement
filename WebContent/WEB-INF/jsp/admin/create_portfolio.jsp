@@ -39,6 +39,7 @@
 							<c:forEach items="${spcwoutput.gss}" var="objlist"
 								varStatus="status">
 								<tr>
+
 									<td class="group_height td_align_left"><input
 										type="hidden" name="gss[${status.index}].id"
 										value="${objlist.id}" /> <input type="hidden"
@@ -51,6 +52,7 @@
 												<option style="font-family: tahoma;" value="${objgroup.id}" <c:if test="${objgroup.isSelected==1}"> selected="1" </c:if>>  ${objgroup.group_name}  </option>
 											</c:forEach>
 									</select></td>
+
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -81,7 +83,6 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 			<!-- xử dụng khi load dữ liệu -->
 			<div id="SPCourseForm" >
@@ -93,7 +94,7 @@
 						<div id="one_sp_course" class="row">
 							<h1 class="one_course_name">${objSPCourse.course_name}</h1>
 							<div class="form-group">
-								<label class="control-label  col-sm-3 col-sm-offset-1 label_69">単元タグ設定パターン</label>
+								<label class="control-label  col-sm-3 col-sm-offset-1 ">単元タグ設定パターン</label>
 								<div class="col-sm-4">
 									<div class="level_list">
 										<select class="custom_select_level"
@@ -113,7 +114,7 @@
 									class="label_level_error control-label col-sm-3 "></label>
 							</div>
 							<div class="form-group">
-								<label class="control-label col-sm-2 col-sm-offset-2 label_69">単元タグ</label>
+								<label class="control-label col-sm-2 col-sm-offset-2 ">単元タグ</label>
 								<div class="col-sm-8">
 									<ul class="patern_list "
 										id='question_attribute_list_from_spcourse_${objSPCourse.id }'>

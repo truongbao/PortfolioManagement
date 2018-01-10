@@ -14,7 +14,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import entity.Group;
 import entity.PortfolioCourseUnit;
 import entity.PortfolioCourseUnitLevel;
-import entity.PortfolioGroup;
 import entity.ServicePortfolioConfiguration;
 import entity.ServicePortfolioCourse;
 import mappings.GroupMapperDao;
@@ -43,6 +42,13 @@ public class AdminDetailPortfolioController {
 	PortfolioGroupMapperDao pgDao;
 
 	// See detail
+	/**
+	 * 
+	 * @param modelMap
+	 * @param id_spcf
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping("/detail/{id_spcf}")
 	public String detail(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf) throws IOException {
 
@@ -70,7 +76,15 @@ public class AdminDetailPortfolioController {
 
 		return "admin.portfolio.detail";
 	}
-
+	/**
+	 * 
+	 * @param modelMap
+	 * @param id_spcf
+	 * @param ra
+	 * @return
+	 * @throws IOException
+	 */
+	
 	@RequestMapping("/delete/{id_spcf}")
 	public String deleted(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf, RedirectAttributes ra)
 			throws IOException {
@@ -78,11 +92,8 @@ public class AdminDetailPortfolioController {
 		
 		if (pccDao.updatePortfolioConfigurationCourseByis_deleted(id_spcf) > 0) {
 			if (spcfDao.updateServicePortfolioConfigurationIs_Delete(id_spcf) > 0) {
-				if (pgDao.updatePortfolioGroupByis_deleted(id_spcf) > 0) {
-					messengeUtils.new_sucess_message("Xóa thành công !");
-				} else {
-					messengeUtils.new_sucess_message("Xóa thành công  !");
-				}
+				pgDao.updatePortfolioGroupByis_deleted(id_spcf);
+				messengeUtils.new_sucess_message("Xóa thành công !");
 			} else {
 				messengeUtils.new_error_message("Xóa không thành công ở bảng ServicePortfolioConfiguration !");
 			}
