@@ -30,7 +30,7 @@ import mappings.PortfolioGroupMapperDao;
 import mappings.QuestionAttributeMapperDao;
 import mappings.ServicePortfolioConfigurationMapperDao;
 import mappings.ServicePortfolioCourseMapperDao;
-import utility.FileUtils;
+import utility.FileWriterUtils;
 import utility.LibraryConstant;
 import utility.MessengeUtils;
 
@@ -149,7 +149,7 @@ public class AdminEditPortfolioController {
 		} catch (Exception e) {
 			MessengeUtils utils = new MessengeUtils();
 			utils.new_error_message("Server đang gặp sự cố");
-			FileUtils.writeFile("CreatPortfolioController_Show_form_create", e.getMessage());
+			FileWriterUtils.writeFile("CreatPortfolioController_Show_form_create", e.getMessage());
 			// ra.addFlashAttribute("msg", e.getMessage());
 			return "redirect:/admin/portfolio/index";
 		}
