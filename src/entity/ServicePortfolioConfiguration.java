@@ -2,12 +2,6 @@ package entity;
 
 import java.sql.Timestamp;
 
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
-
-import com.sun.istack.internal.NotNull;
-
 public class ServicePortfolioConfiguration {
 
 	private int id;
@@ -23,13 +17,10 @@ public class ServicePortfolioConfiguration {
 	private Timestamp created_at;
 	private Timestamp updated_at;
 
-	public ServicePortfolioConfiguration() {
-		super();
-	}
+	public ServicePortfolioConfiguration() {}
 
 	public ServicePortfolioConfiguration(int id, int service_id, String name, String state,
 			Timestamp aggregation_finished_at, int is_deleted, Timestamp created_at, Timestamp updated_at) {
-		super();
 		this.id = id;
 		this.service_id = service_id;
 		this.name = name;

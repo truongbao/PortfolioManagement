@@ -11,13 +11,10 @@ public class UpdateQuestionState { // Table update_question_states
 	private Timestamp created_at;
 	private Timestamp updated_at;
 	
-	public UpdateQuestionState() {
-		super();
-	}
+	public UpdateQuestionState() {}
 
 	public UpdateQuestionState(int id, int service_id, String state, int is_deleted,
 			Timestamp created_at, Timestamp updated_at) {
-		super();
 		this.id = id;
 		this.service_id = service_id;
 		this.state = state;
