@@ -15,6 +15,8 @@ public interface PortfolioConfigurationCourseMapper {
 
 	public List<PortfolioConfigurationCourse> selectPortfolioConfigurationCourseById(int id);
 	
+	public List<PortfolioConfigurationCourse> selectPortfolioConfigurationCourseBySPCId(int id);
+	
 	public int updatePortfolioConfigurationCourseByis_deleted(int id);
 
 }

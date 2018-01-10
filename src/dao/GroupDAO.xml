@@ -43,7 +43,7 @@
 	</select>
 	
 	<select id="selectGroupNameAndGsNameById" parameterType="int" resultType="Group">
-		SELECT gr.group_name,gs.group_secern_name FROM groups AS gr INNER JOIN
+		SELECT gr.group_name,gs.group_secern_name,gr.id  FROM groups AS gr INNER JOIN
 		portfolio_groups AS pg
 		ON gr.id = pg.group_id
 		INNER JOIN group_secerns AS gs ON gs.id = gr.group_secern_id

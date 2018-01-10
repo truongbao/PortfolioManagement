@@ -1,6 +1,7 @@
 package mappings;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
@@ -37,6 +38,18 @@ public class PortfolioConfigurationCourseMapperDao {
 		return udbd;
 
 	}
+	
+	  public List<PortfolioConfigurationCourse> selectPortfolioConfigurationCourseBySPCId(int id) throws IOException {
+			
+			SqlSession session = Session.sessionFactory().openSession();
+			
+			PortfolioConfigurationCourseMapper portfolioConfigurationCourseMapper = session.getMapper(PortfolioConfigurationCourseMapper.class);
+
+			List<PortfolioConfigurationCourse> listPortfolioConfigurationCourses = portfolioConfigurationCourseMapper.selectPortfolioConfigurationCourseBySPCId(id);
+			session.close();
+			return listPortfolioConfigurationCourses;
+		}
+		
 	
 	
 }

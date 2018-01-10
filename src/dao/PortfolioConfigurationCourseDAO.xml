@@ -37,6 +37,12 @@
 		SELECT * FROM portfolio_configuration_courses WHERE ID = #{id};
 	</select>
 	
+	<select id="selectPortfolioConfigurationCourseBySPCId"
+		parameterType="int" resultType="PortfolioConfigurationCourse">
+		SELECT * FROM portfolio_configuration_courses WHERE SERVICE_PORTFOLIO_CONFIGURATION_ID = #{service_portfolio_configuration_id};
+	</select>
+	
+	
 
 	<update id="updatePortfolioConfigurationCourseByis_deleted"
 		parameterType="int">
