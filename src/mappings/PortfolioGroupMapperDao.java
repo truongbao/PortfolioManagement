@@ -23,12 +23,12 @@ public class PortfolioGroupMapperDao {
 
 	}
 
-	public int updatePortfolioGroupByis_deleted(int id) throws IOException {
+	public int deletePortfolioGroup(int id) throws IOException {
 
 		SqlSession session = Session.sessionFactory().openSession();
 
 		PortfolioGroupMapper groupMapper = session.getMapper(PortfolioGroupMapper.class);
-		int result1 = groupMapper.updatePortfolioGroupByis_deleted(id);
+		int result1 = groupMapper.deletePortfolioGroup(id);
 		session.commit();
 		session.close();
 

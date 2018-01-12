@@ -44,7 +44,7 @@
 	
 	
 
-	<update id="updatePortfolioConfigurationCourseByis_deleted"
+	<update id="deletePortfolioConfigurationCourse"
 		parameterType="int">
 		UPDATE portfolio_configuration_courses
 		SET is_deleted =1

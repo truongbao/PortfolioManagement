@@ -20,6 +20,6 @@ public interface PortfolioGroupMapper {
 
 	public PortfolioGroup selectPortfolioGroupById(int id);
 	
-	public int updatePortfolioGroupByis_deleted(int id);
+	public int deletePortfolioGroup(int id);
 
 }

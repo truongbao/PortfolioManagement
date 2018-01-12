@@ -42,7 +42,7 @@
 	</select>
 	
 	
-	<update id="updatePortfolioGroupByis_deleted"
+	<update id="deletePortfolioGroup"
 		parameterType="int">
 		UPDATE portfolio_groups
 		SET is_deleted =1

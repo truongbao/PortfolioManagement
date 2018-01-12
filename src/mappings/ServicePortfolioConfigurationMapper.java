@@ -26,7 +26,7 @@ public interface ServicePortfolioConfigurationMapper {
 	
 	public int updateStateStatisticalCompleted(ServicePortfolioConfiguration obj);
 	
-	public int updateServicePortfolioConfigurationIs_Delete(int id);
+	public int deleteServicePortfolioConfiguration(int id);
 	
 	
 	
