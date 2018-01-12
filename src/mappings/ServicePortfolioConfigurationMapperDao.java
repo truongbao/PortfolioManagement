@@ -62,8 +62,8 @@ public class ServicePortfolioConfigurationMapperDao {
 		return spc;
 	}
 
-	// lấy hết các recode ứng vs trạng thái is_completing và
-	// aggretion_finished_at giảm dần
+	// láº¥y háº¿t cÃ¡c recode á»©ng vs tráº¡ng thÃ¡i is_completing vÃ 
+	// aggretion_finished_at giáº£m dáº§n
 	public List<ServicePortfolioConfiguration> selectAllByState() throws IOException {
 
 		SqlSession session = Session.sessionFactory().openSession();
@@ -102,13 +102,13 @@ public class ServicePortfolioConfigurationMapperDao {
 		return result;
 	}
 
-	public int updateServicePortfolioConfigurationIs_Delete(int id) throws IOException {
+	public int deleteServicePortfolioConfiguration(int id) throws IOException {
 
 		SqlSession session = Session.sessionFactory().openSession();
 
 		ServicePortfolioConfigurationMapper configurationMapper = session
 				.getMapper(ServicePortfolioConfigurationMapper.class);
-		int result = configurationMapper.updateServicePortfolioConfigurationIs_Delete(id);
+		int result = configurationMapper.deleteServicePortfolioConfiguration(id);
 		session.commit();
 		session.close();
 
@@ -119,6 +119,7 @@ public class ServicePortfolioConfigurationMapperDao {
 			List<PortfolioConfigurationCourse> pccs) {
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		SqlSession session = null;
+		int ck =0;
 		try {
 			session = Session.sessionFactory().openSession();
 
@@ -131,7 +132,7 @@ public class ServicePortfolioConfigurationMapperDao {
 			int gs_length = gss.size();
 			for (int gs_index = 0; gs_index < gs_length; gs_index++) {
 				GroupSecern gs = gss.get(gs_index);
-				// loại bỏ những group có giá trị -1 = "chưa thiết lập"
+				// loáº¡i bá»� nhá»¯ng group cÃ³ giÃ¡ trá»‹ -1 = "chÆ°a thiáº¿t láº­p"
 				PortfolioGroup new_pg = new PortfolioGroup();
 				new_pg.setGroup_id(gs.getGroups().get(0).getId());
 				if (new_pg.getGroup_id() != -1) {
@@ -157,14 +158,52 @@ public class ServicePortfolioConfigurationMapperDao {
 			if (session != null)
 				session.rollback();
 			FileWriterUtils.writeFile(e.getMessage(), "Inser new SPCF setting");
-			return 0;
+			ck= 0;
 		} finally {
 			if (session != null) {
 				session.close();
 			}
 		}
 
-		return 1;
+		return ck;
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
+	public int delete_spcf(int id) {
+		SqlSession session = null;
+		int ck = 1;
+		try {
+			session = Session.sessionFactory().openSession();
+
+			ServicePortfolioConfigurationMapper spcfMapper = session
+					.getMapper(ServicePortfolioConfigurationMapper.class);
+			PortfolioConfigurationCourseMapper pccMapper = session.getMapper(PortfolioConfigurationCourseMapper.class);
+			PortfolioGroupMapper pgMapper = session.getMapper(PortfolioGroupMapper.class);
+
+			spcfMapper.deleteServicePortfolioConfiguration(id);
+			pgMapper.deletePortfolioGroup(id);
+			pccMapper.deletePortfolioConfigurationCourse(id);
+
+			
+			
+			session.commit();
+		} catch (Exception e) {
+			if (session != null)
+				session.rollback();
+			FileWriterUtils.writeFile(e.getMessage(), "delete new SPCF setting");
+			ck = 0;
+		} finally {
+			if (session != null) {
+				session.close();
+
+			}
+		}
+		return ck;
+
 	}
 
 }

@@ -22,6 +22,7 @@ import mappings.PortfolioCourseUnitMapperDao;
 import mappings.PortfolioGroupMapperDao;
 import mappings.ServicePortfolioConfigurationMapperDao;
 import mappings.ServicePortfolioCourseMapperDao;
+import utility.FileWriterUtils;
 import utility.MessengeUtils;
 
 @Controller
@@ -88,22 +89,34 @@ public class AdminDetailPortfolioController {
 	@RequestMapping("/delete/{id_spcf}")
 	public String deleted(ModelMap modelMap, @PathVariable("id_spcf") int id_spcf, RedirectAttributes ra)
 			throws IOException {
-		MessengeUtils messengeUtils = new MessengeUtils();
 		
-		if (pccDao.updatePortfolioConfigurationCourseByis_deleted(id_spcf) > 0) {
-			if (spcfDao.updateServicePortfolioConfigurationIs_Delete(id_spcf) > 0) {
-				pgDao.updatePortfolioGroupByis_deleted(id_spcf);
-				messengeUtils.new_sucess_message("Xóa thành công !");
+
+		try {
+
+			int ck = spcfDao.delete_spcf(id_spcf);
+			MessengeUtils utils = new MessengeUtils();
+			if (ck == 0) {
+				utils.new_error_message("Server đang gặp sự cố");
 			} else {
-				messengeUtils.new_error_message("Xóa không thành công ở bảng ServicePortfolioConfiguration !");
+				utils.new_sucess_message("thành công");
+
 			}
-		} else {
-			messengeUtils.new_error_message("Xóa không thành công ở bảng PortfolioConfigurationCourse !");
+			ra.addFlashAttribute("msg", utils);
+			return "redirect:/admin/portfolio/index";
+			
+		} catch (Exception e) {
+
+			FileWriterUtils.writeFile("CreatPortfolioController_Show_form_create", e.getMessage());
+			MessengeUtils utils = new MessengeUtils();
+			utils.new_error_message("Server đang gặp sự cố");
+
+			ra.addFlashAttribute("msg", utils);
+
+			return "redirect:/admin/portfolio/index";
 		}
 		
-		ra.addFlashAttribute("msg", messengeUtils);
-		 
-		 return "redirect:/admin/portfolio/index"; 
 
 	}
 }
+		
+
