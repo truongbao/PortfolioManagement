@@ -125,16 +125,16 @@
 						<a
 							href="${pageContext.request.contextPath}/admin/portfolio/delete/${id_spcf }"
 							onclick="return confirm('Bạn có chắc chắn muốn xóa !')"
-							class="btn btn-blue-dark btn-w190"> Delete </a> </br> </br>
+							class="btn btn-blue-dark btn-w190"> 削除 </a> </br> </br>
 					</div>
 					<div class="col-md-4 text-center">
 						<a
 							href="${pageContext.request.contextPath}/admin/portfolio/edit/${id_spcf}"
-							class="btn btn-blue-dark btn-w190"> Edit </a> </br> </br>
+							class="btn btn-blue-dark btn-w190"> 編集 </a> </br> </br>
 					</div>
 					<div class="col-md-4 text-center">
 						<a href="${pageContext.request.contextPath}/admin/portfolio/index"
-							class="btn btn-blue-dark btn-w190"> Back </a> </br> </br>
+							class="btn btn-blue-dark btn-w190"> 戻ってくる </a> </br> </br>
 					</div>
 
 
