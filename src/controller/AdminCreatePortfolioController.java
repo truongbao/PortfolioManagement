@@ -90,7 +90,7 @@ public class AdminCreatePortfolioController {
 				GroupSecern groupSecern = listGroupSecern.get(gs_index);
 				List<Group> groupList = groupDao.selectGroupByGroupSecernId(groupSecern.getId());
 				// add default value to group
-				groupList.add(0, new Group(-1, "Chưa thiết lập"));
+				groupList.add(0, new Group(-1, "設定されていない"));
 				// load group include groupSecern
 				groupSecern.setGroups(groupList);
 			}
@@ -118,7 +118,7 @@ public class AdminCreatePortfolioController {
 
 			// thông báo lỗi
 			MessengeUtils utils = new MessengeUtils();
-			utils.new_error_message("Server đang gặp sự cố");
+			utils.new_error_message(" サーバーに問題がある ");
 
 			ra.addFlashAttribute("msg", utils);
 
@@ -162,7 +162,7 @@ public class AdminCreatePortfolioController {
 					one_gs = gsmDao.selectGroupSecernById(one_gs.getId());
 
 					List<Group> groupList = groupDao.selectGroupByGroupSecernId(one_gs.getId());
-					groupList.add(0, new Group(-1, "Chưa thiết lập"));
+					groupList.add(0, new Group(-1, "設定されていない"));
 					if (current_select_gr != -1) {
 						int g_length = groupList.size();
 						for (int g_index = 0; g_index < g_length; g_index++) {
@@ -248,9 +248,9 @@ public class AdminCreatePortfolioController {
 
 				MessengeUtils messengeUtils = new MessengeUtils();
 				if (ck > 0) {
-					messengeUtils.new_sucess_message("Thêm Thành Công");
+					messengeUtils.new_sucess_message(" 登録が成功");
 				} else {
-					messengeUtils.new_error_message("Thêm Thất bại");
+					messengeUtils.new_error_message("登録が失敗しました。");
 				}
 				ra.addFlashAttribute("msg", messengeUtils);
 				return "redirect:/admin/portfolio/index";
@@ -258,7 +258,7 @@ public class AdminCreatePortfolioController {
 		} catch (Exception e) {
 			FileWriterUtils.writeFile("CreatPortfolioController_Show_form_create", e.getMessage());
 			MessengeUtils utils = new MessengeUtils();
-			utils.new_error_message("Server đang gặp sự cố");
+			utils.new_error_message(" サーバーに問題がある ");
 			ra.addFlashAttribute("msg", utils);
 			return "redirect:/admin/portfolio/index";
 		}

@@ -96,9 +96,9 @@ public class AdminDetailPortfolioController {
 			int ck = spcfDao.delete_spcf(id_spcf);
 			MessengeUtils utils = new MessengeUtils();
 			if (ck == 0) {
-				utils.new_error_message("Server đang gặp sự cố");
+				utils.new_error_message(" サーバーに問題がある ");
 			} else {
-				utils.new_sucess_message("thành công");
+				utils.new_sucess_message(" 成功した ");
 
 			}
 			ra.addFlashAttribute("msg", utils);
@@ -108,7 +108,7 @@ public class AdminDetailPortfolioController {
 
 			FileWriterUtils.writeFile("CreatPortfolioController_Show_form_create", e.getMessage());
 			MessengeUtils utils = new MessengeUtils();
-			utils.new_error_message("Server đang gặp sự cố");
+			utils.new_error_message(" サーバーに問題がある ");
 
 			ra.addFlashAttribute("msg", utils);
 
