@@ -8,9 +8,7 @@
 
 	<h1 class="main-heading">ポートフォリオ用科目設定画面 TEST</h1>
 	<div class="main-summary portfolio-unit">
-		<form:form id="spc_insert_form" class="form-horizontal"
-			action="${pageContext.request.contextPath}/admin/portfolio/create"
-			method="post" modelAttribute="spcw">
+		<form:form id="spc_insert_form" class="form-horizontal" action="${pageContext.request.contextPath}/admin/portfolio/edit/${id_spcf}" method="post" modelAttribute="spcw">
 
 			<div class="form-group">
 				<label class="control-label col-sm-2 label_align_left">現行設定</label>
