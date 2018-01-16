@@ -3,23 +3,6 @@ package controller;
 import java.io.IOException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import entity.Course;
-import entity.Group;
-import entity.GroupSecern;
-import entity.PortfolioConfigurationCourse;
-import entity.PortfolioCourseUnit;
-import entity.PortfolioCourseUnitLevel;
-import entity.QuestionAttribute;
-import entity.ServicePortfolioConfiguration;
-import entity.ServicePortfolioConfigurationWrapper;
-import entity.ServicePortfolioCourse;
 import mappings.CourseMapperDao;
 import mappings.GroupMapperDao;
 import mappings.GroupSecernMapperDao;
@@ -30,9 +13,26 @@ import mappings.PortfolioGroupMapperDao;
 import mappings.QuestionAttributeMapperDao;
 import mappings.ServicePortfolioConfigurationMapperDao;
 import mappings.ServicePortfolioCourseMapperDao;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import utility.FileWriterUtils;
 import utility.LibraryConstant;
 import utility.MessengeUtils;
+import entity.Course;
+import entity.Group;
+import entity.GroupSecern;
+import entity.PortfolioConfigurationCourse;
+import entity.PortfolioCourseUnit;
+import entity.PortfolioCourseUnitLevel;
+import entity.QuestionAttribute;
+import entity.ServicePortfolioConfiguration;
+import entity.ServicePortfolioConfigurationWrapper;
+import entity.ServicePortfolioCourse;
 
 @Controller
 @RequestMapping("admin/portfolio")
@@ -157,11 +157,7 @@ public class AdminEditPortfolioController {
 		return "admin.portfolio.edit";
 	}
 
-	// Processing edit
-	@RequestMapping(value = "/edit", method = RequestMethod.POST)
-	public String processing_edit(ModelMap modelMap) {
+	
 
-		return "admin.portfolio.edit";
-	}
 
 }
