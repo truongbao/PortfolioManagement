@@ -95,7 +95,7 @@
 				<div class="mar_top">
 					<div class="left_le" style="float: left;">
 						<p class="p11_le">
-							<strong> 対象属性 </strong>
+							<strong> 対象属性 	</strong>
 						</p>
 					</div>
 
