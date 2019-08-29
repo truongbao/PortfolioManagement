@@ -9,23 +9,34 @@ import org.springframework.stereotype.Repository;
 import utility.Session;
 import entity.GroupSecern;
 
-
 @Repository
 public class GroupSecernMapperDao {
 
-	public 	List<GroupSecern> selectAllGroupSecern() throws IOException{
-		
+	public List<GroupSecern> selectAllGroupSecern() throws IOException {
+
 		SqlSession session = Session.sessionFactory().openSession();
-		
+
 		GroupSecernMapper groupSecernMapper = session.getMapper(GroupSecernMapper.class);
-			
-		List<GroupSecern> listGroupSecern1  = groupSecernMapper.selectAllGroupSecern();
-		
-		//close session
+
+		List<GroupSecern> listGroupSecern1 = groupSecernMapper.selectAllGroupSecern();
+
+		// close session
 		session.close();
-		
+
 		return listGroupSecern1;
 	}
-	
-	
+
+	public GroupSecern selectGroupSecernById(int id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+
+		GroupSecernMapper groupSecernMapper = session.getMapper(GroupSecernMapper.class);
+
+		GroupSecern gs = groupSecernMapper.selectGroupSecernById(id);
+
+		// close session
+		session.close();
+
+		return gs;
+	}
+
 }

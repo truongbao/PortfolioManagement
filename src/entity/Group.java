@@ -3,19 +3,22 @@ package entity;
 import java.sql.Timestamp;
 
 public class Group {
-	
+
 	private int id;
-	private int group_secern_id;  //khoa ngoai
+	private int group_secern_id; // khoa ngoai
 	private String group_name;
-	private int is_deleted;  //1 :xóa hoặc 0 : ko xóa
+	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
-	
+	//sử dụng để load lại trang
+	private int isSelected = 0;
+
 	private String group_secern_name;
-	
+
 	public Group() {
 		super();
 	}
+
 	// thiết lập trường chưa setting
 	public Group(int id, String group_name) {
 		super();
@@ -23,10 +26,17 @@ public class Group {
 		this.group_name = group_name;
 	}
 
-	//constructor full 7 tham so (co noi bang)
-	public Group(int id, int group_secern_id, String group_name,
-			int is_deleted, Timestamp created_at, Timestamp updated_at,
-			String group_secern_name) {
+	public int getIsSelected() {
+		return isSelected;
+	}
+
+	public void setIsSelected(int isSelected) {
+		this.isSelected = isSelected;
+	}
+
+	// constructor full 7 tham so (co noi bang)
+	public Group(int id, int group_secern_id, String group_name, int is_deleted, Timestamp created_at,
+			Timestamp updated_at, String group_secern_name) {
 		super();
 		this.id = id;
 		this.group_secern_id = group_secern_id;
@@ -37,9 +47,9 @@ public class Group {
 		this.group_secern_name = group_secern_name;
 	}
 
-	//constructor 6 tham so (ko noi bang)
-	public Group(int id, int group_secern_id, String group_name,
-			int is_deleted, Timestamp created_at, Timestamp updated_at) {
+	// constructor 6 tham so (ko noi bang)
+	public Group(int id, int group_secern_id, String group_name, int is_deleted, Timestamp created_at,
+			Timestamp updated_at) {
 		super();
 		this.id = id;
 		this.group_secern_id = group_secern_id;
@@ -77,7 +87,7 @@ public class Group {
 		return is_deleted;
 	}
 
-	public void setIs_deleted(int is_deleted) {	
+	public void setIs_deleted(int is_deleted) {
 		this.is_deleted = is_deleted;
 	}
 
@@ -107,14 +117,9 @@ public class Group {
 
 	@Override
 	public String toString() {
-		return "Group [id=" + id + ", group_secern_id=" + group_secern_id
-				+ ", group_name=" + group_name + ", is_deleted=" + is_deleted
-				+ ", created_at=" + created_at + ", updated_at=" + updated_at
+		return "Group [id=" + id + ", group_secern_id=" + group_secern_id + ", group_name=" + group_name
+				+ ", is_deleted=" + is_deleted + ", created_at=" + created_at + ", updated_at=" + updated_at
 				+ ", group_secern_name=" + group_secern_name + "]";
 	}
-
-	
-	
-	
 
 }

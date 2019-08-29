@@ -7,6 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import entity.PortfolioCourseUnit;
+import entity.ServicePortfolioCourse;
 import utility.Session;
 
 @Repository
@@ -21,6 +22,19 @@ public class PortfolioCourseUnitMapperDao {
 
 		List<PortfolioCourseUnit> portfolioCourseUnits = portfolioCourseUnitMapper
 				.selectPortfolioCourseUnitByPCULId(id);
+		// close session
+		session.close();
+		return portfolioCourseUnits;
+	}
+	
+	
+	public List<PortfolioCourseUnit> selectqaBylevel_course(ServicePortfolioCourse id) throws IOException {
+		SqlSession session = Session.sessionFactory().openSession();
+		PortfolioCourseUnitMapper portfolioCourseUnitMapper = session
+				.getMapper(PortfolioCourseUnitMapper.class);
+
+		List<PortfolioCourseUnit> portfolioCourseUnits = portfolioCourseUnitMapper
+				.selectqaBylevel_course(id);
 		// close session
 		session.close();
 		return portfolioCourseUnits;

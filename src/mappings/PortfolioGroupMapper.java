@@ -19,5 +19,7 @@ public interface PortfolioGroupMapper {
 	public List<PortfolioGroup> selectAllPortfolioGroupByName();
 
 	public PortfolioGroup selectPortfolioGroupById(int id);
+	
+	public int deletePortfolioGroup(int id);
 
 }

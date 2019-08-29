@@ -19,16 +19,16 @@
     </delete>
     
     <select id="selectAllPortfolioCourseUnitLevel" resultMap="result">
-           SELECT * FROM portfolio_course_unit_levels ORDER BY ID DESC;  
+           SELECT * FROM portfolio_course_unit_levels  where is_deleted=0 ORDER BY ID DESC;  
     </select>
     
     
     <select id="selectPortfolioCourseUnitLevelById" parameterType="int" resultType="PortfolioCourseUnitLevel">
-        SELECT * FROM portfolio_course_unit_levels WHERE ID = #{id};
+        SELECT * FROM portfolio_course_unit_levels WHERE ID = #{id}  and is_deleted=0;
     </select>
     
-      <select id="selectPortfolioCourseUnitLevelBySPCourseId" parameterType="int" resultType="PortfolioCourseUnitLevel">
-        SELECT * FROM portfolio_course_unit_levels WHERE service_portfolio_course_id = #{id} order by level;
+    <select id="selectPortfolioCourseUnitLevelBySPCourseId" parameterType="int" resultType="PortfolioCourseUnitLevel">
+        SELECT * FROM portfolio_course_unit_levels WHERE service_portfolio_course_id = #{id} and is_deleted=0 order by level;
     </select>
     <!-- 
        +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả về 

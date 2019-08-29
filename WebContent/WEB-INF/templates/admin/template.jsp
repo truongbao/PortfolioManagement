@@ -10,6 +10,8 @@
         <title>Portfolio Management</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/font-awesome/css/font-awesome.min.css">
+       
         <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/vendor.css">
         
         <link rel="stylesheet" href="${pageContext.request.contextPath}/templates/admin/css/style.css">
@@ -42,6 +44,7 @@
 		
 		<script src='${pageContext.request.contextPath}/templates/admin/js/jquery.min.js'></script>
         <script  src="${pageContext.request.contextPath}/templates/admin/js/select_change.js"></script>
+          <script  src="${pageContext.request.contextPath}/templates/admin/js/underscore.js"></script>
         <script  src="${pageContext.request.contextPath}/templates/admin/js/AjaxAPI.js"></script>
         
     </body>

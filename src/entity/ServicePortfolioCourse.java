@@ -1,8 +1,19 @@
 package entity;
 
 import java.sql.Timestamp;
+
 import java.util.List;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({ "id", "course_id", "course_name", "level_selected", "level_list" })
+@JsonIgnoreProperties({ "service_id", "sort_id", "is_deleted", "created_at", "updated_at" })
 public class ServicePortfolioCourse {
 
 	private int id;
@@ -12,11 +23,37 @@ public class ServicePortfolioCourse {
 	private int is_deleted; // 1 :xóa hoặc 0 : ko xóa
 	private Timestamp created_at;
 	private Timestamp updated_at;
+	private int level;
+
+	// thuộc tính này tạo để load lại dữ liệu vào list
+	private int isSelected = 0;
+	// thuộc tính này để load question attribute cho spc đã được select
+	@Min(1)
+	@Max(3)
+	private int level_selected = 1;
 
 	private String course_name;
 	// list này thể hiện mối quan hệ 1-n của
 	// PortfolioCourseUnitLevel-ServicePortfolioCourse
 	private List<PortfolioCourseUnitLevel> level_list;
+	
+	
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public int getLevel_selected() {
+		return level_selected;
+	}
+
+	public void setLevel_selected(int level_selected) {
+		this.level_selected = level_selected;
+	}
 
 	public List<PortfolioCourseUnitLevel> getLevel_list() {
 		return level_list;
@@ -30,8 +67,16 @@ public class ServicePortfolioCourse {
 		super();
 	}
 
+	public int getIsSelected() {
+		return isSelected;
+	}
+
+	public void setIsSelected(int isSelected) {
+		this.isSelected = isSelected;
+	}
+
 	public ServicePortfolioCourse(int id, int service_id, int sort_id, int course_id, int is_deleted,
-			Timestamp created_at, Timestamp updated_at, String course_name, List<PortfolioCourseUnitLevel> level_list) {
+			Timestamp created_at, Timestamp updated_at, String course_name, List<PortfolioCourseUnitLevel> level_list,int level) {
 		this.id = id;
 		this.service_id = service_id;
 		this.sort_id = sort_id;
@@ -41,6 +86,7 @@ public class ServicePortfolioCourse {
 		this.updated_at = updated_at;
 		this.course_name = course_name;
 		this.level_list = level_list;
+		this.level = level;
 	}
 
 	// constructor full 8 tham so (co noi bang)
@@ -138,7 +184,10 @@ public class ServicePortfolioCourse {
 	public String toString() {
 		return "ServicePortfolioCourse [id=" + id + ", service_id=" + service_id + ", sort_id=" + sort_id
 				+ ", course_id=" + course_id + ", is_deleted=" + is_deleted + ", created_at=" + created_at
-				+ ", updated_at=" + updated_at + ", course_name=" + course_name + "]";
+				+ ", updated_at=" + updated_at + ", isSelected=" + isSelected + ", level_selected=" + level_selected
+				+ ", course_name=" + course_name + ", level_list=" + level_list + "]";
 	}
+
+
 
 }

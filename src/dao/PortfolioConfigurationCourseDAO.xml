@@ -36,6 +36,20 @@
 		parameterType="int" resultType="PortfolioConfigurationCourse">
 		SELECT * FROM portfolio_configuration_courses WHERE ID = #{id};
 	</select>
+	
+	<select id="selectPortfolioConfigurationCourseBySPCId"
+		parameterType="int" resultType="PortfolioConfigurationCourse">
+		SELECT * FROM portfolio_configuration_courses WHERE SERVICE_PORTFOLIO_CONFIGURATION_ID = #{service_portfolio_configuration_id};
+	</select>
+	
+	
+
+	<update id="deletePortfolioConfigurationCourse"
+		parameterType="int">
+		UPDATE portfolio_configuration_courses
+		SET is_deleted =1
+		WHERE portfolio_configuration_courses.service_portfolio_configuration_id = #{id};
+	</update>
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
 		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 

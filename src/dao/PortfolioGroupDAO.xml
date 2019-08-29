@@ -40,6 +40,14 @@
 		resultType="PortfolioGroup">
 		SELECT * FROM portfolio_groups WHERE ID = #{id};
 	</select>
+	
+	
+	<update id="deletePortfolioGroup"
+		parameterType="int">
+		UPDATE portfolio_groups
+		SET is_deleted =1
+		WHERE portfolio_groups.service_portfolio_configuration_id = #{id};
+	</update>
 
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 

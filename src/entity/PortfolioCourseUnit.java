@@ -2,6 +2,13 @@ package entity;
 
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonPropertyOrder({ "id", "question_attribute_id", "question_attribute_name"})
+@JsonIgnoreProperties({ "sort_id","is_deleted","created_at","updated_at","service_portfolio_course_id","level"})
 public class PortfolioCourseUnit {
 
 	private int id;

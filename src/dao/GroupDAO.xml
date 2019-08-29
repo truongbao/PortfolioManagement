@@ -28,19 +28,28 @@
 	</delete>
 
 	<select id="selectAllGroup" resultMap="result">
-		SELECT * FROM groups ORDER
-		BY ID DESC;
+		SELECT * FROM groups  where is_deleted=0
+		ORDER BY ID DESC ;
 	</select>
 
 	<select id="selectGroupById" parameterType="int" resultType="Group">
-		SELECT * FROM groups WHERE ID = #{id};
+		SELECT * FROM groups WHERE ID = #{id} and is_deleted=0;
 	</select>
 
 	<select id="selectGroupByGroupSecernId" parameterType="int"
 		resultType="Group">
 		SELECT * FROM groups WHERE group_secern_id
-		=#{group_secern_id};
+		=#{group_secern_id} and is_deleted=0;
 	</select>
+	
+	<select id="selectGroupNameAndGsNameById" parameterType="int" resultType="Group">
+		SELECT gr.group_name,gs.group_secern_name,gr.id  FROM groups AS gr INNER JOIN
+		portfolio_groups AS pg
+		ON gr.id = pg.group_id
+		INNER JOIN group_secerns AS gs ON gs.id = gr.group_secern_id
+		WHERE pg.service_portfolio_configuration_id = #{id};
+	</select>
+	
 
 	<!-- +Thẻ resultMap được sử dụng để ánh xạ tên cột trong tập dữ liệu trả 
 		về từ câu lệnh SELECT với tên trường của đối tượng Java (Beans/POJO). -không 

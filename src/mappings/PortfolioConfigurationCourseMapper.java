@@ -14,5 +14,10 @@ public interface PortfolioConfigurationCourseMapper {
 	public List<PortfolioConfigurationCourse> selectAllPortfolioConfigurationCourse();
 
 	public List<PortfolioConfigurationCourse> selectPortfolioConfigurationCourseById(int id);
+	
+	public List<PortfolioConfigurationCourse> selectPortfolioConfigurationCourseBySPCId(int id);
+	
+	public int deletePortfolioConfigurationCourse(int id);
 
+	
 }
